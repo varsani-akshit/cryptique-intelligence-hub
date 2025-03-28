@@ -60,7 +60,7 @@
   }
 
   .glass-card {
-    @apply bg-card/80 backdrop-blur-sm border border-muted/20 rounded-2xl shadow-lg;
+    @apply bg-card/60 backdrop-blur-sm border border-muted/20 rounded-2xl shadow-lg;
   }
 
   .gradient-text {
@@ -109,5 +109,51 @@
   
   .animated-border::after {
     @apply content-[''] absolute inset-0 bg-gradient-to-r from-crypto-gold via-crypto-navy to-crypto-gold bg-[length:200%] animate-shimmer rounded-md -z-10;
+  }
+
+  /* Futuristic elements */
+  .scanline {
+    @apply fixed left-0 w-full h-px bg-crypto-gold/30 pointer-events-none z-50;
+    box-shadow: 0 0 5px rgba(202, 169, 104, 0.3);
+    animation: scanline 8s linear infinite;
+  }
+
+  @keyframes scanline {
+    0% {
+      top: 0%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+
+  .cyber-frame {
+    @apply relative border border-crypto-gold/20;
+  }
+
+  .cyber-frame::before,
+  .cyber-frame::after {
+    @apply content-[''] absolute w-4 h-4 border-crypto-gold/70;
+  }
+
+  .cyber-frame::before {
+    @apply top-0 left-0 border-t border-l;
+  }
+
+  .cyber-frame::after {
+    @apply bottom-0 right-0 border-b border-r;
+  }
+
+  .neo-brutalism {
+    @apply bg-black border-2 border-crypto-gold shadow-[5px_5px_0px_rgba(202,169,104,0.8)];
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(202, 169, 104, 0.5);
+    color: transparent;
+  }
+
+  .perspective {
+    perspective: 1000px;
   }
 }

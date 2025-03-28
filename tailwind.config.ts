@@ -74,7 +74,6 @@ export default {
 					blue: '#0EA5E9',
 					green: '#10B981',
 					pink: '#D946EF',
-					orange: '#F97316',
 					dark: '#1A1F2C',
 					gray: '#8E9196',
 					light: '#F1F0FB',
@@ -145,6 +144,33 @@ export default {
 					'100%': {
 						backgroundPosition: '200% 0'
 					}
+				},
+				'neon-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px rgba(202, 169, 104, 0.5), 0 0 10px rgba(202, 169, 104, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 15px rgba(202, 169, 104, 0.8), 0 0 20px rgba(202, 169, 104, 0.5)'
+					}
+				},
+				'cyber-scan': {
+					'0%': {
+						backgroundPosition: '0% 0%'
+					},
+					'100%': {
+						backgroundPosition: '100% 100%'
+					}
+				},
+				'glitch': {
+					'0%, 100%': {
+						transform: 'translate(0)'
+					},
+					'33%': {
+						transform: 'translate(-5px, 2px)'
+					},
+					'66%': {
+						transform: 'translate(5px, -2px)'
+					}
 				}
 			},
 			animation: {
@@ -154,12 +180,17 @@ export default {
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'rotate-slow': 'rotate-slow 20s linear infinite',
-				'shimmer': 'shimmer 8s ease-in-out infinite'
+				'shimmer': 'shimmer 8s ease-in-out infinite',
+				'neon-pulse': 'neon-pulse 3s ease-in-out infinite',
+				'cyber-scan': 'cyber-scan 15s ease-in-out infinite',
+				'glitch': 'glitch 0.5s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'hero-pattern': 'linear-gradient(to bottom right, rgba(29, 12, 70, 0.9), rgba(0, 0, 0, 1))',
 				'golden-gradient': 'linear-gradient(45deg, #CAA968, #F5E1A4, #CAA968)',
+				'cyber-grid': 'linear-gradient(#1D0C46 1px, transparent 1px), linear-gradient(to right, #1D0C46 1px, #000 1px)',
+				'futuristic-glow': 'radial-gradient(circle at center, rgba(202, 169, 104, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
 			}
 		}
 	},
