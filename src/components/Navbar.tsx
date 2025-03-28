@@ -34,6 +34,20 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
+      {/* Scanning line effect */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/20 to-transparent"></div>
+      
+      {/* Corner accent elements */}
+      <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+        <div className="absolute top-0 left-0 w-6 h-[1px] bg-crypto-gold/40"></div>
+        <div className="absolute top-0 left-0 h-6 w-[1px] bg-crypto-gold/40"></div>
+      </div>
+      
+      <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+        <div className="absolute top-0 right-0 w-6 h-[1px] bg-crypto-gold/40"></div>
+        <div className="absolute top-0 right-0 h-6 w-[1px] bg-crypto-gold/40"></div>
+      </div>
+      
       <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-2">
           <a href="#hero" className="font-montserrat font-bold text-2xl text-white flex items-center glow-effect p-2 rounded-md">
@@ -69,14 +83,16 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <Button 
               variant="outline" 
-              className="border-crypto-gold text-crypto-gold hover:bg-crypto-gold/10 interactive-element"
+              className="border-crypto-gold text-crypto-gold hover:bg-crypto-gold/10 interactive-element relative overflow-hidden"
             >
-              Request a Demo
+              <span className="relative z-10">Request a Demo</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-crypto-gold/0 via-crypto-gold/10 to-crypto-gold/0 opacity-0 hover:opacity-100 transition-opacity duration-700 transform translate-x-full hover:translate-x-0"></span>
             </Button>
             <Button 
-              className="bg-crypto-gold text-crypto-navy hover:bg-crypto-gold/90 interactive-element"
+              className="bg-crypto-gold text-crypto-navy hover:bg-crypto-gold/90 interactive-element relative overflow-hidden"
             >
-              Get Started
+              <span className="relative z-10">Get Started</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-crypto-navy/0 via-crypto-navy/15 to-crypto-navy/0 opacity-0 hover:opacity-100 transition-opacity duration-700 transform translate-x-full hover:translate-x-0"></span>
             </Button>
           </div>
         </nav>
