@@ -40,9 +40,8 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
               alt="Cryptique Logo" 
-              className="w-8 h-8 mr-2"
+              className="h-10"
             />
-            <span className="gradient-text">Cryptique</span>
           </a>
         </div>
         

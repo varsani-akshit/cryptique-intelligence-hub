@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { TrendingDown, AlertTriangle, DollarSign, Users } from 'lucide-react';
+import { TrendingDown, AlertTriangle, DollarSign, Users, Database, LineChart, Activity, Zap } from 'lucide-react';
 
 const ProblemCard = ({ 
   icon: Icon, 
@@ -12,16 +12,80 @@ const ProblemCard = ({
   delay: string 
 }) => (
   <div 
-    className="glass-card p-6 flex items-center space-x-4 animate-fade-in backdrop-blur-md border border-crypto-gold/20" 
+    className="glass-card p-6 flex items-center space-x-4 animate-fade-in backdrop-blur-md border border-crypto-gold/20 relative overflow-hidden group" 
     style={{ 
       animationDelay: delay,
       background: 'linear-gradient(145deg, rgba(0,0,0,0.9), rgba(29,12,70,0.2))'
     }}
   >
-    <div className="rounded-full bg-black/50 p-3 text-crypto-gold">
+    <div className="absolute inset-0 bg-gradient-to-r from-black via-crypto-navy/20 to-black bg-[length:200%] animate-cyber-scan opacity-30"></div>
+    <div className="rounded-full bg-black/50 p-3 text-crypto-gold relative z-10">
       <Icon size={20} />
     </div>
-    <div className="text-lg font-medium">{title}</div>
+    <div className="text-lg font-medium relative z-10">{title}</div>
+    
+    {/* Digital circuit lines */}
+    <div className="absolute bottom-0 left-0 h-[1px] w-full bg-crypto-gold/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
+    <div className="absolute top-0 right-0 h-full w-[1px] bg-crypto-gold/20 transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-700 delay-200"></div>
+  </div>
+);
+
+// Data Visualization Component
+const DataFlowVisualization = () => (
+  <div className="w-full h-40 relative my-8 overflow-hidden">
+    <div className="absolute inset-0 flex items-center">
+      {/* Data Pipeline Visualization */}
+      <svg className="w-full" viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg">
+        {/* Data Flow Line */}
+        <path 
+          d="M50,50 C150,20 250,80 350,50 C450,20 550,80 650,50 C750,20 850,50 950,50" 
+          stroke="#CAA968" 
+          strokeWidth="2" 
+          fill="none" 
+          strokeDasharray="5,5"
+          className="animate-pulse-glow"
+        />
+        
+        {/* Data Nodes */}
+        <g className="animate-pulse-glow" style={{ animationDelay: '0.5s' }}>
+          <circle cx="50" cy="50" r="8" fill="#1D0C46" stroke="#CAA968" strokeWidth="1" />
+          <circle cx="200" cy="30" r="8" fill="#1D0C46" stroke="#CAA968" strokeWidth="1" />
+          <circle cx="350" cy="50" r="8" fill="#1D0C46" stroke="#CAA968" strokeWidth="1" />
+          <circle cx="500" cy="30" r="8" fill="#1D0C46" stroke="#CAA968" strokeWidth="1" />
+          <circle cx="650" cy="50" r="8" fill="#1D0C46" stroke="#CAA968" strokeWidth="1" />
+          <circle cx="750" cy="40" r="8" fill="#1D0C46" stroke="#CAA968" strokeWidth="1" />
+        </g>
+        
+        {/* Data Packets Moving Along Path */}
+        <circle cx="50" cy="50" r="4" fill="#CAA968">
+          <animate attributeName="cx" values="50;750" dur="8s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="50;40;50;30;50" dur="8s" repeatCount="indefinite" />
+        </circle>
+        
+        <circle cx="50" cy="50" r="4" fill="#CAA968" opacity="0.7">
+          <animate attributeName="cx" values="50;750" dur="8s" begin="2s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="50;40;50;30;50" dur="8s" begin="2s" repeatCount="indefinite" />
+        </circle>
+        
+        <circle cx="50" cy="50" r="4" fill="#CAA968" opacity="0.4">
+          <animate attributeName="cx" values="50;750" dur="8s" begin="4s" repeatCount="indefinite" />
+          <animate attributeName="cy" values="50;40;50;30;50" dur="8s" begin="4s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+    </div>
+    
+    {/* Digital Binary Text Overlay */}
+    <div className="absolute top-0 left-0 w-full h-full opacity-5 text-[8px] text-crypto-gold overflow-hidden">
+      {Array.from({ length: 10 }).map((_, i) => (
+        <div key={i} className="whitespace-nowrap overflow-hidden">
+          {'0101010111001010101110010101010101110010101010101001010100101010'.split('').map((char, j) => (
+            <span key={j} style={{ animationDelay: `${(i * 0.1) + (j * 0.01)}s` }} className="animate-pulse-glow">
+              {char}
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
   </div>
 );
 
@@ -31,6 +95,20 @@ const ProblemSection = () => {
       {/* Futuristic background elements */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:40px_40px] opacity-10"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-futuristic-glow opacity-30"></div>
+      
+      {/* Horizontal scan lines */}
+      {Array.from({ length: 5 }).map((_, i) => (
+        <div 
+          key={i}
+          className="absolute left-0 w-full h-[1px] bg-crypto-gold/10"
+          style={{ 
+            top: `${(i+1) * 20}%`, 
+            boxShadow: '0 0 5px rgba(202, 169, 104, 0.2)',
+            animation: `scanline 8s linear infinite`,
+            animationDelay: `${i * 1.5}s`
+          }}
+        ></div>
+      ))}
       
       <div className="container-section relative z-10">
         <div className="max-w-3xl mx-auto">
@@ -44,6 +122,8 @@ const ProblemSection = () => {
             not value indicators. They fail to measure what truly matters: community contribution, 
             sentiment, on-chain behavior, and token-based incentivization.
           </p>
+          
+          <DataFlowVisualization />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
             <ProblemCard 
@@ -68,9 +148,26 @@ const ProblemSection = () => {
             />
           </div>
           
-          <p className="text-xl font-semibold text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            Web3 needs a <span className="text-crypto-gold">new measurement framework</span>.
-          </p>
+          <div className="relative py-6">
+            <div className="absolute left-0 w-full h-[1px] top-0 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
+            <div className="absolute left-0 w-full h-[1px] bottom-0 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
+            
+            <p className="text-xl font-semibold text-center animate-fade-in flex items-center justify-center gap-3" style={{ animationDelay: '0.6s' }}>
+              <Zap size={20} className="text-crypto-gold" />
+              Web3 needs a <span className="text-crypto-gold">new measurement framework</span>
+              <Zap size={20} className="text-crypto-gold" />
+            </p>
+          </div>
+          
+          {/* Digital data flow indicator */}
+          <div className="flex justify-center mt-12">
+            <div className="relative h-16 w-1 bg-gradient-to-b from-crypto-gold/0 via-crypto-gold/50 to-crypto-gold/0">
+              <div className="absolute h-4 w-4 rounded-full bg-crypto-gold/20 left-1/2 transform -translate-x-1/2 border border-crypto-gold/50 animate-pulse"></div>
+              <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
+                <div className="w-4 h-4 border-t-2 border-r-2 border-crypto-gold/50 transform rotate-135"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
