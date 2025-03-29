@@ -1,10 +1,11 @@
 
 import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Activity, Database, DollarSign, Clock } from 'lucide-react';
 
 const ProblemSection = () => {
   return (
-    <section className="bg-white relative overflow-hidden py-0">
+    <section className="bg-white relative overflow-hidden py-16">
       {/* Background elements with navy spots */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:30px_30px] opacity-5"></div>
       <div className="absolute top-1/3 -left-32 w-64 h-64 bg-crypto-navy/10 rounded-full blur-3xl"></div>
@@ -25,73 +26,89 @@ const ProblemSection = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <div className="h-40 w-40 mb-6 relative flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>
-                <div className="relative flex items-center justify-center">
-                  <Database className="absolute text-crypto-gold/30 h-20 w-20" />
-                  <div className="flex flex-col items-center justify-center z-10">
-                    <div className="text-crypto-gold text-4xl font-bold mb-1">74%</div>
-                    <div className="text-crypto-gold/90 font-medium text-sm tracking-wider">DATA LOST</div>
+            {/* Stat Card 1 - Data Lost */}
+            <Card className="overflow-hidden border-crypto-gold/20 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-gradient-to-r from-crypto-gold/10 to-transparent h-1"></div>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-6">
+                  <div className="h-16 w-16 rounded-full bg-crypto-gold/10 flex items-center justify-center flex-shrink-0">
+                    <Database className="h-8 w-8 text-crypto-gold" />
+                  </div>
+                  <div>
+                    <div className="flex items-baseline gap-2 mb-2">
+                      <h3 className="text-3xl font-bold text-crypto-gold">74%</h3>
+                      <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Data Lost</span>
+                    </div>
+                    <p className="text-crypto-dark/70">
+                      Web3 companies struggle with disconnected data sources across centralized and decentralized platforms, making campaign performance tracking nearly impossible.
+                    </p>
                   </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-crypto-dark">Fragmented Analytics</h3>
-              <p className="text-crypto-dark/70">
-                Web3 companies struggle with disconnected data sources across centralized and decentralized platforms, making campaign performance tracking nearly impossible.
-              </p>
-            </div>
+              </CardContent>
+            </Card>
             
-            <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <div className="h-40 w-40 mb-6 relative flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>
-                <div className="relative flex items-center justify-center">
-                  <Activity className="absolute text-crypto-gold/30 h-20 w-20" />
-                  <div className="flex flex-col items-center justify-center z-10">
-                    <div className="text-crypto-gold text-4xl font-bold mb-1">86%</div>
-                    <div className="text-crypto-gold/90 font-medium text-sm tracking-wider">UNTRACEABLE</div>
+            {/* Stat Card 2 - Attribution Black Hole */}
+            <Card className="overflow-hidden border-crypto-gold/20 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              <div className="bg-gradient-to-r from-crypto-gold/10 to-transparent h-1"></div>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-6">
+                  <div className="h-16 w-16 rounded-full bg-crypto-gold/10 flex items-center justify-center flex-shrink-0">
+                    <Activity className="h-8 w-8 text-crypto-gold" />
+                  </div>
+                  <div>
+                    <div className="flex items-baseline gap-2 mb-2">
+                      <h3 className="text-3xl font-bold text-crypto-gold">86%</h3>
+                      <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Untraceable</span>
+                    </div>
+                    <p className="text-crypto-dark/70">
+                      Without proper attribution, teams can't identify which channels drive results, especially across owned social platforms and influential third-party communities.
+                    </p>
                   </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-crypto-dark">Attribution Black Hole</h3>
-              <p className="text-crypto-dark/70">
-                Without proper attribution, teams can't identify which channels drive results, especially across owned social platforms and influential third-party communities.
-              </p>
-            </div>
+              </CardContent>
+            </Card>
             
-            <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-              <div className="h-40 w-40 mb-6 relative flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>
-                <div className="relative flex items-center justify-center">
-                  <DollarSign className="absolute text-crypto-gold/30 h-20 w-20" />
-                  <div className="flex flex-col items-center justify-center z-10">
-                    <div className="text-crypto-gold text-4xl font-bold mb-1">5x</div>
-                    <div className="text-crypto-gold/90 font-medium text-sm tracking-wider">WASTED BUDGET</div>
+            {/* Stat Card 3 - Budget Inefficiency */}
+            <Card className="overflow-hidden border-crypto-gold/20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <div className="bg-gradient-to-r from-crypto-gold/10 to-transparent h-1"></div>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-6">
+                  <div className="h-16 w-16 rounded-full bg-crypto-gold/10 flex items-center justify-center flex-shrink-0">
+                    <DollarSign className="h-8 w-8 text-crypto-gold" />
+                  </div>
+                  <div>
+                    <div className="flex items-baseline gap-2 mb-2">
+                      <h3 className="text-3xl font-bold text-crypto-gold">5x</h3>
+                      <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Wasted Budget</span>
+                    </div>
+                    <p className="text-crypto-dark/70">
+                      Marketing budgets are frequently wasted on ineffective channels due to insufficient data on what drives on-chain conversions and real user engagement.
+                    </p>
                   </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-crypto-dark">Budget Inefficiency</h3>
-              <p className="text-crypto-dark/70">
-                Marketing budgets are frequently wasted on ineffective channels due to insufficient data on what drives on-chain conversions and real user engagement.
-              </p>
-            </div>
+              </CardContent>
+            </Card>
             
-            <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <div className="h-40 w-40 mb-6 relative flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>
-                <div className="relative flex items-center justify-center">
-                  <Clock className="absolute text-crypto-gold/30 h-20 w-20" />
-                  <div className="flex flex-col items-center justify-center z-10">
-                    <div className="text-crypto-gold text-4xl font-bold mb-1">128</div>
-                    <div className="text-crypto-gold/90 font-medium text-sm tracking-wider">HOURS WASTED</div>
+            {/* Stat Card 4 - Resource Drain */}
+            <Card className="overflow-hidden border-crypto-gold/20 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+              <div className="bg-gradient-to-r from-crypto-gold/10 to-transparent h-1"></div>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-6">
+                  <div className="h-16 w-16 rounded-full bg-crypto-gold/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-8 w-8 text-crypto-gold" />
+                  </div>
+                  <div>
+                    <div className="flex items-baseline gap-2 mb-2">
+                      <h3 className="text-3xl font-bold text-crypto-gold">128</h3>
+                      <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Hours Wasted</span>
+                    </div>
+                    <p className="text-crypto-dark/70">
+                      Teams spend countless hours manually collecting and analyzing data from multiple platforms instead of focusing on strategic growth initiatives.
+                    </p>
                   </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-crypto-dark">Resource Drain</h3>
-              <p className="text-crypto-dark/70">
-                Teams spend countless hours manually collecting and analyzing data from multiple platforms instead of focusing on strategic growth initiatives.
-              </p>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
