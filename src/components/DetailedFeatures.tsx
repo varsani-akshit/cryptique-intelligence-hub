@@ -143,7 +143,7 @@ const DetailedFeatures = () => {
             iconColor="bg-gradient-to-br from-crypto-gold to-amber-600"
             delay="0.1s"
             index={1}
-            image="/lovable-uploads/1c358ad9-706c-4b04-acf1-de20a43a1047.png"
+            image="/lovable-uploads/f962f9fa-c482-4862-b8d7-4153300ff96c.png"
           />
           
           <FeatureBlock 
@@ -153,7 +153,7 @@ const DetailedFeatures = () => {
             iconColor="bg-gradient-to-br from-crypto-navy to-blue-700"
             delay="0.3s"
             index={2}
-            image="/lovable-uploads/932fd99b-baaf-48b3-a282-032c154ed936.png"
+            image="/lovable-uploads/36f7c7b0-05a3-4e6c-a325-da3c0a9ababe.png"
           />
           
           <FeatureBlock 
@@ -163,7 +163,7 @@ const DetailedFeatures = () => {
             iconColor="bg-gradient-to-br from-purple-600 to-indigo-700"
             delay="0.5s"
             index={3}
-            image="/lovable-uploads/3cb936f6-fcfe-4837-b598-10e19661614a.png"
+            image="/lovable-uploads/4a9f07f6-15d0-4d26-b886-d47c43f1ffc1.png"
           />
           
           <FeatureBlock 
@@ -173,7 +173,7 @@ const DetailedFeatures = () => {
             iconColor="bg-gradient-to-br from-crypto-gold to-amber-600"
             delay="0.7s"
             index={4}
-            image="/lovable-uploads/ef32b86b-83ad-4452-9c2b-22a3505a4ea8.png"
+            image="/lovable-uploads/b26ad616-f730-4083-855c-80b54bf4d360.png"
           />
           
           <FeatureBlock 
@@ -183,7 +183,7 @@ const DetailedFeatures = () => {
             iconColor="bg-gradient-to-br from-crypto-navy to-blue-700"
             delay="0.9s"
             index={5}
-            image="/lovable-uploads/05063647-f89a-4f6a-b43f-6d693aeaa772.png"
+            image="/lovable-uploads/914b279a-f76b-427f-9046-5787335e9bda.png"
           />
         </div>
       </div>
