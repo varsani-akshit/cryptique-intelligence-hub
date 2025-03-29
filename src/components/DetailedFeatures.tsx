@@ -1,6 +1,7 @@
 
-import React from 'react';
-import { UserCheck, Database, Brain, LineChart } from 'lucide-react';
+import React, { useState } from 'react';
+import { UserCheck, Database, Brain, LineChart, ChevronRight } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface FeatureBlockProps {
   icon: React.ReactNode;
@@ -8,6 +9,7 @@ interface FeatureBlockProps {
   description: string;
   iconColor: string;
   delay: string;
+  index: number;
 }
 
 const FeatureBlock = ({ 
@@ -15,39 +17,64 @@ const FeatureBlock = ({
   title, 
   description, 
   iconColor, 
-  delay 
-}: FeatureBlockProps) => (
-  <div 
-    className="glass-card p-8 animate-fade-in relative" 
-    style={{ animationDelay: delay }}
-  >
-    <div className={`rounded-full inline-flex p-3 mb-4 ${iconColor}`}>
-      {icon}
-    </div>
-    <h3 className="text-xl md:text-2xl font-bold mb-4">{title}</h3>
-    <p className="text-foreground/80 leading-relaxed">{description}</p>
-    
-    {/* Circuit board pattern overlay */}
-    <div className="absolute inset-0 pointer-events-none opacity-5">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <pattern id="circuit-mini" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-          <path d="M10 25 L20 25 L20 10 L30 10 L30 25 L40 25" stroke="#CAA968" strokeWidth="0.5" fill="none" />
-          <path d="M10 40 L20 40 L20 30 L40 30" stroke="#CAA968" strokeWidth="0.5" fill="none" />
-          <circle cx="20" cy="25" r="1.5" fill="#CAA968" />
-          <circle cx="30" cy="10" r="1.5" fill="#CAA968" />
-          <circle cx="20" cy="40" r="1.5" fill="#CAA968" />
-        </pattern>
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#circuit-mini)" />
-      </svg>
-    </div>
-    
-    {/* Animated corner accent */}
-    <div className="absolute bottom-0 right-0 w-12 h-12">
-      <div className="absolute bottom-0 right-0 w-8 h-[1px] bg-crypto-gold/30"></div>
-      <div className="absolute bottom-0 right-0 h-8 w-[1px] bg-crypto-gold/30"></div>
-    </div>
-  </div>
-);
+  delay,
+  index
+}: FeatureBlockProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Card 
+      className="bg-black/80 border border-crypto-gold/20 backdrop-blur-lg rounded-xl animate-fade-in relative overflow-hidden transition-all duration-500 transform hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(202,169,104,0.2)]" 
+      style={{ animationDelay: delay }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <CardContent className="p-8">
+        <div className={`rounded-full inline-flex p-3 mb-4 ${iconColor} relative`}>
+          {icon}
+          <div className={`absolute inset-0 rounded-full opacity-30 transition-opacity duration-500 ${isHovered ? 'animate-ping' : ''}`} style={{background: 'radial-gradient(circle, rgba(202,169,104,0.3) 0%, rgba(0,0,0,0) 70%)'}}></div>
+        </div>
+        <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">{title}</h3>
+        <p className="text-foreground/80 leading-relaxed">{description}</p>
+        
+        {/* Data visualization elements */}
+        <div className="absolute bottom-0 right-0 w-full h-20 opacity-20 overflow-hidden">
+          <svg width="100%" height="100%" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              d={`M0,${50 + Math.sin(index) * 20} ${Array.from({length: 10}, (_, i) => `L${50 * (i+1)},${50 + Math.sin(index + i/2) * 20}`).join(' ')}`} 
+              stroke="#CAA968" 
+              strokeWidth="2" 
+              fill="none" 
+            />
+            <circle r="4" fill="#CAA968" opacity="0.6">
+              <animateMotion 
+                path={`M0,${50 + Math.sin(index) * 20} ${Array.from({length: 10}, (_, i) => `L${50 * (i+1)},${50 + Math.sin(index + i/2) * 20}`).join(' ')}`} 
+                dur="10s" 
+                repeatCount="indefinite"
+              />
+            </circle>
+          </svg>
+        </div>
+        
+        {/* Corner accents */}
+        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+          <div className="absolute top-0 right-0 w-6 h-[1px] bg-crypto-gold/30"></div>
+          <div className="absolute top-0 right-0 h-6 w-[1px] bg-crypto-gold/30"></div>
+        </div>
+        
+        <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+          <div className="absolute bottom-0 left-0 w-6 h-[1px] bg-crypto-gold/30"></div>
+          <div className="absolute bottom-0 left-0 h-6 w-[1px] bg-crypto-gold/30"></div>
+        </div>
+        
+        {/* Hover indicator */}
+        <div className={`absolute bottom-4 right-4 transition-all duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+          <ChevronRight className="w-5 h-5 text-crypto-gold" />
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
 
 const DetailedFeatures = () => {
   return (
@@ -65,7 +92,7 @@ const DetailedFeatures = () => {
       <div className="absolute h-0.5 w-full bg-crypto-gold/10 top-0 left-0" style={{ animation: 'scanline 8s linear infinite' }}></div>
       
       <div className="container-section relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-fade-in relative inline-block">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-fade-in relative inline-block mx-auto">
           Solutions to <span className="text-crypto-gold">Supercharge</span> Your Web3 Marketing
           <div className="absolute -bottom-4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
         </h2>
@@ -75,62 +102,129 @@ const DetailedFeatures = () => {
             icon={<UserCheck size={24} />} 
             title="Web3 User Identification" 
             description="We go beyond just tracking link clicks—we analyze wallet interactions, cross-chain movements, and community engagement to create a detailed user profile."
-            iconColor="bg-crypto-navy/20 text-crypto-gold"
+            iconColor="bg-black text-crypto-gold"
             delay="0.1s"
+            index={0}
           />
           
           <FeatureBlock 
             icon={<Database size={24} />} 
             title="Unify All Your Marketing & Community Data" 
             description="Track every link click, wallet connection, smart contract interaction, and token transfer across all marketing channels. Whether it's Twitter campaigns, influencer referrals, Discord invites, or DAO proposals, all data is under one roof for deep analysis."
-            iconColor="bg-crypto-navy/20 text-crypto-gold"
+            iconColor="bg-black text-crypto-gold"
             delay="0.2s"
+            index={1}
           />
           
           <FeatureBlock 
             icon={<Brain size={24} />} 
             title="AI-Powered Insights with Cryptique Intelligence" 
             description="Skip manual analytics—ask Cryptique AI for deep campaign-level and user-level insights, saving hours of time spent on data interpretation."
-            iconColor="bg-crypto-navy/20 text-crypto-gold"
+            iconColor="bg-black text-crypto-gold"
             delay="0.3s"
+            index={2}
           />
           
           <FeatureBlock 
             icon={<LineChart size={24} />} 
             title="Track Revenue & Retention from Web3 Users" 
             description="Monitor on-chain conversions, token purchases, and staking behaviors to identify your highest-value users and optimize your marketing spend accordingly."
-            iconColor="bg-crypto-navy/20 text-crypto-gold"
+            iconColor="bg-black text-crypto-gold"
             delay="0.4s"
+            index={3}
           />
         </div>
         
-        {/* Data flow visualization */}
-        <div className="mt-16 relative h-16 hidden md:block">
-          <div className="absolute left-0 w-full top-1/2 -translate-y-1/2 h-[1px] bg-crypto-gold/20"></div>
-          
-          {/* Data packet animations */}
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div 
-              key={i}
-              className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-crypto-gold/60"
-              style={{
-                left: '5%',
-                animation: 'float 15s linear infinite',
-                animationDelay: `${i * 5}s`
-              }}
-            ></div>
-          ))}
-          
-          <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full border border-crypto-gold/40 flex items-center justify-center">
-            <div className="w-2 h-2 bg-crypto-gold/80 rounded-full animate-pulse"></div>
+        {/* Data visualization */}
+        <div className="mt-20 relative">
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <h3 className="text-2xl font-bold text-center mb-4">Real-Time <span className="text-crypto-gold">Data Processing</span></h3>
+              <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
+            </div>
           </div>
           
-          <div className="absolute left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-crypto-gold/40 flex items-center justify-center">
-            <div className="w-3 h-3 bg-crypto-gold/80 rounded-full animate-pulse"></div>
-          </div>
-          
-          <div className="absolute left-3/4 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full border border-crypto-gold/40 flex items-center justify-center">
-            <div className="w-2 h-2 bg-crypto-gold/80 rounded-full animate-pulse"></div>
+          <div className="relative h-32 mx-auto max-w-4xl">
+            <svg className="w-full h-full" viewBox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
+              {/* Base line */}
+              <path d="M100 50 L900 50" stroke="#CAA968" strokeWidth="0.5" strokeDasharray="5,3" opacity="0.3" />
+              
+              {/* Data Flow Visualization */}
+              <path 
+                d="M100,50 C200,90 300,10 400,50 C500,90 600,10 700,50 C800,90 900,10 900,50" 
+                stroke="#CAA968" 
+                strokeWidth="2" 
+                fill="none"
+                opacity="0.7"
+              />
+              
+              {/* Data Points */}
+              {Array.from({length: 9}).map((_, i) => (
+                <circle 
+                  key={i} 
+                  cx={100 + i * 100} 
+                  cy={50 + (i % 2 === 0 ? -15 : 15) * Math.sin(i/2)} 
+                  r={3 + Math.random() * 2} 
+                  fill="#CAA968" 
+                  opacity="0.8"
+                >
+                  <animate 
+                    attributeName="opacity" 
+                    values="0.3;0.8;0.3" 
+                    dur={`${2 + i % 3}s`} 
+                    repeatCount="indefinite"
+                  />
+                </circle>
+              ))}
+              
+              {/* Moving Data Packets */}
+              {Array.from({length: 5}).map((_, i) => (
+                <circle key={i + 10} r="4" fill="#CAA968">
+                  <animateMotion
+                    path="M100,50 C200,90 300,10 400,50 C500,90 600,10 700,50 C800,90 900,10 900,50"
+                    dur="8s"
+                    begin={`${i * 1.5}s`}
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="opacity"
+                    values="0;0.8;0"
+                    dur="8s"
+                    begin={`${i * 1.5}s`}
+                    repeatCount="indefinite"
+                  />
+                </circle>
+              ))}
+              
+              {/* Vertical Data Points */}
+              {Array.from({length: 5}).map((_, i) => (
+                <g key={i + 20}>
+                  <line 
+                    x1={200 + i * 150} 
+                    y1="35" 
+                    x2={200 + i * 150} 
+                    y2="65" 
+                    stroke="#CAA968" 
+                    strokeWidth="0.5" 
+                    opacity="0.5"
+                  />
+                  <circle 
+                    cx={200 + i * 150} 
+                    cy="35" 
+                    r="2" 
+                    fill="#CAA968" 
+                    opacity="0.6"
+                  />
+                  <circle 
+                    cx={200 + i * 150} 
+                    cy="65" 
+                    r="2" 
+                    fill="#CAA968" 
+                    opacity="0.6"
+                  />
+                </g>
+              ))}
+            </svg>
           </div>
         </div>
       </div>

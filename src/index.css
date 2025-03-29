@@ -156,4 +156,88 @@
   .perspective {
     perspective: 1000px;
   }
+  
+  /* Data pipeline animations */
+  @keyframes dataPacket {
+    0% {
+      left: 0%;
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      left: 100%;
+      opacity: 0;
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 5px rgba(202, 169, 104, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(202, 169, 104, 0.6);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(202, 169, 104, 0.3);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+  }
+  
+  .bg-crypto-gold {
+    background-color: #CAA968;
+  }
+  
+  .text-crypto-gold {
+    color: #CAA968;
+  }
+  
+  .bg-crypto-navy {
+    background-color: #1D0C46;
+  }
+  
+  .text-crypto-navy {
+    color: #1D0C46;
+  }
+  
+  .border-crypto-gold {
+    border-color: #CAA968;
+  }
+  
+  .border-crypto-navy {
+    border-color: #1D0C46;
+  }
+  
+  .bg-golden-gradient {
+    background: linear-gradient(90deg, #CAA968 0%, #E6D5B8 50%, #CAA968 100%);
+  }
+  
+  .bg-futuristic-glow {
+    background: radial-gradient(circle at 50% 50%, rgba(202, 169, 104, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  }
+  
+  .bg-cyber-grid {
+    background-image: linear-gradient(rgba(202, 169, 104, 0.1) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(202, 169, 104, 0.1) 1px, transparent 1px);
+  }
 }

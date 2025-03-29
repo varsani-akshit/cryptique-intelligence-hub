@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageSquare } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,6 +23,7 @@ const Navbar = () => {
     { label: 'Features', href: '#features' },
     { label: 'Solutions', href: '#solutions' },
     { label: 'Integration', href: '#integration' },
+    { label: 'Blogs', href: '#blogs' },
     { label: 'FAQ', href: '#faq' },
   ];
 
@@ -81,6 +82,14 @@ const Navbar = () => {
           </div>
           
           <div className="flex items-center gap-4">
+            <a 
+              href="https://discord.gg/cryptique" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-crypto-gold hover:text-crypto-gold/80 transition-colors"
+            >
+              <MessageSquare size={22} />
+            </a>
             <Button 
               variant="outline" 
               className="border-crypto-gold text-crypto-gold hover:bg-crypto-gold/10 interactive-element relative overflow-hidden"
@@ -123,6 +132,16 @@ const Navbar = () => {
               {item.label}
             </a>
           ))}
+          <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+            <a 
+              href="https://discord.gg/cryptique" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-crypto-gold hover:text-crypto-gold/80 transition-colors p-3"
+            >
+              <MessageSquare size={22} />
+            </a>
+          </div>
           <div className="flex flex-col space-y-4 pt-4 border-t border-white/10">
             <Button 
               variant="outline" 
