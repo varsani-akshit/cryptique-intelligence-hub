@@ -319,9 +319,9 @@ const DataFlowVisualization = () => {
           {/* Cryptique Logo */}
           <div className="w-40 h-40 rounded-full bg-white shadow-lg flex items-center justify-center p-4 relative overflow-hidden">
             <img 
-              src="/lovable-uploads/95063647-f89a-4f6a-b43f-6d693aeaa772.png" 
+              src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
               alt="Cryptique" 
-              className="w-32 h-32 object-contain"
+              className="w-32 h-32 object-contain relative z-10"
             />
             <div className="absolute inset-0 bg-gradient-radial from-white to-transparent opacity-60"></div>
           </div>
@@ -340,13 +340,13 @@ const DataFlowVisualization = () => {
         </div>
       </div>
       
-      {/* Fixed: Animated Data Flow Lines - Web2 to Cryptique */}
+      {/* Animated Data Flow Lines - Web2 to Cryptique */}
       {isVisible && (
         <>
           <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
             {/* Connection path from Web2 to Cryptique */}
             <path 
-              d="M240,300 C290,300 320,280 350,250" 
+              d="M240,300 Q340,300 400,300" 
               stroke="#CAA968" 
               strokeWidth="1.5" 
               fill="none" 
@@ -354,21 +354,21 @@ const DataFlowVisualization = () => {
             />
             
             {/* Animated data packets on Web2 path */}
-            {Array.from({ length: 10 }).map((_, i) => (
+            {Array.from({ length: 8 }).map((_, i) => (
               <circle key={`web2-${i}`} r="3" fill="#CAA968">
                 <animateMotion
-                  path="M240,300 C290,300 320,280 350,250"
-                  dur={`${3 + (i * 0.3)}s`}
-                  begin={`${i * 0.2}s`}
+                  path="M240,300 Q340,300 400,300"
+                  dur={`${2 + (i * 0.2)}s`}
+                  begin={`${i * 0.3}s`}
                   repeatCount="indefinite"
                 />
-                <animate attributeName="opacity" values="0;1;0" dur={`${3 + (i * 0.3)}s`} begin={`${i * 0.2}s`} repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0;1;0" dur={`${2 + (i * 0.2)}s`} begin={`${i * 0.3}s`} repeatCount="indefinite" />
               </circle>
             ))}
             
             {/* Connection path from Web3 to Cryptique */}
             <path 
-              d="M550,300 C500,300 470,280 440,250" 
+              d="M560,300 Q460,300 400,300" 
               stroke="#1D0C46" 
               strokeWidth="1.5" 
               fill="none" 
@@ -376,15 +376,15 @@ const DataFlowVisualization = () => {
             />
             
             {/* Animated data packets on Web3 path */}
-            {Array.from({ length: 10 }).map((_, i) => (
+            {Array.from({ length: 8 }).map((_, i) => (
               <circle key={`web3-${i}`} r="3" fill="#1D0C46">
                 <animateMotion
-                  path="M550,300 C500,300 470,280 440,250"
-                  dur={`${3 + (i * 0.3)}s`}
-                  begin={`${i * 0.2}s`}
+                  path="M560,300 Q460,300 400,300"
+                  dur={`${2 + (i * 0.2)}s`}
+                  begin={`${i * 0.3}s`}
                   repeatCount="indefinite"
                 />
-                <animate attributeName="opacity" values="0;1;0" dur={`${3 + (i * 0.3)}s`} begin={`${i * 0.2}s`} repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0;1;0" dur={`${2 + (i * 0.2)}s`} begin={`${i * 0.3}s`} repeatCount="indefinite" />
               </circle>
             ))}
           </svg>
