@@ -46,14 +46,14 @@ const SolutionSection = () => {
     { name: 'Telegram', 
       icon: <img src="/lovable-uploads/20e8e068-4233-4367-bf9c-e275b95c573e.png" alt="Telegram Logo" className="w-full h-full object-contain" />
     },
-    { name: 'QuestN', 
-      icon: <img src="/lovable-uploads/d98846ba-c367-45ff-a7d6-c8ffa5012877.png" alt="QuestN Logo" className="w-full h-full object-contain" />
+    { name: 'Meta Ads', 
+      icon: <img src="/lovable-uploads/b28bbf9f-cbf5-4d75-8777-0d11d86fb0e9.png" alt="Meta Logo" className="w-full h-full object-contain" />
     },
     { name: 'Google Ads', 
       icon: <img src="/lovable-uploads/f89b5608-32f7-432e-a8df-6469ad60dcd3.png" alt="Google Ads Logo" className="w-full h-full object-contain" />
     },
-    { name: 'Meta Ads', 
-      icon: <img src="/lovable-uploads/b28bbf9f-cbf5-4d75-8777-0d11d86fb0e9.png" alt="Meta Logo" className="w-full h-full object-contain" />
+    { name: 'QuestN', 
+      icon: <img src="/lovable-uploads/d98846ba-c367-45ff-a7d6-c8ffa5012877.png" alt="QuestN Logo" className="w-full h-full object-contain" />
     },
   ];
 
@@ -111,22 +111,22 @@ const SolutionSection = () => {
     });
   };
 
-  // Further increased sizes and with more spacing between rings
-  const outerRingSize = isMobile ? 200 : 260; // Increased for more spacing
-  const innerRingSize = isMobile ? 110 : 140; // Kept smaller to create more difference
+  // Further increased sizes for wider rings and more space between them
+  const outerRingSize = isMobile ? 180 : 230; // Increased even more
+  const innerRingSize = isMobile ? 110 : 150; // Increased even more
   const iconSizeOuter = isMobile ? 32 : 42; 
   const iconSizeInner = isMobile ? 26 : 34; 
   
-  // Text ring sizes - Now Web3 text goes to the outermost ring
-  const outerTextRingSize = outerRingSize + 60; // Further out for more space
-  const innerTextRingSize = innerRingSize - 40; // Keep this inside
+  // Text ring sizes
+  const outerTextRingSize = outerRingSize + 50; // Place text ring outside the icons
+  const innerTextRingSize = innerRingSize - 40; // Place text ring inside the icons
   
   const web2Positions = generateOrbitalPositions(web2Icons.length, outerRingSize, Math.PI / 8);
   const web3Positions = generateOrbitalPositions(web3Icons.length, innerRingSize, 0);
   
-  // Generate positions for text elements, with more even distribution
-  const web2TextPosition = { x: Math.cos(Math.PI/2) * innerTextRingSize, y: Math.sin(Math.PI/2) * innerTextRingSize }; 
-  const web3TextPosition = { x: Math.cos(Math.PI/4) * outerTextRingSize, y: Math.sin(Math.PI/4) * outerTextRingSize };
+  // Generate positions for text elements
+  const web2TextPosition = { x: Math.cos(-Math.PI/4) * outerTextRingSize, y: Math.sin(-Math.PI/4) * outerTextRingSize }; 
+  const web3TextPosition = { x: Math.cos(Math.PI/4) * innerTextRingSize, y: Math.sin(Math.PI/4) * innerTextRingSize };
 
   return (
     <section className="bg-white relative overflow-hidden py-10">
@@ -148,8 +148,8 @@ const SolutionSection = () => {
             ref={containerRef}
             className="relative mx-auto"
             style={{ 
-              height: isMobile ? '600px' : '740px', // Increased height for additional spacing
-              maxWidth: isMobile ? '100%' : '740px'  // Increased width for more spacing
+              height: isMobile ? '560px' : '680px', // Increased height even more
+              maxWidth: isMobile ? '100%' : '680px'  // Increased width even more
             }}
           >
             {/* Background elements */}
@@ -234,64 +234,60 @@ const SolutionSection = () => {
                 ))}
               </div>
               
-              {/* Web2 Data Sources Text - Now on inner circle */}
+              {/* Rotating Text Ring - Web2 Data Sources */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div 
                   className="rounded-full border border-crypto-gold/20 animate-spin-slow" 
                   style={{ 
-                    width: innerTextRingSize * 2, 
-                    height: innerTextRingSize * 2,
+                    width: outerTextRingSize * 2, 
+                    height: outerTextRingSize * 2,
                     animationDuration: '45s'
                   }}
                 >
-                  {/* Text placement evenly around the inner circle */}
-                  {[0, 90, 180, 270].map((angle, index) => (
-                    <div 
-                      key={`web2-text-${index}`}
-                      className="absolute flex items-center justify-center z-10 text-orbit"
-                      style={{ 
-                        left: `calc(50% + ${Math.cos(angle * Math.PI / 180) * innerTextRingSize}px)`, 
-                        top: `calc(50% + ${Math.sin(angle * Math.PI / 180) * innerTextRingSize}px)`,
-                        transform: `translate(-50%, -50%) rotate(${angle}deg)`,
-                      }}
-                    >
-                      <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-gold/20 shadow-sm rotate-text-counter">
-                        <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web2 Data Sources</h4>
-                      </div>
+                  {/* Web2 Data Sources Text */}
+                  <div 
+                    className="absolute flex items-center justify-center z-10 text-orbit"
+                    style={{ 
+                      left: `calc(50% + ${web2TextPosition.x}px)`, 
+                      top: `calc(50% + ${web2TextPosition.y}px)`,
+                      transform: 'translate(-50%, -50%) rotate(45deg)',
+                    }}
+                  >
+                    <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-gold/20 shadow-sm rotate-text-counter">
+                      <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web2 Data Sources</h4>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
               
-              {/* Web3 Ecosystem Text - Now on outermost circle */}
+              {/* Rotating Text Ring - Web3 Ecosystem */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div 
                   className="rounded-full border border-crypto-navy/20 animate-spin-slow-reverse" 
                   style={{ 
-                    width: outerTextRingSize * 2, 
-                    height: outerTextRingSize * 2,
+                    width: innerTextRingSize * 2, 
+                    height: innerTextRingSize * 2,
                     animationDuration: '40s' 
                   }}
                 >
-                  {/* Text placement evenly around the outer circle */}
-                  {[45, 135, 225, 315].map((angle, index) => (
-                    <div 
-                      key={`web3-text-${index}`}
-                      className="absolute flex items-center justify-center z-10 text-orbit-reverse"
-                      style={{ 
-                        left: `calc(50% + ${Math.cos(angle * Math.PI / 180) * outerTextRingSize}px)`, 
-                        top: `calc(50% + ${Math.sin(angle * Math.PI / 180) * outerTextRingSize}px)`,
-                        transform: `translate(-50%, -50%) rotate(${angle}deg)`,
-                      }}
-                    >
-                      <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-navy/20 shadow-sm rotate-text">
-                        <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web3 Ecosystem</h4>
-                      </div>
+                  {/* Web3 Ecosystem Text */}
+                  <div 
+                    className="absolute flex items-center justify-center z-10 text-orbit-reverse"
+                    style={{ 
+                      left: `calc(50% + ${web3TextPosition.x}px)`, 
+                      top: `calc(50% + ${web3TextPosition.y}px)`,
+                      transform: 'translate(-50%, -50%) rotate(-45deg)',
+                    }}
+                  >
+                    <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-navy/20 shadow-sm rotate-text">
+                      <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web3 Ecosystem</h4>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             </div>
+            
+            {/* Remove the old static labels since we now have them rotating */}
           </div>
           
           {/* Description under the orbital visualization */}
