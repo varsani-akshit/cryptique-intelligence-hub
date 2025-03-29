@@ -42,31 +42,12 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-crypto-navy hover:text-crypto-gold transition-colors">
-              Features
-            </a>
             <a href="#solutions" className="text-crypto-navy hover:text-crypto-gold transition-colors">
               Solutions
             </a>
-            <div className="relative group">
-              <button className="text-crypto-navy hover:text-crypto-gold transition-colors flex items-center">
-                Products
-                <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
-              </button>
-              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white/90 border border-crypto-gold/20 backdrop-blur-lg transform scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
-                <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-crypto-navy hover:bg-crypto-gold/10 hover:text-crypto-gold">
-                    Analytics Dashboard
-                  </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-crypto-navy hover:bg-crypto-gold/10 hover:text-crypto-gold">
-                    Attribution Tool
-                  </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-crypto-navy hover:bg-crypto-gold/10 hover:text-crypto-gold">
-                    Custom Audience Builder
-                  </a>
-                </div>
-              </div>
-            </div>
+            <a href="#trust" className="text-crypto-navy hover:text-crypto-gold transition-colors">
+              Partners
+            </a>
             <a 
               href="https://www.blogs.cryptique.io" 
               target="_blank" 
@@ -138,13 +119,6 @@ const Navbar = () => {
         <div className="container mx-auto px-4 py-2">
           <div className="flex flex-col space-y-4 pb-4">
             <a
-              href="#features"
-              className="text-crypto-navy hover:text-crypto-gold transition-colors py-2"
-              onClick={() => setIsOpen(false)}
-            >
-              Features
-            </a>
-            <a
               href="#solutions"
               className="text-crypto-navy hover:text-crypto-gold transition-colors py-2"
               onClick={() => setIsOpen(false)}
@@ -152,11 +126,11 @@ const Navbar = () => {
               Solutions
             </a>
             <a
-              href="#"
+              href="#trust"
               className="text-crypto-navy hover:text-crypto-gold transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
-              Products
+              Partners
             </a>
             <a
               href="https://www.blogs.cryptique.io"

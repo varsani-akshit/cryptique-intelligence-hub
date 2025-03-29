@@ -28,7 +28,7 @@ const ClientLogo = ({
 
 const TrustSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-0">
+    <section className="relative overflow-hidden bg-white py-0" id="trust">
       {/* Background elements */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:30px_30px] opacity-5"></div>
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent"></div>
