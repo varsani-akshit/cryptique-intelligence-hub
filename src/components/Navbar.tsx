@@ -127,14 +127,19 @@ const Navbar = () => {
               </svg>
             </a>
           </div>
-          <div className="flex space-x-2 lg:space-x-3">
-            <Button variant="ghost" size={isMobile ? "sm" : "default"} className="border border-crypto-navy text-xs lg:text-sm">Sign In</Button>
-            <Button 
-              className="bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy text-xs lg:text-sm"
-              size={isMobile ? "sm" : "default"}
+          <div>
+            <a 
+              href="https://calendly.com/founders-cryptique"
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              Get Started
-            </Button>
+              <Button 
+                className="bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy text-xs lg:text-sm"
+                size={isMobile ? "sm" : "default"}
+              >
+                Request a Demo
+              </Button>
+            </a>
           </div>
         </div>
         
@@ -231,13 +236,20 @@ const Navbar = () => {
                 </svg>
               </a>
             </div>
-            <div className="mt-auto p-4 border-t border-gray-200 space-y-3">
-              <Button variant="ghost" className="w-full justify-center border border-crypto-navy">Sign In</Button>
-              <Button 
-                className="w-full bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy"
+            <div className="mt-auto p-4 border-t border-gray-200">
+              <a 
+                href="https://calendly.com/founders-cryptique"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full"
+                onClick={() => setIsMenuOpen(false)}
               >
-                Get Started
-              </Button>
+                <Button 
+                  className="w-full bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy"
+                >
+                  Request a Demo
+                </Button>
+              </a>
             </div>
           </div>
         </div>
