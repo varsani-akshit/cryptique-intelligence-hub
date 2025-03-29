@@ -143,7 +143,7 @@ const DetailedFeatures = () => {
           <FeatureBlock 
             icon={<Radio className="w-6 h-6 text-white" />}
             title="Multi-Channel Attribution"
-            description="Track every link click, wallet connection, smart contract interaction, and token transfer across all marketing channels. Whether it's Twitter campaigns, influencer referrals, Discord invites, or DAO proposals, all data is under one roof for deep analysis."
+            description="Unlock the full picture of your user journey—from the very first click to final transaction. Our multi-attribution model gives you complete visibility into every interaction across channels, allowing you to pinpoint exactly where users are dropping off and why—boosting retention, enabling targeted re-engagement, and ultimately driving higher conversions."
             iconColor="bg-gradient-to-br from-crypto-navy to-blue-700"
             delay="0.3s"
             index={2}
