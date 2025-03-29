@@ -37,7 +37,7 @@ const ProblemSection = () => {
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
                       <h3 className="text-3xl font-bold text-crypto-navy">74%</h3>
-                      <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Data Lost</span>
+                      <span className="font-semibold text-crypto-navy uppercase text-sm tracking-wider">Data Lost</span>
                     </div>
                     <p className="text-crypto-dark/70">
                       Web3 companies struggle with disconnected data sources across centralized and decentralized platforms, making campaign performance tracking nearly impossible.
@@ -58,7 +58,7 @@ const ProblemSection = () => {
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
                       <h3 className="text-3xl font-bold text-crypto-navy">86%</h3>
-                      <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Untraceable</span>
+                      <span className="font-semibold text-crypto-navy uppercase text-sm tracking-wider">Untraceable</span>
                     </div>
                     <p className="text-crypto-dark/70">
                       Without proper attribution, teams can't identify which channels drive results, especially across owned social platforms and influential third-party communities.
@@ -79,7 +79,7 @@ const ProblemSection = () => {
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
                       <h3 className="text-3xl font-bold text-crypto-navy">5x</h3>
-                      <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Wasted Budget</span>
+                      <span className="font-semibold text-crypto-navy uppercase text-sm tracking-wider">Wasted Budget</span>
                     </div>
                     <p className="text-crypto-dark/70">
                       Marketing budgets are frequently wasted on ineffective channels due to insufficient data on what drives on-chain conversions and real user engagement.
@@ -100,7 +100,7 @@ const ProblemSection = () => {
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
                       <h3 className="text-3xl font-bold text-crypto-navy">128</h3>
-                      <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Hours Wasted</span>
+                      <span className="font-semibold text-crypto-navy uppercase text-sm tracking-wider">Hours Wasted</span>
                     </div>
                     <p className="text-crypto-dark/70">
                       Teams spend countless hours manually collecting and analyzing data from multiple platforms instead of focusing on strategic growth initiatives.
