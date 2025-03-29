@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const ProblemSection = () => {
@@ -13,7 +12,10 @@ const ProblemSection = () => {
       <div className="container-section relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center animate-fade-in">
-            Present <span className="text-crypto-gold">Situation</span>
+            <span className="relative">
+              Web3 Marketing is <span className="gold-navy-text">Broken</span>
+              <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></span>
+            </span>
           </h2>
           
           <p className="text-lg text-center mb-12 animate-fade-in" style={{ animationDelay: '0.1s' }}>
@@ -21,6 +23,7 @@ const ProblemSection = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
             <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <div className="h-40 w-40 mb-6 relative">
                 <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>

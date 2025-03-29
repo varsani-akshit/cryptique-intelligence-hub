@@ -78,6 +78,27 @@ const IntegrationSection = () => {
             <div className="absolute bottom-8 right-8 w-2 h-4 bg-crypto-gold/70 animate-pulse"></div>
           </div>
           
+          {/* SDK Cards */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <SdkCard 
+              icon={<Code size={24} />} 
+              title="Web SDK" 
+              delay="0.2s"
+            />
+            <SdkCard 
+              icon={<Smartphone size={24} />} 
+              title="iOS SDK" 
+              delay="0.4s"
+              comingSoon={true}
+            />
+            <SdkCard 
+              icon={<Smartphone size={24} />} 
+              title="Android SDK" 
+              delay="0.6s"
+              comingSoon={true}
+            />
+          </div>
+          
           {/* Data nodes/connections visualization */}
           <div className="mt-12 relative h-32 hidden md:block">
             <svg className="absolute inset-0" xmlns="http://www.w3.org/2000/svg">

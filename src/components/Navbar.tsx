@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, MessageSquare, Twitter, BookOpen } from 'lucide-react';
+import { Menu, X, Twitter, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -63,16 +63,14 @@ const Navbar = () => {
           </a>
           <a 
             href="#" 
-            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors flex items-center`}
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
           >
-            <FileText className="h-4 w-4 mr-1" />
             Documentation
           </a>
           <a 
             href="#" 
-            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors flex items-center`}
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
           >
-            <MessageSquare className="h-4 w-4 mr-1" />
             Blog
           </a>
           <div className="flex space-x-3">
@@ -91,7 +89,7 @@ const Navbar = () => {
               <BookOpen className="h-5 w-5" />
             </a>
           </div>
-          <Button variant="ghost">Sign In</Button>
+          <Button variant="outline" className="border-crypto-navy">Sign In</Button>
           <Button 
             className="bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy"
           >
@@ -143,18 +141,16 @@ const Navbar = () => {
             </a>
             <a 
               href="#"
-              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold flex items-center"
+              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold"
               onClick={() => setIsMenuOpen(false)}
             >
-              <FileText className="h-4 w-4 mr-2" />
               Documentation
             </a>
             <a 
               href="#"
-              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold flex items-center"
+              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold"
               onClick={() => setIsMenuOpen(false)}
             >
-              <MessageSquare className="h-4 w-4 mr-2" />
               Blog
             </a>
             <div className="flex space-x-4 px-3 py-2">
@@ -174,7 +170,7 @@ const Navbar = () => {
               </a>
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
-              <Button variant="ghost" className="w-full justify-start">Sign In</Button>
+              <Button variant="outline" className="w-full justify-start border-crypto-navy">Sign In</Button>
               <Button 
                 className="w-full mt-2 bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy"
               >
