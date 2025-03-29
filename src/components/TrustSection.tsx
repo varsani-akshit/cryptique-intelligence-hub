@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
@@ -6,18 +7,20 @@ import { useEffect } from 'react';
 const ClientLogo = ({ 
   imageSrc, 
   name, 
-  description
+  description,
+  isLarge
 }: { 
   imageSrc: string; 
   name: string; 
   description: string;
+  isLarge?: boolean;
 }) => (
   <div className="glass-card p-6 flex flex-col items-center justify-center h-full">
     <div className="h-24 flex items-center justify-center mb-4">
       <img 
         src={imageSrc} 
         alt={`${name} logo`} 
-        className="h-24 max-w-[80%] object-contain"
+        className={`${isLarge ? 'h-28' : 'h-24'} max-w-[80%] object-contain`}
       />
     </div>
     <h3 className="text-lg font-semibold mb-1 text-crypto-gold text-center">{name}</h3>
@@ -101,6 +104,7 @@ const TrustSection = () => {
                       imageSrc="/lovable-uploads/4b4a96ef-2445-45a7-83d9-fbdef45423fd.png" 
                       name="Cubane" 
                       description="Layer 1 Blockchain"
+                      isLarge={true}
                     />
                   </CarouselItem>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
