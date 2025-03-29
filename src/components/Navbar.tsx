@@ -56,7 +56,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/b1e36bb6-d421-4078-b7c4-8fc57cfa5092.png" 
                 alt="Cryptique Logo" 
-                className="h-8 md:h-10" 
+                className="h-10 md:h-12" 
               />
             </div>
           </a>
