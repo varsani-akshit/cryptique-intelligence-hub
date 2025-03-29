@@ -34,9 +34,8 @@ const Navbar = () => {
               <img
                 src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png"
                 alt="Cryptique"
-                className="h-10 w-10 mr-2"
+                className="h-10 w-10"
               />
-              <span className="text-xl font-bold text-white">Cryptique</span>
             </a>
           </div>
 
@@ -67,11 +66,24 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <a href="#" className="text-white/80 hover:text-crypto-gold transition-colors">
+            <a 
+              href="https://www.blogs.cryptique.io" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/80 hover:text-crypto-gold transition-colors"
+            >
               Blogs
             </a>
             <a 
-              href="https://discord.com" 
+              href="https://www.docs.cryptique.io" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white/80 hover:text-crypto-gold transition-colors"
+            >
+              Documentation
+            </a>
+            <a 
+              href="https://discord.gg/7vnk8duN" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white/80 hover:text-crypto-gold transition-colors" 
@@ -88,7 +100,7 @@ const Navbar = () => {
             <Button
               className="bg-crypto-gold text-black hover:bg-crypto-gold/90"
             >
-              Contact Us
+              Get Started
             </Button>
           </div>
 
@@ -134,14 +146,25 @@ const Navbar = () => {
               Products
             </a>
             <a
-              href="#"
+              href="https://www.blogs.cryptique.io"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-white/80 hover:text-crypto-gold transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               Blogs
             </a>
             <a
-              href="https://discord.com"
+              href="https://www.docs.cryptique.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Documentation
+            </a>
+            <a
+              href="https://discord.gg/7vnk8duN"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/80 hover:text-crypto-gold transition-colors py-2 flex items-center"
@@ -156,7 +179,7 @@ const Navbar = () => {
               className="bg-crypto-gold text-black hover:bg-crypto-gold/90 w-full mt-2"
               onClick={() => setIsOpen(false)}
             >
-              Contact Us
+              Get Started
             </Button>
           </div>
         </div>

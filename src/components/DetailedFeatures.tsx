@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { UserCheck, Database, Brain, LineChart, ChevronRight } from 'lucide-react';
+import { UserCheck, Database, Brain, LineChart, ChevronRight, Zap, BarChart, Link2, Radio } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface FeatureBlockProps {
@@ -10,6 +10,7 @@ interface FeatureBlockProps {
   iconColor: string;
   delay: string;
   index: number;
+  image?: string;
 }
 
 const FeatureBlock = ({ 
@@ -18,7 +19,8 @@ const FeatureBlock = ({
   description, 
   iconColor, 
   delay,
-  index
+  index,
+  image
 }: FeatureBlockProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -35,7 +37,13 @@ const FeatureBlock = ({
           <div className={`absolute inset-0 rounded-full opacity-30 transition-opacity duration-500 ${isHovered ? 'animate-ping' : ''}`} style={{background: 'radial-gradient(circle, rgba(202,169,104,0.3) 0%, rgba(0,0,0,0) 70%)'}}></div>
         </div>
         <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">{title}</h3>
-        <p className="text-foreground/80 leading-relaxed">{description}</p>
+        <p className="text-foreground/80 leading-relaxed mb-6">{description}</p>
+        
+        {image && (
+          <div className="mt-4 mb-2">
+            <img src={image} alt={title} className="w-full h-auto rounded-md border border-crypto-gold/20" />
+          </div>
+        )}
         
         {/* Interactive data visualization */}
         <div className="absolute bottom-0 right-0 w-full h-32 opacity-20 overflow-hidden pointer-events-none">
@@ -102,7 +110,7 @@ const FeatureBlock = ({
 
 const DetailedFeatures = () => {
   return (
-    <section className="bg-black relative overflow-hidden py-24" id="solutions">
+    <section className="bg-black relative overflow-hidden py-10" id="solutions">
       {/* Animated background elements */}
       <div className="absolute top-1/3 -right-32 w-80 h-80 bg-crypto-navy/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 -left-32 w-80 h-80 bg-crypto-gold/5 rounded-full blur-3xl"></div>
@@ -112,142 +120,94 @@ const DetailedFeatures = () => {
       <div className="absolute top-0 left-1/4 w-[1px] h-full bg-crypto-gold/5"></div>
       <div className="absolute top-0 left-3/4 w-[1px] h-full bg-crypto-gold/5"></div>
       
-      {/* Scanning line effect */}
-      <div className="absolute h-0.5 w-full bg-crypto-gold/10 top-0 left-0" style={{ animation: 'scanline 8s linear infinite' }}></div>
-      
       <div className="container-section relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-fade-in">
           Solutions to <span className="text-crypto-gold">Supercharge</span> Your Web3 Marketing
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <FeatureBlock 
-            icon={<UserCheck size={24} />} 
-            title="Web3 User Identification" 
-            description="We go beyond just tracking link clicks—we analyze wallet interactions, cross-chain movements, and community engagement to create a detailed user profile."
+            icon={<BarChart size={24} />} 
+            title="Simplified Integration & Use" 
+            description="We believe in simplification both with integration and analytics, we analyse every interaction with your socials, Dapps & smart contracts and present it in an easy to comprehend medium so that you can optimise your growth much quicker."
             iconColor="bg-black text-crypto-gold"
             delay="0.1s"
             index={0}
+            image="/lovable-uploads/932fd99b-baaf-48b3-a282-032c154ed936.png"
           />
           
           <FeatureBlock 
-            icon={<Database size={24} />} 
-            title="Unify All Your Marketing & Community Data" 
-            description="Track every link click, wallet connection, smart contract interaction, and token transfer across all marketing channels. Whether it's Twitter campaigns, influencer referrals, Discord invites, or DAO proposals, all data is under one roof for deep analysis."
+            icon={<Radio size={24} />} 
+            title="Cross Channel Tracking" 
+            description="Skip manual analytics—ask Cryptique AI for deep campaign-level and user-level insights, saving hours of time spent on data interpretation."
             iconColor="bg-black text-crypto-gold"
             delay="0.2s"
             index={1}
           />
-          
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <FeatureBlock 
-            icon={<Brain size={24} />} 
-            title="AI-Powered Insights with Cryptique Intelligence" 
-            description="Skip manual analytics—ask Cryptique AI for deep campaign-level and user-level insights, saving hours of time spent on data interpretation."
+            icon={<Link2 size={24} />} 
+            title="Campaign Analysis" 
+            description="Track every link click, wallet connection, smart contract interaction, and token transfer across all marketing channels. Whether it's Twitter campaigns, influencer referrals, Discord invites, or DAO proposals, all data is under one roof for deep analysis."
             iconColor="bg-black text-crypto-gold"
             delay="0.3s"
             index={2}
+            image="/lovable-uploads/a1efcdb6-aab8-4df1-87e9-013cb6a99799.png"
           />
           
           <FeatureBlock 
-            icon={<LineChart size={24} />} 
-            title="Track Revenue & Retention from Web3 Users" 
-            description="Monitor on-chain conversions, token purchases, and staking behaviors to identify your highest-value users and optimize your marketing spend accordingly."
+            icon={<Brain size={24} />} 
+            title="AI-Powered Insights with CQ AI" 
+            description="Skip manual analytics—ask Cryptique AI for deep campaign-level and user-level insights, saving hours of time spent on data interpretation."
             iconColor="bg-black text-crypto-gold"
             delay="0.4s"
             index={3}
           />
         </div>
         
-        {/* Data visualization */}
-        <div className="mt-20 relative">
-          <div className="flex justify-center mb-8">
-            <div className="relative">
-              <h3 className="text-2xl font-bold text-center mb-4">Real-Time <span className="text-crypto-gold">Data Processing</span></h3>
-              <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
+          <FeatureBlock 
+            icon={<Zap size={24} />} 
+            title="Smart KOL Payouts" 
+            description="Don't overpay KOL's without knowing how much they bring to the table, with Cryptique we revolutionise the way KOL's get incentivesed by paying them for the conversions they bring, all automated using smart contracts."
+            iconColor="bg-black text-crypto-gold"
+            delay="0.5s"
+            index={4}
+          />
+        </div>
+        
+        {/* SDKs Available Section */}
+        <div className="mt-20">
+          <h3 className="text-2xl font-bold text-center mb-8">
+            SDKs Available for
+          </h3>
           
-          <div className="relative h-32 mx-auto max-w-4xl">
-            <svg className="w-full h-full" viewBox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg">
-              {/* Base line */}
-              <path d="M100 50 L900 50" stroke="#CAA968" strokeWidth="0.5" strokeDasharray="5,3" opacity="0.3" />
-              
-              {/* Data Flow Visualization */}
-              <path 
-                d="M100,50 C200,90 300,10 400,50 C500,90 600,10 700,50 C800,90 900,10 900,50" 
-                stroke="#CAA968" 
-                strokeWidth="2" 
-                fill="none"
-                opacity="0.7"
-              />
-              
-              {/* Data Points */}
-              {Array.from({length: 9}).map((_, i) => (
-                <circle 
-                  key={i} 
-                  cx={100 + i * 100} 
-                  cy={50 + (i % 2 === 0 ? -15 : 15) * Math.sin(i/2)} 
-                  r={3 + Math.random() * 2} 
-                  fill="#CAA968" 
-                  opacity="0.8"
-                >
-                  <animate 
-                    attributeName="opacity" 
-                    values="0.3;0.8;0.3" 
-                    dur={`${2 + i % 3}s`} 
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              ))}
-              
-              {/* Moving Data Packets */}
-              {Array.from({length: 5}).map((_, i) => (
-                <circle key={i + 10} r="4" fill="#CAA968">
-                  <animateMotion
-                    path="M100,50 C200,90 300,10 400,50 C500,90 600,10 700,50 C800,90 900,10 900,50"
-                    dur="8s"
-                    begin={`${i * 1.5}s`}
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="opacity"
-                    values="0;0.8;0"
-                    dur="8s"
-                    begin={`${i * 1.5}s`}
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              ))}
-              
-              {/* Vertical Data Points */}
-              {Array.from({length: 5}).map((_, i) => (
-                <g key={i + 20}>
-                  <line 
-                    x1={200 + i * 150} 
-                    y1="35" 
-                    x2={200 + i * 150} 
-                    y2="65" 
-                    stroke="#CAA968" 
-                    strokeWidth="0.5" 
-                    opacity="0.5"
-                  />
-                  <circle 
-                    cx={200 + i * 150} 
-                    cy="35" 
-                    r="2" 
-                    fill="#CAA968" 
-                    opacity="0.6"
-                  />
-                  <circle 
-                    cx={200 + i * 150} 
-                    cy="65" 
-                    r="2" 
-                    fill="#CAA968" 
-                    opacity="0.6"
-                  />
-                </g>
-              ))}
-            </svg>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="glass-card p-6 text-center flex flex-col items-center space-y-4 animate-fade-in">
+              <div className="rounded-full bg-black/50 p-3 text-crypto-gold relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 3H6a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Z"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                <div className="absolute inset-0 rounded-full animate-neon-pulse opacity-50"></div>
+              </div>
+              <h3 className="text-xl font-semibold">Web</h3>
+            </div>
+            
+            <div className="glass-card p-6 text-center flex flex-col items-center space-y-4 animate-fade-in opacity-70">
+              <div className="rounded-full bg-black/50 p-3 text-crypto-gold/70 relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                <div className="absolute inset-0 rounded-full animate-neon-pulse opacity-50"></div>
+              </div>
+              <h3 className="text-xl font-semibold">Android <span className="text-sm text-crypto-gold/60">(Coming Soon)</span></h3>
+            </div>
+            
+            <div className="glass-card p-6 text-center flex flex-col items-center space-y-4 animate-fade-in opacity-70">
+              <div className="rounded-full bg-black/50 p-3 text-crypto-gold/70 relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22a8 8 0 0 0 8-8"/><path d="M12 22a8 8 0 0 1-8-8"/><path d="M17 22a8 8 0 0 0 4-4"/><path d="M17 2a8 8 0 0 0-4 4"/><path d="M7 22a8 8 0 0 1-4-4"/><path d="M7 2a8 8 0 0 1 4 4"/><path d="M12 2a8 8 0 0 0-8 8"/><path d="M12 2a8 8 0 0 1 8 8"/><circle cx="12" cy="12" r="3"/></svg>
+                <div className="absolute inset-0 rounded-full animate-neon-pulse opacity-50"></div>
+              </div>
+              <h3 className="text-xl font-semibold">iOS <span className="text-sm text-crypto-gold/60">(Coming Soon)</span></h3>
+            </div>
           </div>
         </div>
       </div>

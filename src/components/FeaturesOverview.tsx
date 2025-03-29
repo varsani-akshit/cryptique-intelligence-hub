@@ -97,12 +97,10 @@ const FeaturesOverview = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-black relative overflow-hidden py-20" id="features">
+    <section ref={sectionRef} className="bg-black relative overflow-hidden py-10" id="features">
       {/* Futuristic background */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:40px_40px] opacity-5"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-futuristic-glow opacity-30"></div>
-      
-      <div className="scanline"></div>
       
       <div className="container-section relative z-10">
         <h2 

@@ -4,7 +4,7 @@ import { Zap, Database, Activity, LineChart } from 'lucide-react';
 
 const SolutionSection = () => {
   return (
-    <section className="bg-black relative overflow-hidden py-20">
+    <section className="bg-black relative overflow-hidden py-10">
       {/* Background decorative elements */}
       <div className="absolute top-1/2 -translate-y-1/2 -right-24 w-64 h-64 bg-crypto-navy/10 rounded-full blur-3xl"></div>
       <div className="absolute top-1/4 -left-24 w-48 h-48 bg-crypto-gold/10 rounded-full blur-3xl"></div>
@@ -63,10 +63,10 @@ const SolutionSection = () => {
             </p>
             
             {/* Enhanced Data Pipeline Visualization */}
-            <div className="mt-12 relative h-96 mx-auto">
+            <div className="mt-12 relative h-[500px] mx-auto">
               {/* Data Flow Lines */}
               <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2">
-                <svg className="w-full h-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 100">
+                <svg className="w-full h-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
                   {/* Web2 to Cryptique Paths */}
                   <path 
                     d="M50,30 C100,30 150,50 200,50" 
@@ -85,6 +85,34 @@ const SolutionSection = () => {
                     strokeDasharray="5,3"
                   />
                   
+                  {/* Social Media Icons at Web2 side */}
+                  <g transform="translate(20, 120)" opacity="0.8">
+                    <text x="0" y="0" fill="#CAA968" fontSize="10">Social Media</text>
+                    <circle cx="10" cy="15" r="6" fill="#1DA1F2" /> {/* Twitter */}
+                    <circle cx="25" cy="15" r="6" fill="#0077B5" /> {/* LinkedIn */}
+                    <circle cx="40" cy="15" r="6" fill="#1877F2" /> {/* Facebook */}
+                    <circle cx="55" cy="15" r="6" fill="#EA4335" /> {/* Google */}
+                    
+                    <path d="M10,30 C40,50 70,40 100,60" stroke="#CAA968" strokeWidth="1" fill="none" strokeDasharray="3,2" />
+                    <path d="M25,30 C50,45 75,50 100,60" stroke="#CAA968" strokeWidth="1" fill="none" strokeDasharray="3,2" />
+                    <path d="M40,30 C60,40 80,50 100,60" stroke="#CAA968" strokeWidth="1" fill="none" strokeDasharray="3,2" />
+                    <path d="M55,30 C70,40 85,50 100,60" stroke="#CAA968" strokeWidth="1" fill="none" strokeDasharray="3,2" />
+                  </g>
+                  
+                  {/* Blockchain Icons at On-Chain side */}
+                  <g transform="translate(700, 120)" opacity="0.8">
+                    <text x="0" y="0" fill="#CAA968" fontSize="10">Blockchains</text>
+                    <circle cx="10" cy="15" r="6" fill="#627EEA" /> {/* Ethereum */}
+                    <circle cx="25" cy="15" r="6" fill="#8247E5" /> {/* Polygon */}
+                    <circle cx="40" cy="15" r="6" fill="#F3BA2F" /> {/* BNB */}
+                    <circle cx="55" cy="15" r="6" fill="#14F195" /> {/* Solana */}
+                    
+                    <path d="M10,30 C-20,50 -50,40 -100,60" stroke="#CAA968" strokeWidth="1" fill="none" strokeDasharray="3,2" />
+                    <path d="M25,30 C0,45 -25,50 -100,60" stroke="#CAA968" strokeWidth="1" fill="none" strokeDasharray="3,2" />
+                    <path d="M40,30 C20,40 0,50 -100,60" stroke="#CAA968" strokeWidth="1" fill="none" strokeDasharray="3,2" />
+                    <path d="M55,30 C35,40 15,50 -100,60" stroke="#CAA968" strokeWidth="1" fill="none" strokeDasharray="3,2" />
+                  </g>
+                  
                   {/* Main Flow Path */}
                   <path 
                     d="M200,50 C250,50 270,20 300,20 C330,20 350,80 380,80 C410,80 430,20 460,20 C490,20 510,80 540,80 C570,80 590,50 600,50" 
@@ -94,30 +122,30 @@ const SolutionSection = () => {
                   />
                   
                   {/* Animated Data Packets - Web2 to Cryptique */}
-                  {Array.from({ length: 5 }).map((_, i) => (
+                  {Array.from({ length: 8 }).map((_, i) => (
                     <circle key={i} r="4" fill="#CAA968">
                       <animateMotion
                         path="M50,30 C100,30 150,50 200,50 C250,50 270,20 300,20 C330,20 350,80 380,80 C410,80 430,20 460,20 C490,20 510,80 540,80 C570,80 590,50 600,50"
                         dur="6s"
-                        begin={`${i * 1.2}s`}
+                        begin={`${i * 0.8}s`}
                         repeatCount="indefinite"
                       />
-                      <animate attributeName="opacity" values="0;1;1;0" dur="6s" begin={`${i * 1.2}s`} repeatCount="indefinite" />
-                      <animate attributeName="r" values="2;4;2" dur="6s" begin={`${i * 1.2}s`} repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0;1;1;0" dur="6s" begin={`${i * 0.8}s`} repeatCount="indefinite" />
+                      <animate attributeName="r" values="2;4;2" dur="6s" begin={`${i * 0.8}s`} repeatCount="indefinite" />
                     </circle>
                   ))}
                   
                   {/* Animated Data Packets - On-Chain to Cryptique */}
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <circle key={i+5} r="4" fill="#CAA968">
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <circle key={i+8} r="4" fill="#CAA968">
                       <animateMotion
                         path="M750,30 C700,30 650,50 600,50 C550,50 530,80 500,80 C470,80 450,20 420,20 C390,20 370,80 340,80 C310,80 290,50 260,50 C230,50 210,20 200,20"
                         dur="6s"
-                        begin={`${i * 1.2}s`}
+                        begin={`${i * 0.8}s`}
                         repeatCount="indefinite"
                       />
-                      <animate attributeName="opacity" values="0;1;1;0" dur="6s" begin={`${i * 1.2}s`} repeatCount="indefinite" />
-                      <animate attributeName="r" values="2;4;2" dur="6s" begin={`${i * 1.2}s`} repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0;1;1;0" dur="6s" begin={`${i * 0.8}s`} repeatCount="indefinite" />
+                      <animate attributeName="r" values="2;4;2" dur="6s" begin={`${i * 0.8}s`} repeatCount="indefinite" />
                     </circle>
                   ))}
                 </svg>

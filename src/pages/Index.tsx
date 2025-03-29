@@ -78,7 +78,7 @@ const Index = () => {
       <CustomCursor />
       <ParticleBackground />
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow space-y-0">
         <HeroSection />
         <TrustSection />
         <ProblemSection />

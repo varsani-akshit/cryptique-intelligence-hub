@@ -97,24 +97,10 @@ const DataFlowVisualization = () => (
 
 const ProblemSection = () => {
   return (
-    <section className="bg-black relative py-16 overflow-hidden">
+    <section className="bg-black relative py-10 overflow-hidden">
       {/* Futuristic background elements */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:40px_40px] opacity-10"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-futuristic-glow opacity-30"></div>
-      
-      {/* Horizontal scan lines */}
-      {Array.from({ length: 5 }).map((_, i) => (
-        <div 
-          key={i}
-          className="absolute left-0 w-full h-[1px] bg-crypto-gold/10"
-          style={{ 
-            top: `${(i+1) * 20}%`, 
-            boxShadow: '0 0 5px rgba(202, 169, 104, 0.2)',
-            animation: `scanline 8s linear infinite`,
-            animationDelay: `${i * 1.5}s`
-          }}
-        ></div>
-      ))}
       
       <div className="container-section relative z-10">
         <div className="max-w-3xl mx-auto">
