@@ -92,7 +92,7 @@ const TrustSection = () => {
                     <ClientLogo 
                       imageSrc="/lovable-uploads/34f29667-ddfa-4020-bc58-e3534bcd019a.png" 
                       name="Zeebu" 
-                      description="DeFi Project & Neobank for Telecoms"
+                      description="Protocol & Neobank for Telecoms"
                     />
                   </CarouselItem>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
@@ -106,7 +106,7 @@ const TrustSection = () => {
                     <ClientLogo 
                       imageSrc="/lovable-uploads/ca51f057-4832-4bc8-9b33-d34d76e5dcbd.png" 
                       name="Mobile Wallet (MWT)" 
-                      description="DePIN & DeFi Project"
+                      description="DePIN & Consumer token"
                     />
                   </CarouselItem>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
