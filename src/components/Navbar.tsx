@@ -17,13 +17,14 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md ${
-        scrolled ? 'bg-black/80 shadow-[0_0_15px_rgba(0,0,0,0.7)]' : 'bg-transparent'
+        scrolled ? 'bg-white/80 shadow-[0_0_15px_rgba(0,0,0,0.1)]' : 'bg-white/80'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -41,26 +42,26 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-white/80 hover:text-crypto-gold transition-colors">
+            <a href="#features" className="text-crypto-navy hover:text-crypto-gold transition-colors">
               Features
             </a>
-            <a href="#solutions" className="text-white/80 hover:text-crypto-gold transition-colors">
+            <a href="#solutions" className="text-crypto-navy hover:text-crypto-gold transition-colors">
               Solutions
             </a>
             <div className="relative group">
-              <button className="text-white/80 hover:text-crypto-gold transition-colors flex items-center">
+              <button className="text-crypto-navy hover:text-crypto-gold transition-colors flex items-center">
                 Products
                 <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
               </button>
-              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-black/90 border border-crypto-gold/20 backdrop-blur-lg transform scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
+              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white/90 border border-crypto-gold/20 backdrop-blur-lg transform scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
                 <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:bg-crypto-gold/10 hover:text-crypto-gold">
+                  <a href="#" className="block px-4 py-2 text-sm text-crypto-navy hover:bg-crypto-gold/10 hover:text-crypto-gold">
                     Analytics Dashboard
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:bg-crypto-gold/10 hover:text-crypto-gold">
+                  <a href="#" className="block px-4 py-2 text-sm text-crypto-navy hover:bg-crypto-gold/10 hover:text-crypto-gold">
                     Attribution Tool
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:bg-crypto-gold/10 hover:text-crypto-gold">
+                  <a href="#" className="block px-4 py-2 text-sm text-crypto-navy hover:bg-crypto-gold/10 hover:text-crypto-gold">
                     Custom Audience Builder
                   </a>
                 </div>
@@ -70,7 +71,7 @@ const Navbar = () => {
               href="https://www.blogs.cryptique.io" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-white/80 hover:text-crypto-gold transition-colors"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors"
             >
               Blogs
             </a>
@@ -78,7 +79,7 @@ const Navbar = () => {
               href="https://www.docs.cryptique.io" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-white/80 hover:text-crypto-gold transition-colors"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors"
             >
               Documentation
             </a>
@@ -86,7 +87,7 @@ const Navbar = () => {
               href="https://discord.gg/7vnk8duN" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-crypto-gold transition-colors" 
+              className="text-crypto-navy hover:text-crypto-gold transition-colors" 
               title="Join our Discord community"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="h-5 w-5 fill-current">
@@ -98,7 +99,7 @@ const Navbar = () => {
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Button
-              className="bg-crypto-gold text-black hover:bg-crypto-gold/90"
+              className="bg-crypto-gold text-crypto-navy hover:bg-crypto-gold/90 border border-crypto-navy"
             >
               Get Started
             </Button>
@@ -108,7 +109,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white focus:outline-none"
+              className="text-crypto-navy focus:outline-none"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -120,27 +121,27 @@ const Navbar = () => {
       <div
         className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        } bg-black/90 backdrop-blur-md`}
+        } bg-white/90 backdrop-blur-md`}
       >
         <div className="container mx-auto px-4 py-2">
           <div className="flex flex-col space-y-4 pb-4">
             <a
               href="#features"
-              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               Features
             </a>
             <a
               href="#solutions"
-              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               Solutions
             </a>
             <a
               href="#"
-              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               Products
@@ -149,7 +150,7 @@ const Navbar = () => {
               href="https://www.blogs.cryptique.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               Blogs
@@ -158,7 +159,7 @@ const Navbar = () => {
               href="https://www.docs.cryptique.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors py-2"
               onClick={() => setIsOpen(false)}
             >
               Documentation
@@ -167,7 +168,7 @@ const Navbar = () => {
               href="https://discord.gg/7vnk8duN"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-crypto-gold transition-colors py-2 flex items-center"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors py-2 flex items-center"
               onClick={() => setIsOpen(false)}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="h-5 w-5 fill-current mr-2">
@@ -176,7 +177,7 @@ const Navbar = () => {
               Discord
             </a>
             <Button
-              className="bg-crypto-gold text-black hover:bg-crypto-gold/90 w-full mt-2"
+              className="bg-crypto-gold text-crypto-navy hover:bg-crypto-gold/90 border border-crypto-navy w-full mt-2"
               onClick={() => setIsOpen(false)}
             >
               Get Started

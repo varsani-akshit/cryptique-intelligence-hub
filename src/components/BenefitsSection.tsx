@@ -104,9 +104,10 @@ const BenefitsSection = () => {
       <div className="container-section relative z-10">
         <h2 
           ref={headingRef}
-          className="text-4xl md:text-5xl font-bold mb-16 text-center transform translate-y-20 opacity-0 transition-all duration-1000 bg-gold-navy-gradient bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold mb-16 text-center transform translate-y-20 opacity-0 transition-all duration-1000"
         >
-          Stay Ahead of the Competition
+          <span className="text-crypto-navy">Stay Ahead of the </span>
+          <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Competition</span>
         </h2>
         
         <div className="max-w-5xl mx-auto space-y-6">

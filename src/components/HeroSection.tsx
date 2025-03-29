@@ -95,19 +95,22 @@ const HeroSection = () => {
 
         <h1 
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-10 bg-gold-navy-gradient bg-clip-text text-transparent transition-all duration-300 ease-out"
+          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-10 transition-all duration-300 ease-out"
           style={{transformStyle: 'preserve-3d'}}
         >
-          Intelligence That Accelerates Web3
+          <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Intelligence</span>
+          <span className="text-crypto-navy"> That </span>
+          <span className="text-crypto-navy">Accelerates </span>
+          <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Web3</span>
         </h1>
         
         <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <Button 
             size="lg" 
-            className="text-base px-10 py-7 bg-gradient-to-r from-crypto-gold to-crypto-navy text-white hover:bg-crypto-gold/90 interactive-element relative overflow-hidden group"
+            className="text-base px-10 py-7 bg-crypto-gold text-crypto-navy border-2 border-crypto-navy hover:bg-crypto-gold/90 interactive-element relative overflow-hidden group"
           >
             <span className="relative z-10">Get Started</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-crypto-navy to-crypto-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+            <span className="absolute inset-0 bg-crypto-gold/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
           </Button>
           <Button 
             size="lg" 
