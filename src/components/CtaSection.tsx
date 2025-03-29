@@ -30,14 +30,20 @@ const CtaSection = () => {
               <span>support@cryptique.io</span>
             </a>
             
-            <Button 
-              size="lg" 
-              className="animate-fade-in group"
-              style={{ animationDelay: '0.3s' }}
+            <a 
+              href="https://calendly.com/founders-cryptique"
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              Schedule a Demo
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <Button 
+                size="lg" 
+                className="animate-fade-in group"
+                style={{ animationDelay: '0.3s' }}
+              >
+                Schedule a Demo
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
           </div>
         </div>
       </div>

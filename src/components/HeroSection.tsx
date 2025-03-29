@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MousePointer } from 'lucide-react';
@@ -112,17 +111,23 @@ const HeroSection = () => {
             <span className="relative z-10">Get Started</span>
             <span className="absolute inset-0 bg-crypto-gold/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
           </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="text-base px-10 py-7 border border-gradient-to-r from-crypto-navy to-crypto-gold text-crypto-navy hover:bg-crypto-gold/10 group interactive-element relative overflow-hidden"
+          <a 
+            href="https://calendly.com/founders-cryptique"
+            target="_blank" 
+            rel="noopener noreferrer"
           >
-            <span className="relative z-10 flex items-center">
-              Request a Demo
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-crypto-gold/20 to-crypto-navy/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
-          </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-base px-10 py-7 border border-gradient-to-r from-crypto-navy to-crypto-gold text-crypto-navy hover:bg-crypto-gold/10 group interactive-element relative overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center">
+                Request a Demo
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-crypto-gold/20 to-crypto-navy/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+            </Button>
+          </a>
         </div>
 
         {/* Scroll indicator */}
