@@ -273,7 +273,7 @@ const SolutionSection = () => {
                 
                 {/* Connection line from Web3 to Cryptique - moved more to the left */}
                 <path 
-                  d="M680,300 C585,300 565,300 540,300" 
+                  d="M690,300 C585,300 565,300 540,300" 
                   stroke="#CAA968" 
                   strokeWidth="1.5" 
                   strokeDasharray="5,5" 
@@ -283,7 +283,7 @@ const SolutionSection = () => {
                 {/* Data packets from Web3 to Cryptique */}
                 <circle r="4" fill="#1D0C46">
                   <animateMotion 
-                    path="M680,300 C585,300 565,300 540,300" 
+                    path="M690,300 C585,300 565,300 540,300" 
                     dur="3.5s" 
                     repeatCount="indefinite"
                   />
@@ -291,7 +291,7 @@ const SolutionSection = () => {
                 
                 <circle r="3" fill="#1D0C46" opacity="0.7">
                   <animateMotion 
-                    path="M680,300 C585,300 565,300 540,300" 
+                    path="M690,300 C585,300 565,300 540,300" 
                     dur="4.5s" 
                     repeatCount="indefinite"
                     begin="0.5s"
