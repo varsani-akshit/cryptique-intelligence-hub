@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { X } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -106,7 +106,24 @@ const Navbar = () => {
               className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
               aria-label="X (Twitter)"
             >
-              <X className="h-5 w-5" />
+              {/* Twitter/X logo SVG */}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className="h-5 w-5"
+              >
+                <path d="M18 4H14a4 4 0 0 0-4 4v12" />
+                <path d="M18 10V4" />
+                <path d="m8.5 9 5 5" />
+                <path d="m14.5 4-5 5" />
+              </svg>
             </a>
             <a 
               href="https://discord.gg/7vnk8duN" 
@@ -127,7 +144,15 @@ const Navbar = () => {
               </svg>
             </a>
           </div>
-          <div>
+          <div className="flex space-x-2">
+            <Button 
+              variant="ghost" 
+              size={isMobile ? "sm" : "default"} 
+              className="border border-crypto-navy text-xs lg:text-sm flex items-center gap-1.5"
+            >
+              <LogIn className="h-4 w-4" />
+              Sign In
+            </Button>
             <a 
               href="https://calendly.com/founders-cryptique"
               target="_blank" 
@@ -153,7 +178,7 @@ const Navbar = () => {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6" />
+              <Menu className="h-6 w-6" />
             ) : (
               <Menu className="h-6 w-6" />
             )}
@@ -215,7 +240,24 @@ const Navbar = () => {
                 className="text-crypto-navy hover:text-crypto-gold"
                 aria-label="X (Twitter)"
               >
-                <X className="h-6 w-6" />
+                {/* Twitter/X logo SVG */}
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="24" 
+                  height="24" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  className="h-6 w-6"
+                >
+                  <path d="M18 4H14a4 4 0 0 0-4 4v12" />
+                  <path d="M18 10V4" />
+                  <path d="m8.5 9 5 5" />
+                  <path d="m14.5 4-5 5" />
+                </svg>
               </a>
               <a 
                 href="https://discord.gg/7vnk8duN" 
@@ -228,7 +270,7 @@ const Navbar = () => {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 127.14 96.36"
-                  className="h-5 w-5 fill-current"
+                  className="h-6 w-6 fill-current"
                 >
                   <path
                     d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"
@@ -236,7 +278,14 @@ const Navbar = () => {
                 </svg>
               </a>
             </div>
-            <div className="mt-auto p-4 border-t border-gray-200">
+            <div className="mt-auto p-4 border-t border-gray-200 space-y-3">
+              <Button 
+                variant="ghost" 
+                className="w-full justify-center border border-crypto-navy flex items-center gap-1.5"
+              >
+                <LogIn className="h-4 w-4" />
+                Sign In
+              </Button>
               <a 
                 href="https://calendly.com/founders-cryptique"
                 target="_blank"
