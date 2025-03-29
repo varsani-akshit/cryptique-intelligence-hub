@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Zap, Database, Activity, LineChart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -116,8 +117,16 @@ const SolutionSection = () => {
   const iconSizeOuter = isMobile ? 32 : 42; 
   const iconSizeInner = isMobile ? 26 : 34; 
   
+  // Text ring sizes
+  const outerTextRingSize = outerRingSize + 50; // Place text ring outside the icons
+  const innerTextRingSize = innerRingSize - 40; // Place text ring inside the icons
+  
   const web2Positions = generateOrbitalPositions(web2Icons.length, outerRingSize, Math.PI / 8);
   const web3Positions = generateOrbitalPositions(web3Icons.length, innerRingSize, 0);
+  
+  // Generate positions for text elements
+  const web2TextPosition = { x: Math.cos(-Math.PI/4) * outerTextRingSize, y: Math.sin(-Math.PI/4) * outerTextRingSize }; 
+  const web3TextPosition = { x: Math.cos(Math.PI/4) * innerTextRingSize, y: Math.sin(Math.PI/4) * innerTextRingSize };
 
   return (
     <section className="bg-white relative overflow-hidden py-10">
@@ -224,20 +233,61 @@ const SolutionSection = () => {
                   </div>
                 ))}
               </div>
-            </div>
-            
-            {/* Labels for Web2 and Web3 sections */}
-            <div className={`absolute top-0 left-4 md:left-8 mt-4 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0 -translate-y-4'}`}>
-              <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-gold/20 shadow-sm">
-                <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web2 Data Sources</h4>
+              
+              {/* Rotating Text Ring - Web2 Data Sources */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div 
+                  className="rounded-full border border-crypto-gold/20 animate-spin-slow" 
+                  style={{ 
+                    width: outerTextRingSize * 2, 
+                    height: outerTextRingSize * 2,
+                    animationDuration: '45s'
+                  }}
+                >
+                  {/* Web2 Data Sources Text */}
+                  <div 
+                    className="absolute flex items-center justify-center z-10 text-orbit"
+                    style={{ 
+                      left: `calc(50% + ${web2TextPosition.x}px)`, 
+                      top: `calc(50% + ${web2TextPosition.y}px)`,
+                      transform: 'translate(-50%, -50%) rotate(45deg)',
+                    }}
+                  >
+                    <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-gold/20 shadow-sm rotate-text-counter">
+                      <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web2 Data Sources</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Rotating Text Ring - Web3 Ecosystem */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div 
+                  className="rounded-full border border-crypto-navy/20 animate-spin-slow-reverse" 
+                  style={{ 
+                    width: innerTextRingSize * 2, 
+                    height: innerTextRingSize * 2,
+                    animationDuration: '40s' 
+                  }}
+                >
+                  {/* Web3 Ecosystem Text */}
+                  <div 
+                    className="absolute flex items-center justify-center z-10 text-orbit-reverse"
+                    style={{ 
+                      left: `calc(50% + ${web3TextPosition.x}px)`, 
+                      top: `calc(50% + ${web3TextPosition.y}px)`,
+                      transform: 'translate(-50%, -50%) rotate(-45deg)',
+                    }}
+                  >
+                    <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-navy/20 shadow-sm rotate-text">
+                      <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web3 Ecosystem</h4>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className={`absolute bottom-0 right-4 md:right-8 mb-4 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
-              <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-navy/20 shadow-sm">
-                <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web3 Ecosystem</h4>
-              </div>
-            </div>
+            {/* Remove the old static labels since we now have them rotating */}
           </div>
           
           {/* Description under the orbital visualization */}
