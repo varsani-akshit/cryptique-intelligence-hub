@@ -106,7 +106,7 @@ const TrustSection = () => {
                     <ClientLogo 
                       imageSrc="/lovable-uploads/ca51f057-4832-4bc8-9b33-d34d76e5dcbd.png" 
                       name="Mobile Wallet (MWT)" 
-                      description="DePIN & Consumer token"
+                      description="DePIN & Consumer Crypto"
                     />
                   </CarouselItem>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
