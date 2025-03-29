@@ -42,9 +42,9 @@ const TrustSection = () => {
         const deltaTime = currentTime - lastTime;
         lastTime = currentTime;
         
-        // Use scrollNext with a tiny fraction for smooth movement
+        // Use scrollNext without options for smooth movement
         // This will create a continuous scrolling effect
-        emblaApi.scrollNext({ containScroll: false });
+        emblaApi.scrollNext();
         
         // Continue the animation loop with a small delay for smooth effect
         animationFrame = requestAnimationFrame(autoScroll);
