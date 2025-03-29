@@ -112,7 +112,7 @@ const HeroSection = () => {
 
         <p className="text-xl md:text-2xl text-white/90 mb-4 max-w-2xl animate-fade-in font-poppins" 
            style={{ animationDelay: '0.2s' }}>
-          The Future of Web3 Marketing Starts Here.
+          <span className="text-crypto-gold">Redefining Web3 Marketing Intelligence</span>
         </p>
         
         <p className="text-lg text-white/80 mb-10 max-w-2xl animate-fade-in font-poppins" 

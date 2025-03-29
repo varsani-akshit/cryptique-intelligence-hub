@@ -37,22 +37,37 @@ const FeatureBlock = ({
         <h3 className="text-xl md:text-2xl font-bold mb-4 text-white">{title}</h3>
         <p className="text-foreground/80 leading-relaxed">{description}</p>
         
-        {/* Data visualization elements */}
-        <div className="absolute bottom-0 right-0 w-full h-20 opacity-20 overflow-hidden">
+        {/* Interactive data visualization */}
+        <div className="absolute bottom-0 right-0 w-full h-32 opacity-20 overflow-hidden pointer-events-none">
           <svg width="100%" height="100%" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
             <path 
               d={`M0,${50 + Math.sin(index) * 20} ${Array.from({length: 10}, (_, i) => `L${50 * (i+1)},${50 + Math.sin(index + i/2) * 20}`).join(' ')}`} 
               stroke="#CAA968" 
               strokeWidth="2" 
               fill="none" 
+              className={isHovered ? 'animate-pulse' : ''}
             />
             <circle r="4" fill="#CAA968" opacity="0.6">
               <animateMotion 
                 path={`M0,${50 + Math.sin(index) * 20} ${Array.from({length: 10}, (_, i) => `L${50 * (i+1)},${50 + Math.sin(index + i/2) * 20}`).join(' ')}`} 
-                dur="10s" 
+                dur={`${10 - index}s`} 
                 repeatCount="indefinite"
               />
             </circle>
+          </svg>
+        </div>
+        
+        {/* Digital circuit pattern overlay */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <pattern id={`micro-circuit-${index}`} x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M10 25 L20 25 L20 10 L30 10 L30 25 L40 25" stroke="#CAA968" strokeWidth="0.5" fill="none" />
+              <path d="M10 40 L20 40 L20 30 L40 30" stroke="#CAA968" strokeWidth="0.5" fill="none" />
+              <circle cx="20" cy="25" r="1" fill="#CAA968" />
+              <circle cx="30" cy="10" r="1" fill="#CAA968" />
+              <circle cx="20" cy="40" r="1" fill="#CAA968" />
+            </pattern>
+            <rect x="0" y="0" width="100%" height="100%" fill={`url(#micro-circuit-${index})`} />
           </svg>
         </div>
         
@@ -68,8 +83,17 @@ const FeatureBlock = ({
         </div>
         
         {/* Hover indicator */}
-        <div className={`absolute bottom-4 right-4 transition-all duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-          <ChevronRight className="w-5 h-5 text-crypto-gold" />
+        <div className={`absolute bottom-4 right-4 transition-all duration-500 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}>
+          <div className="flex items-center text-crypto-gold">
+            <span className="mr-2 text-sm font-medium">Learn more</span>
+            <ChevronRight className="w-5 h-5" />
+          </div>
+        </div>
+        
+        {/* Glowing edge on hover */}
+        <div className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-crypto-gold/50 to-transparent"></div>
+          <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-transparent via-crypto-gold/50 to-transparent"></div>
         </div>
       </CardContent>
     </Card>
@@ -78,7 +102,7 @@ const FeatureBlock = ({
 
 const DetailedFeatures = () => {
   return (
-    <section className="bg-black relative overflow-hidden" id="solutions">
+    <section className="bg-black relative overflow-hidden py-24" id="solutions">
       {/* Animated background elements */}
       <div className="absolute top-1/3 -right-32 w-80 h-80 bg-crypto-navy/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 -left-32 w-80 h-80 bg-crypto-gold/5 rounded-full blur-3xl"></div>
@@ -92,9 +116,8 @@ const DetailedFeatures = () => {
       <div className="absolute h-0.5 w-full bg-crypto-gold/10 top-0 left-0" style={{ animation: 'scanline 8s linear infinite' }}></div>
       
       <div className="container-section relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-fade-in relative inline-block mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-fade-in">
           Solutions to <span className="text-crypto-gold">Supercharge</span> Your Web3 Marketing
-          <div className="absolute -bottom-4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

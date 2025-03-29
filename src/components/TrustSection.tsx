@@ -19,7 +19,7 @@ const ClientLogo = ({
     <img 
       src={imageSrc} 
       alt={`${name} logo`} 
-      className="h-12 mb-4 object-contain"
+      className="h-16 mb-4 object-contain"
     />
     <h3 className="text-lg font-semibold mb-1 text-crypto-gold">{name}</h3>
     <p className="text-sm text-center text-white/70">{description}</p>
@@ -28,7 +28,7 @@ const ClientLogo = ({
 
 const TrustSection = () => {
   return (
-    <section className="relative overflow-hidden bg-black">
+    <section className="relative overflow-hidden bg-black py-16">
       {/* Background elements */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:30px_30px] opacity-5"></div>
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent"></div>

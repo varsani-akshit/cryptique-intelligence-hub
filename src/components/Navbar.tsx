@@ -1,163 +1,167 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, MessageSquare } from 'lucide-react';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { label: 'Features', href: '#features' },
-    { label: 'Solutions', href: '#solutions' },
-    { label: 'Integration', href: '#integration' },
-    { label: 'Blogs', href: '#blogs' },
-    { label: 'FAQ', href: '#faq' },
-  ];
-
   return (
-    <header 
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled 
-          ? 'bg-black/80 backdrop-blur-md border-b border-crypto-gold/20' 
-          : 'bg-transparent'
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md ${
+        scrolled ? 'bg-black/80 shadow-[0_0_15px_rgba(0,0,0,0.7)]' : 'bg-transparent'
       }`}
     >
-      {/* Scanning line effect */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/20 to-transparent"></div>
-      
-      {/* Corner accent elements */}
-      <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-        <div className="absolute top-0 left-0 w-6 h-[1px] bg-crypto-gold/40"></div>
-        <div className="absolute top-0 left-0 h-6 w-[1px] bg-crypto-gold/40"></div>
-      </div>
-      
-      <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-        <div className="absolute top-0 right-0 w-6 h-[1px] bg-crypto-gold/40"></div>
-        <div className="absolute top-0 right-0 h-6 w-[1px] bg-crypto-gold/40"></div>
-      </div>
-      
-      <div className="container flex h-20 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <a href="#hero" className="font-montserrat font-bold text-2xl text-white flex items-center glow-effect p-2 rounded-md">
-            <img 
-              src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
-              alt="Cryptique Logo" 
-              className="h-10"
-            />
-          </a>
-        </div>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          <div className="relative flex gap-6">
-            {navItems.map((item) => (
-              <a 
-                key={item.label}
-                href={item.href} 
-                className="text-white/80 hover:text-crypto-gold transition-colors py-2 px-3 relative interactive-element"
-                onMouseEnter={() => setHoveredItem(item.label)}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                {item.label}
-                <span 
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-crypto-gold transform origin-left transition-transform duration-300 ${
-                    hoveredItem === item.label ? 'scale-x-100' : 'scale-x-0'
-                  }`}
-                ></span>
-              </a>
-            ))}
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between py-4 md:py-5">
+          {/* Logo */}
+          <div className="flex items-center">
+            <a href="#" className="flex items-center">
+              <img
+                src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png"
+                alt="Cryptique"
+                className="h-10 w-10 mr-2"
+              />
+              <span className="text-xl font-bold text-white">Cryptique</span>
+            </a>
           </div>
-          
-          <div className="flex items-center gap-4">
+
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#features" className="text-white/80 hover:text-crypto-gold transition-colors">
+              Features
+            </a>
+            <a href="#solutions" className="text-white/80 hover:text-crypto-gold transition-colors">
+              Solutions
+            </a>
+            <div className="relative group">
+              <button className="text-white/80 hover:text-crypto-gold transition-colors flex items-center">
+                Products
+                <ChevronDown className="ml-1 h-4 w-4 group-hover:rotate-180 transition-transform duration-200" />
+              </button>
+              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-black/90 border border-crypto-gold/20 backdrop-blur-lg transform scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
+                <div className="py-1">
+                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:bg-crypto-gold/10 hover:text-crypto-gold">
+                    Analytics Dashboard
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:bg-crypto-gold/10 hover:text-crypto-gold">
+                    Attribution Tool
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:bg-crypto-gold/10 hover:text-crypto-gold">
+                    Custom Audience Builder
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href="#" className="text-white/80 hover:text-crypto-gold transition-colors">
+              Blogs
+            </a>
             <a 
-              href="https://discord.gg/cryptique" 
+              href="https://discord.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-crypto-gold hover:text-crypto-gold/80 transition-colors"
+              className="text-white/80 hover:text-crypto-gold transition-colors" 
+              title="Join our Discord community"
             >
-              <MessageSquare size={22} />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="h-5 w-5 fill-current">
+                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+              </svg>
             </a>
-            <Button 
-              variant="outline" 
-              className="border-crypto-gold text-crypto-gold hover:bg-crypto-gold/10 interactive-element relative overflow-hidden"
+          </div>
+
+          {/* Desktop CTA Button */}
+          <div className="hidden md:block">
+            <Button
+              className="bg-crypto-gold text-black hover:bg-crypto-gold/90"
             >
-              <span className="relative z-10">Request a Demo</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-crypto-gold/0 via-crypto-gold/10 to-crypto-gold/0 opacity-0 hover:opacity-100 transition-opacity duration-700 transform translate-x-full hover:translate-x-0"></span>
-            </Button>
-            <Button 
-              className="bg-crypto-gold text-crypto-navy hover:bg-crypto-gold/90 interactive-element relative overflow-hidden"
-            >
-              <span className="relative z-10">Get Started</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-crypto-navy/0 via-crypto-navy/15 to-crypto-navy/0 opacity-0 hover:opacity-100 transition-opacity duration-700 transform translate-x-full hover:translate-x-0"></span>
+              Contact Us
             </Button>
           </div>
-        </nav>
-        
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-crypto-gold p-2 rounded-md hover:bg-crypto-gold/10 transition-colors" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white focus:outline-none"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
       </div>
-      
-      {/* Mobile Menu */}
-      <div 
-        className={`md:hidden absolute top-20 inset-x-0 bg-black/95 border-b border-crypto-gold/20 backdrop-blur-md py-6 transition-all duration-300 ease-in-out transform ${
-          isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10 pointer-events-none'
-        }`}
+
+      {/* Mobile Navigation Menu */}
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        } bg-black/90 backdrop-blur-md`}
       >
-        <div className="container flex flex-col space-y-6">
-          {navItems.map((item) => (
-            <a 
-              key={item.label}
-              href={item.href} 
-              className="text-white/90 hover:text-crypto-gold transition-colors py-3 px-4 border-l-2 border-transparent hover:border-crypto-gold"
-              onClick={() => setIsMenuOpen(false)}
+        <div className="container mx-auto px-4 py-2">
+          <div className="flex flex-col space-y-4 pb-4">
+            <a
+              href="#features"
+              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              onClick={() => setIsOpen(false)}
             >
-              {item.label}
+              Features
             </a>
-          ))}
-          <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-            <a 
-              href="https://discord.gg/cryptique" 
-              target="_blank" 
+            <a
+              href="#solutions"
+              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Solutions
+            </a>
+            <a
+              href="#"
+              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Products
+            </a>
+            <a
+              href="#"
+              className="text-white/80 hover:text-crypto-gold transition-colors py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Blogs
+            </a>
+            <a
+              href="https://discord.com"
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-crypto-gold hover:text-crypto-gold/80 transition-colors p-3"
+              className="text-white/80 hover:text-crypto-gold transition-colors py-2 flex items-center"
+              onClick={() => setIsOpen(false)}
             >
-              <MessageSquare size={22} />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="h-5 w-5 fill-current mr-2">
+                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+              </svg>
+              Discord
             </a>
-          </div>
-          <div className="flex flex-col space-y-4 pt-4 border-t border-white/10">
-            <Button 
-              variant="outline" 
-              className="border-crypto-gold text-crypto-gold hover:bg-crypto-gold/10 w-full"
+            <Button
+              className="bg-crypto-gold text-black hover:bg-crypto-gold/90 w-full mt-2"
+              onClick={() => setIsOpen(false)}
             >
-              Request a Demo
-            </Button>
-            <Button 
-              className="bg-crypto-gold text-crypto-navy hover:bg-crypto-gold/90 w-full"
-            >
-              Get Started
+              Contact Us
             </Button>
           </div>
         </div>
       </div>
-    </header>
+    </nav>
   );
 };
 

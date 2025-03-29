@@ -5,14 +5,16 @@ import { TrendingDown, AlertTriangle, DollarSign, Users, Database, LineChart, Ac
 const ProblemCard = ({ 
   icon: Icon, 
   title, 
-  delay 
+  delay,
+  visual
 }: { 
   icon: React.ElementType; 
   title: string; 
-  delay: string 
+  delay: string;
+  visual: React.ReactNode;
 }) => (
   <div 
-    className="glass-card p-6 flex items-center space-x-4 animate-fade-in backdrop-blur-md border border-crypto-gold/20 relative overflow-hidden group" 
+    className="glass-card p-6 flex flex-col items-center space-y-4 animate-fade-in backdrop-blur-md border border-crypto-gold/20 relative overflow-hidden group" 
     style={{ 
       animationDelay: delay,
       background: 'linear-gradient(145deg, rgba(0,0,0,0.9), rgba(29,12,70,0.2))'
@@ -22,7 +24,11 @@ const ProblemCard = ({
     <div className="rounded-full bg-black/50 p-3 text-crypto-gold relative z-10">
       <Icon size={20} />
     </div>
-    <div className="text-lg font-medium relative z-10">{title}</div>
+    <div className="text-lg font-medium relative z-10 text-center">{title}</div>
+    
+    <div className="relative h-24 w-full flex items-center justify-center">
+      {visual}
+    </div>
     
     {/* Digital circuit lines */}
     <div className="absolute bottom-0 left-0 h-[1px] w-full bg-crypto-gold/20 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
@@ -91,7 +97,7 @@ const DataFlowVisualization = () => (
 
 const ProblemSection = () => {
   return (
-    <section className="bg-black relative py-20 overflow-hidden">
+    <section className="bg-black relative py-16 overflow-hidden">
       {/* Futuristic background elements */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:40px_40px] opacity-10"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-futuristic-glow opacity-30"></div>
@@ -113,14 +119,12 @@ const ProblemSection = () => {
       <div className="container-section relative z-10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">
-            The Problem: <span className="text-crypto-gold">Outdated Metrics Hinder Web3 Growth</span>
+            Present <span className="text-crypto-gold">Situation</span>
           </h2>
           
           <p className="text-lg text-foreground/80 mb-10 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Web3 projects are relying on outdated, Web2-centric marketing metrics—likes, impressions, 
-            follower counts—to gauge success. But in the decentralized world, these are vanity proxies, 
-            not value indicators. They fail to measure what truly matters: community contribution, 
-            sentiment, on-chain behavior, and token-based incentivization.
+            Web3 projects are relying on outdated Web2-centric marketing metrics—likes, impressions, 
+            follower counts—to gauge success, but these fail to truly measure value indicators.
           </p>
           
           <DataFlowVisualization />
@@ -129,22 +133,83 @@ const ProblemSection = () => {
             <ProblemCard 
               icon={DollarSign} 
               title="Misallocated marketing budgets" 
-              delay="0.2s" 
+              delay="0.2s"
+              visual={
+                <div className="relative w-full h-full">
+                  <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <rect x="10" y="40" width="10" height="15" fill="#CAA968" opacity="0.3" />
+                    <rect x="30" y="30" width="10" height="25" fill="#CAA968" opacity="0.5" />
+                    <rect x="50" y="20" width="10" height="35" fill="#CAA968" opacity="0.7" />
+                    <rect x="70" y="10" width="10" height="45" fill="#CAA968" opacity="0.9" />
+                    <path d="M10,40 L80,10" stroke="#ff4d4d" strokeWidth="2" strokeDasharray="3,2" />
+                    <circle cx="10" cy="40" r="3" fill="#ff4d4d" />
+                    <circle cx="30" cy="30" r="3" fill="#ff4d4d" />
+                    <circle cx="50" cy="20" r="3" fill="#ff4d4d" />
+                    <circle cx="70" cy="10" r="3" fill="#ff4d4d" />
+                  </svg>
+                </div>
+              }
             />
             <ProblemCard 
               icon={Users} 
               title="Shallow community engagement" 
-              delay="0.3s" 
+              delay="0.3s"
+              visual={
+                <div className="relative w-full h-full">
+                  <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <circle cx="50" cy="25" r="20" fill="none" stroke="#CAA968" strokeWidth="1" opacity="0.5" />
+                    <circle cx="50" cy="25" r="15" fill="none" stroke="#CAA968" strokeWidth="1" opacity="0.7" />
+                    <circle cx="50" cy="25" r="10" fill="none" stroke="#CAA968" strokeWidth="1" opacity="0.9" />
+                    <circle cx="50" cy="25" r="5" fill="#CAA968" opacity="0.5" />
+                    <g className="animate-pulse" style={{animationDuration: "3s"}}>
+                      <circle cx="30" cy="35" r="3" fill="#CAA968" opacity="0.7" />
+                      <circle cx="40" cy="45" r="3" fill="#CAA968" opacity="0.7" />
+                      <circle cx="60" cy="45" r="3" fill="#CAA968" opacity="0.7" />
+                      <circle cx="70" cy="35" r="3" fill="#CAA968" opacity="0.7" />
+                      <circle cx="65" cy="15" r="3" fill="#CAA968" opacity="0.7" />
+                      <circle cx="35" cy="15" r="3" fill="#CAA968" opacity="0.7" />
+                    </g>
+                  </svg>
+                </div>
+              }
             />
             <ProblemCard 
               icon={AlertTriangle} 
               title="Poor Product-Market Fit detection" 
-              delay="0.4s" 
+              delay="0.4s"
+              visual={
+                <div className="relative w-full h-full">
+                  <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <rect x="10" y="10" width="35" height="35" rx="5" fill="#CAA968" opacity="0.3" />
+                    <circle cx="70" cy="30" r="20" fill="#CAA968" opacity="0.3" />
+                    <g transform="translate(50, 25)">
+                      <line x1="-15" y1="0" x2="15" y2="0" stroke="#ff4d4d" strokeWidth="2" />
+                      <line x1="0" y1="-15" x2="0" y2="15" stroke="#ff4d4d" strokeWidth="2" />
+                      <circle cx="0" cy="0" r="8" stroke="#ff4d4d" strokeWidth="2" fill="none" className="animate-pulse" />
+                    </g>
+                  </svg>
+                </div>
+              }
             />
             <ProblemCard 
               icon={TrendingDown} 
               title="Unsustainable growth" 
-              delay="0.5s" 
+              delay="0.5s"
+              visual={
+                <div className="relative w-full h-full">
+                  <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                    <path d="M10,50 Q25,20 40,45 Q55,10 70,30 Q85,50 90,15" stroke="#CAA968" strokeWidth="2" fill="none" />
+                    <path d="M10,50 L90,50" stroke="#CAA968" strokeWidth="0.5" strokeDasharray="3,2" />
+                    <path d="M90,15 L90,50" stroke="#ff4d4d" strokeWidth="0.5" strokeDasharray="3,2" />
+                    <circle cx="10" cy="50" r="3" fill="#CAA968" />
+                    <circle cx="40" cy="45" r="3" fill="#CAA968" />
+                    <circle cx="70" cy="30" r="3" fill="#CAA968" />
+                    <circle cx="90" cy="15" r="3" fill="#CAA968" />
+                    <path d="M70,30 L90,50" stroke="#ff4d4d" strokeWidth="2" fill="none" strokeDasharray="3,2" />
+                    <circle cx="90" cy="50" r="3" fill="#ff4d4d" />
+                  </svg>
+                </div>
+              }
             />
           </div>
           
@@ -160,7 +225,7 @@ const ProblemSection = () => {
           </div>
           
           {/* Digital data flow indicator */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-6">
             <div className="relative h-16 w-1 bg-gradient-to-b from-crypto-gold/0 via-crypto-gold/50 to-crypto-gold/0">
               <div className="absolute h-4 w-4 rounded-full bg-crypto-gold/20 left-1/2 transform -translate-x-1/2 border border-crypto-gold/50 animate-pulse"></div>
               <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
