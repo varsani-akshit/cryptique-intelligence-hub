@@ -5,14 +5,14 @@ import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(true); // Set to true by default
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setScrolled(true);
       } else {
-        setScrolled(false);
+        setScrolled(true); // Always keep navbar visible
       }
     };
 
@@ -82,6 +82,18 @@ const Navbar = () => {
               className="text-crypto-navy hover:text-crypto-gold transition-colors"
             >
               Documentation
+            </a>
+            <a 
+              href="https://x.com/Cryptiqueio" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors" 
+              title="Follow us on X"
+              aria-label="Cryptique X (Twitter) account"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
             </a>
             <a 
               href="https://discord.gg/7vnk8duN" 
@@ -163,6 +175,18 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             >
               Documentation
+            </a>
+            <a
+              href="https://x.com/Cryptiqueio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-crypto-navy hover:text-crypto-gold transition-colors py-2 flex items-center"
+              onClick={() => setIsOpen(false)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-current mr-2" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              X (Twitter)
             </a>
             <a
               href="https://discord.gg/7vnk8duN"

@@ -82,6 +82,7 @@ const FooterSection = () => {
             <a href="#" className="hover:text-crypto-gold transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-crypto-gold transition-colors">Terms of Service</a>
             <a href="https://www.blogs.cryptique.io" className="hover:text-crypto-gold transition-colors" target="_blank" rel="noopener noreferrer">Blogs</a>
+            <a href="https://x.com/Cryptiqueio" className="hover:text-crypto-gold transition-colors" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
             <a href="https://discord.gg/7vnk8duN" className="hover:text-crypto-gold transition-colors" target="_blank" rel="noopener noreferrer">Discord</a>
           </div>
           
