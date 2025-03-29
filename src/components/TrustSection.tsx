@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
@@ -30,44 +31,31 @@ const TrustSection = () => {
     dragFree: true
   });
 
-  // Enhanced continuous scrolling effect using proper Embla methods
+  // Enhanced continuous scrolling effect - always moving regardless of interaction
   useEffect(() => {
     if (emblaApi) {
       let animationFrame: number;
-      const scrollSpeed = 0.5; // Controls how fast the carousel scrolls
+      const scrollInterval = 30; // Controls the speed (lower = faster)
       
       const autoScroll = () => {
-        if (emblaApi && emblaApi.canScrollNext()) {
-          // Scroll by a small amount each frame for smooth continuous motion
+        if (emblaApi) {
+          // Always move to next slide in a continuous loop
           emblaApi.scrollNext();
+          
+          // Continue scrolling regardless of user interaction
+          animationFrame = setTimeout(() => {
+            requestAnimationFrame(autoScroll);
+          }, scrollInterval);
         }
-        
-        // Continue the animation loop
-        animationFrame = requestAnimationFrame(autoScroll);
       };
       
-      // Start the animation
-      animationFrame = requestAnimationFrame(autoScroll);
-      
-      // Pause scrolling when user interacts with the carousel
-      const onPointerDown = () => {
-        cancelAnimationFrame(animationFrame);
-      };
-      
-      const onPointerUp = () => {
-        // Resume scrolling when user stops interacting
-        animationFrame = requestAnimationFrame(autoScroll);
-      };
-      
-      emblaApi.on('pointerDown', onPointerDown);
-      emblaApi.on('pointerUp', onPointerUp);
+      // Start the continuous animation
+      animationFrame = setTimeout(() => {
+        requestAnimationFrame(autoScroll);
+      }, scrollInterval);
       
       return () => {
-        cancelAnimationFrame(animationFrame);
-        if (emblaApi) {
-          emblaApi.off('pointerDown', onPointerDown);
-          emblaApi.off('pointerUp', onPointerUp);
-        }
+        clearTimeout(animationFrame);
       };
     }
   }, [emblaApi]);
