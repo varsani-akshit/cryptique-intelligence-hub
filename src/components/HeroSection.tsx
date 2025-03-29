@@ -64,11 +64,13 @@ const HeroSection = () => {
       className="relative overflow-hidden bg-white min-h-screen"
       id="hero"
     >
-      {/* Background elements */}
+      {/* Background elements with navy accent spots */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-crypto-navy/5 rounded-full blur-3xl animate-pulse-glow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-crypto-gold/5 rounded-full blur-3xl animate-pulse-glow" 
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-crypto-navy/10 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-crypto-gold/10 rounded-full blur-3xl animate-pulse-glow" 
              style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-crypto-navy/5 rounded-full blur-xl"></div>
+        <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-crypto-navy/8 rounded-full blur-2xl"></div>
         <div className="absolute inset-0 bg-cyber-grid bg-[size:50px_50px] opacity-5"></div>
       </div>
       
@@ -93,40 +95,30 @@ const HeroSection = () => {
 
         <h1 
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 gradient-text transition-all duration-300 ease-out"
+          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-10 bg-gold-navy-gradient bg-clip-text text-transparent transition-all duration-300 ease-out"
           style={{transformStyle: 'preserve-3d'}}
         >
           Intelligence That Accelerates Web3
         </h1>
-
-        <p className="text-xl md:text-2xl text-crypto-dark/90 mb-4 max-w-2xl animate-fade-in font-poppins" 
-           style={{ animationDelay: '0.2s' }}>
-          <span className="text-crypto-gold">Redefining Web3 Marketing Intelligence</span>
-        </p>
-        
-        <p className="text-lg text-crypto-dark/80 mb-10 max-w-2xl animate-fade-in font-poppins" 
-           style={{ animationDelay: '0.3s' }}>
-          Driven by Data. Designed for <span className="text-crypto-gold">Web3 Growth</span>.
-        </p>
         
         <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <Button 
             size="lg" 
-            className="text-base px-10 py-7 bg-crypto-gold text-white hover:bg-crypto-gold/90 interactive-element relative overflow-hidden group"
+            className="text-base px-10 py-7 bg-gradient-to-r from-crypto-gold to-crypto-navy text-white hover:bg-crypto-gold/90 interactive-element relative overflow-hidden group"
           >
             <span className="relative z-10">Get Started</span>
-            <span className="absolute inset-0 bg-crypto-gold/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-crypto-navy to-crypto-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
           </Button>
           <Button 
             size="lg" 
             variant="outline" 
-            className="text-base px-10 py-7 border-crypto-gold text-crypto-gold hover:bg-crypto-gold/10 group interactive-element relative overflow-hidden"
+            className="text-base px-10 py-7 border border-gradient-to-r from-crypto-navy to-crypto-gold text-crypto-navy hover:bg-crypto-gold/10 group interactive-element relative overflow-hidden"
           >
             <span className="relative z-10 flex items-center">
               Request a Demo
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </span>
-            <span className="absolute inset-0 bg-crypto-gold/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+            <span className="absolute inset-0 bg-gradient-to-r from-crypto-gold/20 to-crypto-navy/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
           </Button>
         </div>
 

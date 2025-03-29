@@ -75,6 +75,10 @@
     @apply bg-navy-gold-gradient bg-clip-text text-transparent;
   }
 
+  .text-gradient-gold-navy {
+    @apply bg-gradient-to-br from-crypto-gold via-crypto-gold/80 to-crypto-navy bg-clip-text text-transparent;
+  }
+
   .code-block {
     @apply bg-muted/50 border border-muted/30 rounded-lg p-4 font-mono text-sm overflow-x-auto;
   }
@@ -88,11 +92,11 @@
   }
   
   .interactive-element {
-    @apply relative overflow-hidden transition-all duration-300 ease-out;
+    @apply relative overflow-hidden transition-all duration-300 ease-out hover:shadow-md hover:-translate-y-1;
   }
   
   .interactive-element::after {
-    @apply content-[''] absolute w-full h-full top-0 left-0 bg-black/5 scale-0 rounded-md transition-transform duration-300 ease-out;
+    @apply content-[''] absolute w-full h-full top-0 left-0 bg-gradient-to-r from-crypto-gold/5 to-crypto-navy/5 scale-0 rounded-md transition-transform duration-300 ease-out;
   }
   
   .interactive-element:hover::after {

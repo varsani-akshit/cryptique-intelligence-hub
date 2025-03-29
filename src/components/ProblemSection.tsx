@@ -4,10 +4,11 @@ import React from 'react';
 const ProblemSection = () => {
   return (
     <section className="bg-white relative overflow-hidden py-0">
-      {/* Background elements */}
+      {/* Background elements with navy spots */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:30px_30px] opacity-5"></div>
-      <div className="absolute top-1/3 -left-32 w-64 h-64 bg-crypto-navy/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/3 -right-32 w-64 h-64 bg-crypto-gold/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/3 -left-32 w-64 h-64 bg-crypto-navy/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/3 -right-32 w-64 h-64 bg-crypto-gold/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-crypto-navy/8 rounded-full blur-xl"></div>
       
       <div className="container-section relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -46,8 +47,8 @@ const ProblemSection = () => {
                     <rect x="20" y="30" width="60" height="40" fill="none" stroke="#CAA968" strokeWidth="2" />
                     <line x1="20" y1="45" x2="80" y2="45" stroke="#CAA968" strokeWidth="2" />
                     <circle cx="30" cy="38" r="3" fill="#CAA968" />
-                    <text x="50" y="65" textAnchor="middle" dominantBaseline="middle" fill="#CAA968" fontSize="16" fontWeight="bold">86%</text>
-                    <text x="50" y="75" textAnchor="middle" dominantBaseline="middle" fill="#CAA968" fontSize="6">UNTRACEABLE CONVERSIONS</text>
+                    <text x="50" y="60" textAnchor="middle" dominantBaseline="middle" fill="#CAA968" fontSize="16" fontWeight="bold">86%</text>
+                    <text x="50" y="75" textAnchor="middle" dominantBaseline="middle" fill="#CAA968" fontSize="8">UNTRACEABLE CONVERSIONS</text>
                   </svg>
                 </div>
               </div>
@@ -63,8 +64,8 @@ const ProblemSection = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <svg viewBox="0 0 100 100" width="100%" height="100%">
                     <path d="M20,80 L20,50 L40,50 L40,30 L60,30 L60,60 L80,60 L80,80 Z" fill="none" stroke="#CAA968" strokeWidth="2" />
-                    <text x="50" y="50" textAnchor="middle" dominantBaseline="middle" fill="#CAA968" fontSize="16" fontWeight="bold">5x</text>
-                    <text x="50" y="65" textAnchor="middle" dominantBaseline="middle" fill="#CAA968" fontSize="8">WASTED BUDGET</text>
+                    <text x="50" y="50" textAnchor="middle" dominantBaseline="middle" fill="#CAA968" fontSize="18" fontWeight="bold">5x</text>
+                    <text x="50" y="65" textAnchor="middle" dominantBaseline="middle" fill="#CAA968" fontSize="10">WASTED BUDGET</text>
                   </svg>
                 </div>
               </div>
