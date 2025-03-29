@@ -45,13 +45,13 @@ const SolutionSection = () => {
     { name: 'Telegram', 
       icon: <img src="/lovable-uploads/20e8e068-4233-4367-bf9c-e275b95c573e.png" alt="Telegram Logo" className="w-full h-full object-contain" />
     },
-    { name: 'QuestN', 
+    { name: 'Meta Ads', 
       icon: <img src="/lovable-uploads/d98846ba-c367-45ff-a7d6-c8ffa5012877.png" alt="Meta Logo" className="w-full h-full object-contain" />
     },
     { name: 'Google Ads', 
       icon: <img src="/lovable-uploads/f89b5608-32f7-432e-a8df-6469ad60dcd3.png" alt="Google Ads Logo" className="w-full h-full object-contain" />
     },
-    { name: 'Meta Ads', 
+    { name: 'QuestN', 
       icon: <img src="/lovable-uploads/b28bbf9f-cbf5-4d75-8777-0d11d86fb0e9.png" alt="QuestN Logo" className="w-full h-full object-contain" />
     },
   ];
