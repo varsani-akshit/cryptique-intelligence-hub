@@ -156,7 +156,7 @@ const SolutionSection = () => {
           </div>
         </div>
       </>
-    )
+    );
   };
 
   return (
