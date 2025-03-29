@@ -113,7 +113,7 @@ const TrustSection = () => {
                     <ClientLogo 
                       imageSrc="/lovable-uploads/4b6bb044-040e-4c81-9dd5-96b69ef95dd5.png" 
                       name="Vingt" 
-                      description="DeFi Protocol"
+                      description="DeFi - Asset Management"
                     />
                   </CarouselItem>
                 </React.Fragment>
