@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
@@ -18,7 +19,7 @@ const ClientLogo = ({
     <img 
       src={imageSrc} 
       alt={`${name} logo`} 
-      className={`${isLarge ? 'h-20' : 'h-16'} mb-4 object-contain`}
+      className={`${isLarge ? 'h-24' : 'h-18'} mb-4 object-contain`}
     />
     <h3 className="text-lg font-semibold mb-1 text-crypto-gold">{name}</h3>
     <p className="text-sm text-center text-crypto-dark/70">{description}</p>
