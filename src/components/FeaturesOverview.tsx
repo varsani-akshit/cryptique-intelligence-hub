@@ -107,7 +107,10 @@ const FeaturesOverview = () => {
           ref={headingRef}
           className="text-3xl md:text-4xl font-bold mb-6 text-center transform translate-y-10 opacity-0 transition-all duration-700"
         >
-          Core <span className="text-crypto-gold">Features</span>
+          <span className="relative">
+            Core <span className="text-crypto-gold">Features</span>
+            <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></span>
+          </span>
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">

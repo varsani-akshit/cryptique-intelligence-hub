@@ -125,7 +125,10 @@ const DetailedFeatures = () => {
       <div className="container-section relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">
-            <span className="text-crypto-gold">Features</span>
+            <span className="relative">
+              <span className="gold-navy-text">Features</span>
+              <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></span>
+            </span>
           </h2>
           <p className="text-crypto-dark/80 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Discover how Cryptique revolutionizes marketing in Web3, bringing together the best of both worlds for unprecedented engagement and conversion optimization.

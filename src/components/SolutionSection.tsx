@@ -39,7 +39,10 @@ const SolutionSection = () => {
       <div className="container-section relative z-10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fade-in">
-            <span className="text-crypto-gold">The Future of Web3 Marketing Starts Here</span>
+            <span className="relative">
+              The Future of <span className="gold-navy-text">Web3 Marketing</span> Starts Here
+              <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></span>
+            </span>
           </h2>
           
           <div 
