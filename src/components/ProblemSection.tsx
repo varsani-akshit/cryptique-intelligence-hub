@@ -30,7 +30,7 @@ const ProblemSection = () => {
             <Card className="overflow-hidden border-crypto-gold/20 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <div className="bg-gradient-to-r from-crypto-gold/10 to-transparent h-1"></div>
               <CardContent className="p-6">
-                <div className="flex items-start gap-6">
+                <div className="flex items-center gap-6">
                   <div className="h-16 w-16 rounded-full bg-crypto-gold/10 flex items-center justify-center flex-shrink-0">
                     <Database className="h-8 w-8 text-crypto-gold" />
                   </div>
@@ -40,7 +40,7 @@ const ProblemSection = () => {
                       <span className="font-semibold text-crypto-navy uppercase text-sm tracking-wider">Data Lost</span>
                     </div>
                     <p className="text-crypto-dark/70">
-                      Disconnected data sources across platforms make campaign tracking nearly impossible.
+                      Disconnected data sources make campaign tracking nearly impossible.
                     </p>
                   </div>
                 </div>
@@ -51,7 +51,7 @@ const ProblemSection = () => {
             <Card className="overflow-hidden border-crypto-gold/20 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <div className="bg-gradient-to-r from-crypto-gold/10 to-transparent h-1"></div>
               <CardContent className="p-6">
-                <div className="flex items-start gap-6">
+                <div className="flex items-center gap-6">
                   <div className="h-16 w-16 rounded-full bg-crypto-gold/10 flex items-center justify-center flex-shrink-0">
                     <Activity className="h-8 w-8 text-crypto-gold" />
                   </div>
@@ -61,7 +61,7 @@ const ProblemSection = () => {
                       <span className="font-semibold text-crypto-navy uppercase text-sm tracking-wider">Untraceable</span>
                     </div>
                     <p className="text-crypto-dark/70">
-                      Impossible to identify which channels drive results across social platforms and communities.
+                      Impossible to identify which channels drive results across platforms.
                     </p>
                   </div>
                 </div>
@@ -72,7 +72,7 @@ const ProblemSection = () => {
             <Card className="overflow-hidden border-crypto-gold/20 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <div className="bg-gradient-to-r from-crypto-gold/10 to-transparent h-1"></div>
               <CardContent className="p-6">
-                <div className="flex items-start gap-6">
+                <div className="flex items-center gap-6">
                   <div className="h-16 w-16 rounded-full bg-crypto-gold/10 flex items-center justify-center flex-shrink-0">
                     <DollarSign className="h-8 w-8 text-crypto-gold" />
                   </div>
@@ -82,7 +82,7 @@ const ProblemSection = () => {
                       <span className="font-semibold text-crypto-navy uppercase text-sm tracking-wider">Wasted Budget</span>
                     </div>
                     <p className="text-crypto-dark/70">
-                      Marketing budgets wasted without data on what drives on-chain conversions and engagement.
+                      Marketing budgets wasted without data on what drives conversions.
                     </p>
                   </div>
                 </div>
@@ -93,7 +93,7 @@ const ProblemSection = () => {
             <Card className="overflow-hidden border-crypto-gold/20 animate-fade-in" style={{ animationDelay: '0.5s' }}>
               <div className="bg-gradient-to-r from-crypto-gold/10 to-transparent h-1"></div>
               <CardContent className="p-6">
-                <div className="flex items-start gap-6">
+                <div className="flex items-center gap-6">
                   <div className="h-16 w-16 rounded-full bg-crypto-gold/10 flex items-center justify-center flex-shrink-0">
                     <Clock className="h-8 w-8 text-crypto-gold" />
                   </div>
@@ -103,7 +103,7 @@ const ProblemSection = () => {
                       <span className="font-semibold text-crypto-navy uppercase text-sm tracking-wider">Hours Wasted</span>
                     </div>
                     <p className="text-crypto-dark/70">
-                      Teams spend hours manually collecting data instead of focusing on strategic growth.
+                      Teams spend hours manually collecting data instead of focusing on growth.
                     </p>
                   </div>
                 </div>
