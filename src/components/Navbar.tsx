@@ -1,11 +1,19 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isMobile = useIsMobile();
+  
+  // Close mobile menu when switching to desktop view
+  useEffect(() => {
+    if (!isMobile && isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [isMobile, isMenuOpen]);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +27,18 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  // When mobile menu is open, prevent background scrolling
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav 
@@ -35,29 +55,29 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
                 alt="Cryptique Logo" 
-                className="h-10 mr-3" 
+                className="h-8 md:h-10 mr-2 md:mr-3" 
               />
             </div>
           </a>
         </div>
         
         {/* Desktop menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
           <a 
             href="#hero" 
-            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors text-sm lg:text-base`}
           >
             Home
           </a>
           <a 
             href="#trust" 
-            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors text-sm lg:text-base`}
           >
             Partners
           </a>
           <a 
             href="#features" 
-            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors text-sm lg:text-base`}
           >
             Features
           </a>
@@ -65,7 +85,7 @@ const Navbar = () => {
             href="https://docs.cryptique.io" 
             target="_blank"
             rel="noopener noreferrer"
-            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors text-sm lg:text-base`}
           >
             Documentation
           </a>
@@ -73,7 +93,7 @@ const Navbar = () => {
             href="https://blog.cryptique.io" 
             target="_blank"
             rel="noopener noreferrer"
-            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors text-sm lg:text-base`}
           >
             Blog
           </a>
@@ -94,7 +114,7 @@ const Navbar = () => {
               className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
               aria-label="Discord"
             >
-              {/* Replace Discord icon with an SVG for the Discord logo */}
+              {/* Discord SVG icon */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 127.14 96.36"
@@ -106,12 +126,15 @@ const Navbar = () => {
               </svg>
             </a>
           </div>
-          <Button variant="ghost" className="border border-crypto-navy">Sign In</Button>
-          <Button 
-            className="bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy"
-          >
-            Get Started
-          </Button>
+          <div className="flex space-x-2 lg:space-x-3">
+            <Button variant="ghost" size={isMobile ? "sm" : "default"} className="border border-crypto-navy text-xs lg:text-sm">Sign In</Button>
+            <Button 
+              className="bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy text-xs lg:text-sm"
+              size={isMobile ? "sm" : "default"}
+            >
+              Get Started
+            </Button>
+          </div>
         </div>
         
         {/* Mobile menu button */}
@@ -121,6 +144,7 @@ const Navbar = () => {
             className={`p-2 rounded-md ${
               isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'
             }`}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -131,27 +155,30 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
+      {/* Mobile menu - improved with better transitions and accessibility */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div 
+          className="fixed inset-0 bg-white z-40 md:hidden pt-16 transition-all duration-300 ease-in-out"
+          style={{ opacity: isMenuOpen ? 1 : 0 }}
+        >
+          <div className="px-4 pt-2 pb-3 space-y-2 sm:px-6 flex flex-col h-full">
             <a 
               href="#hero"
-              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold"
+              className="block px-3 py-3 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold hover:bg-gray-50"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </a>
             <a 
               href="#trust"
-              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold"
+              className="block px-3 py-3 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold hover:bg-gray-50"
               onClick={() => setIsMenuOpen(false)}
             >
               Partners
             </a>
             <a 
               href="#features"
-              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold"
+              className="block px-3 py-3 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold hover:bg-gray-50"
               onClick={() => setIsMenuOpen(false)}
             >
               Features
@@ -160,7 +187,7 @@ const Navbar = () => {
               href="https://docs.cryptique.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold"
+              className="block px-3 py-3 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold hover:bg-gray-50"
               onClick={() => setIsMenuOpen(false)}
             >
               Documentation
@@ -169,12 +196,12 @@ const Navbar = () => {
               href="https://blog.cryptique.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold"
+              className="block px-3 py-3 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold hover:bg-gray-50"
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
             </a>
-            <div className="flex space-x-4 px-3 py-2">
+            <div className="flex space-x-6 px-3 py-3">
               <a 
                 href="https://x.com/Cryptiqueio" 
                 target="_blank"
@@ -182,7 +209,7 @@ const Navbar = () => {
                 className="text-crypto-navy hover:text-crypto-gold"
                 aria-label="X (Twitter)"
               >
-                <X className="h-5 w-5" />
+                <X className="h-6 w-6" />
               </a>
               <a 
                 href="https://discord.gg/7vnk8duN" 
@@ -191,7 +218,7 @@ const Navbar = () => {
                 className="text-crypto-navy hover:text-crypto-gold"
                 aria-label="Discord"
               >
-                {/* Replace Discord icon with an SVG for the Discord logo */}
+                {/* Discord SVG */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 127.14 96.36"
@@ -203,10 +230,10 @@ const Navbar = () => {
                 </svg>
               </a>
             </div>
-            <div className="pt-4 pb-3 border-t border-gray-200">
-              <Button variant="ghost" className="w-full justify-start border border-crypto-navy">Sign In</Button>
+            <div className="mt-auto p-4 border-t border-gray-200 space-y-3">
+              <Button variant="ghost" className="w-full justify-center border border-crypto-navy">Sign In</Button>
               <Button 
-                className="w-full mt-2 bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy"
+                className="w-full bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy"
               >
                 Get Started
               </Button>
