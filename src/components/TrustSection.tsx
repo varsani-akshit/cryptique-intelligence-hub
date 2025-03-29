@@ -22,17 +22,17 @@ const ClientLogo = ({
       className="h-16 mb-4 object-contain"
     />
     <h3 className="text-lg font-semibold mb-1 text-crypto-gold">{name}</h3>
-    <p className="text-sm text-center text-white/70">{description}</p>
+    <p className="text-sm text-center text-crypto-dark/70">{description}</p>
   </div>
 );
 
 const TrustSection = () => {
   return (
-    <section className="relative overflow-hidden bg-black py-0">
+    <section className="relative overflow-hidden bg-white py-0">
       {/* Background elements */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:30px_30px] opacity-5"></div>
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
       
       <div className="container-section">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fade-in relative inline-block mx-auto">
@@ -66,25 +66,25 @@ const TrustSection = () => {
             className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold" 
             style={{ animationDelay: "0.1s" }}
           >
-            <p className="text-lg font-medium">DeFi Protocols</p>
+            <p className="text-lg font-medium text-crypto-dark">DeFi Protocols</p>
           </div>
           <div 
             className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy" 
             style={{ animationDelay: "0.2s" }}
           >
-            <p className="text-lg font-medium">GameFi & NFT Platforms</p>
+            <p className="text-lg font-medium text-crypto-dark">GameFi & NFT Platforms</p>
           </div>
           <div 
             className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy" 
             style={{ animationDelay: "0.3s" }}
           >
-            <p className="text-lg font-medium">DAOs & SocialFi</p>
+            <p className="text-lg font-medium text-crypto-dark">DAOs & SocialFi</p>
           </div>
           <div 
             className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold" 
             style={{ animationDelay: "0.4s" }}
           >
-            <p className="text-lg font-medium">Layer 1 & Layer 2 Blockchains</p>
+            <p className="text-lg font-medium text-crypto-dark">Layer 1 & Layer 2 Blockchains</p>
           </div>
         </div>
         

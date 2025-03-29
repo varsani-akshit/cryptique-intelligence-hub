@@ -68,7 +68,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for Cryptique
+				// Custom colors for Cryptique (light theme)
 				crypto: {
 					purple: '#8B5CF6',
 					blue: '#0EA5E9',
@@ -76,7 +76,7 @@ export default {
 					pink: '#D946EF',
 					dark: '#1A1F2C',
 					gray: '#8E9196',
-					light: '#F1F0FB',
+					light: '#F8F9FA',
 					gold: '#CAA968',
 					navy: '#1D0C46',
 				}
@@ -187,10 +187,10 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'hero-pattern': 'linear-gradient(to bottom right, rgba(29, 12, 70, 0.9), rgba(0, 0, 0, 1))',
+				'hero-pattern': 'linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(243, 244, 246, 1))',
 				'golden-gradient': 'linear-gradient(45deg, #CAA968, #F5E1A4, #CAA968)',
-				'cyber-grid': 'linear-gradient(#1D0C46 1px, transparent 1px), linear-gradient(to right, #1D0C46 1px, #000 1px)',
-				'futuristic-glow': 'radial-gradient(circle at center, rgba(202, 169, 104, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
+				'cyber-grid': 'linear-gradient(#DEDEE6 1px, transparent 1px), linear-gradient(to right, #DEDEE6 1px, #FFF 1px)',
+				'futuristic-glow': 'radial-gradient(circle at center, rgba(202, 169, 104, 0.15) 0%, rgba(255, 255, 255, 0) 70%)',
 			}
 		}
 	},

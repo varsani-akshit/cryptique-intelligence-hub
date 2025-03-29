@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ProblemSection from '@/components/ProblemSection';
 import SolutionSection from '@/components/SolutionSection';
-import FeaturesOverview from '@/components/FeaturesOverview';
 import TrustSection from '@/components/TrustSection';
 import DetailedFeatures from '@/components/DetailedFeatures';
 import IntegrationSection from '@/components/IntegrationSection';
@@ -39,7 +38,7 @@ const Index = () => {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
+      <div className="fixed inset-0 bg-white flex flex-col items-center justify-center z-50">
         <div 
           ref={cryptiqueLogoRef => {
             if (cryptiqueLogoRef) {
@@ -57,7 +56,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-radial from-crypto-gold/20 to-transparent rounded-full blur-xl animate-neon-pulse"></div>
         </div>
         
-        <div className="w-64 h-1 bg-white/10 rounded-full overflow-hidden mt-8">
+        <div className="w-64 h-1 bg-crypto-dark/10 rounded-full overflow-hidden mt-8">
           <div 
             className="h-full bg-crypto-gold"
             style={{ width: `${loadingProgress}%`, transition: 'width 0.3s ease-out' }}
@@ -82,8 +81,6 @@ const Index = () => {
         <HeroSection />
         <TrustSection />
         <ProblemSection />
-        <SolutionSection />
-        <FeaturesOverview />
         <DetailedFeatures />
         <IntegrationSection />
         <BenefitsSection />

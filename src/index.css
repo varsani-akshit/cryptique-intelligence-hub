@@ -9,32 +9,32 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 215 20.2% 65.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
     --primary: 39 45% 60%;
-    --primary-foreground: 0 0% 0%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 262 75% 17%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 260 60% 15%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 20%;
-    --input: 217.2 32.6% 17.5%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 39 45% 60%;
 
     --radius: 0.75rem;
@@ -47,7 +47,7 @@
   }
 
   body {
-    @apply bg-black text-white font-poppins overflow-x-hidden;
+    @apply bg-white text-foreground font-poppins overflow-x-hidden;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -56,11 +56,11 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-montserrat font-bold tracking-tight;
+    @apply font-montserrat font-bold tracking-tight text-crypto-dark;
   }
 
   .glass-card {
-    @apply bg-card/60 backdrop-blur-sm border border-muted/20 rounded-2xl shadow-lg;
+    @apply bg-white/90 backdrop-blur-sm border border-muted/20 rounded-2xl shadow-md;
   }
 
   .gradient-text {
@@ -72,7 +72,7 @@
   }
 
   .container-section {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6;
   }
   
   .cursor-follow {
@@ -84,7 +84,7 @@
   }
   
   .interactive-element::after {
-    @apply content-[''] absolute w-full h-full top-0 left-0 bg-white/10 scale-0 rounded-md transition-transform duration-300 ease-out;
+    @apply content-[''] absolute w-full h-full top-0 left-0 bg-black/5 scale-0 rounded-md transition-transform duration-300 ease-out;
   }
   
   .interactive-element:hover::after {
@@ -112,7 +112,6 @@
   }
 
   /* Futuristic elements */
-  /* Removed the scanline */
   
   .cyber-frame {
     @apply relative border border-crypto-gold/20;
@@ -132,7 +131,7 @@
   }
 
   .neo-brutalism {
-    @apply bg-black border-2 border-crypto-gold shadow-[5px_5px_0px_rgba(202,169,104,0.8)];
+    @apply bg-white border-2 border-crypto-gold shadow-[5px_5px_0px_rgba(202,169,104,0.8)];
   }
 
   .text-outline {
@@ -220,7 +219,7 @@
   }
   
   .bg-futuristic-glow {
-    background: radial-gradient(circle at 50% 50%, rgba(202, 169, 104, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(202, 169, 104, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
   }
   
   .bg-cyber-grid {

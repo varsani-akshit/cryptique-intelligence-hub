@@ -7,11 +7,10 @@ const HeroSection = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const cryptiqueLogoRef = useRef<HTMLDivElement>(null);
-  const glitchLineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!heroRef.current || !titleRef.current || !cryptiqueLogoRef.current || !glitchLineRef.current) return;
+      if (!heroRef.current || !titleRef.current || !cryptiqueLogoRef.current) return;
       
       // Parallax effect for title
       const { left, top, width, height } = heroRef.current.getBoundingClientRect();
@@ -23,9 +22,6 @@ const HeroSection = () => {
       
       // 3D rotation effect for the logo
       cryptiqueLogoRef.current.style.transform = `rotateY(${x * 30}deg) rotateX(${-y * 30}deg)`;
-      
-      // Move glitch line with mouse
-      glitchLineRef.current.style.top = `${e.clientY / window.innerHeight * 100}%`;
     };
     
     // Scroll effect
@@ -65,23 +61,16 @@ const HeroSection = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative overflow-hidden bg-black min-h-screen"
+      className="relative overflow-hidden bg-white min-h-screen"
       id="hero"
     >
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-crypto-navy/20 rounded-full blur-3xl animate-pulse-glow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-crypto-gold/10 rounded-full blur-3xl animate-pulse-glow" 
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-crypto-navy/5 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-crypto-gold/5 rounded-full blur-3xl animate-pulse-glow" 
              style={{animationDelay: '1s'}}></div>
         <div className="absolute inset-0 bg-cyber-grid bg-[size:50px_50px] opacity-5"></div>
       </div>
-      
-      {/* Horizontal scan line */}
-      <div 
-        ref={glitchLineRef}
-        className="absolute left-0 w-full h-[2px] bg-crypto-gold/20 backdrop-blur-sm"
-        style={{ top: '50%', boxShadow: '0 0 10px rgba(202, 169, 104, 0.5)' }}
-      ></div>
       
       <div className="container-section relative z-10 flex flex-col items-center justify-center min-h-screen text-center">
         {/* 3D rotating logo */}
@@ -110,12 +99,12 @@ const HeroSection = () => {
           Intelligence That Accelerates Web3
         </h1>
 
-        <p className="text-xl md:text-2xl text-white/90 mb-4 max-w-2xl animate-fade-in font-poppins" 
+        <p className="text-xl md:text-2xl text-crypto-dark/90 mb-4 max-w-2xl animate-fade-in font-poppins" 
            style={{ animationDelay: '0.2s' }}>
           <span className="text-crypto-gold">Redefining Web3 Marketing Intelligence</span>
         </p>
         
-        <p className="text-lg text-white/80 mb-10 max-w-2xl animate-fade-in font-poppins" 
+        <p className="text-lg text-crypto-dark/80 mb-10 max-w-2xl animate-fade-in font-poppins" 
            style={{ animationDelay: '0.3s' }}>
           Driven by Data. Designed for <span className="text-crypto-gold">Web3 Growth</span>.
         </p>
@@ -123,7 +112,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <Button 
             size="lg" 
-            className="text-base px-10 py-7 bg-crypto-gold text-crypto-navy hover:bg-crypto-gold/90 interactive-element relative overflow-hidden group"
+            className="text-base px-10 py-7 bg-crypto-gold text-white hover:bg-crypto-gold/90 interactive-element relative overflow-hidden group"
           >
             <span className="relative z-10">Get Started</span>
             <span className="absolute inset-0 bg-crypto-gold/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
@@ -144,7 +133,7 @@ const HeroSection = () => {
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="flex flex-col items-center">
-            <p className="text-sm mb-2 text-white/70">Scroll to Explore</p>
+            <p className="text-sm mb-2 text-crypto-dark/70">Scroll to Explore</p>
             <MousePointer size={20} className="text-crypto-gold" />
           </div>
         </div>
