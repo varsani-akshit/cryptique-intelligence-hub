@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Activity, Database, DollarSign, Clock } from 'lucide-react';
 
 const ProblemSection = () => {
   return (
@@ -27,9 +28,12 @@ const ProblemSection = () => {
             <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <div className="h-40 w-40 mb-6 relative flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>
-                <div className="flex flex-col items-center justify-center text-center">
-                  <div className="text-crypto-gold text-3xl font-bold mb-2">74%</div>
-                  <div className="text-crypto-gold/90 font-semibold text-sm">DATA LOST</div>
+                <div className="relative flex items-center justify-center">
+                  <Database className="absolute text-crypto-gold/30 h-20 w-20" />
+                  <div className="flex flex-col items-center justify-center z-10">
+                    <div className="text-crypto-gold text-4xl font-bold mb-1">74%</div>
+                    <div className="text-crypto-gold/90 font-medium text-sm tracking-wider">DATA LOST</div>
+                  </div>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-4 text-crypto-dark">Fragmented Analytics</h3>
@@ -41,9 +45,12 @@ const ProblemSection = () => {
             <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <div className="h-40 w-40 mb-6 relative flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>
-                <div className="flex flex-col items-center justify-center text-center">
-                  <div className="text-crypto-gold text-3xl font-bold mb-2">86%</div>
-                  <div className="text-crypto-gold/90 font-semibold text-sm">UNTRACEABLE CONVERSIONS</div>
+                <div className="relative flex items-center justify-center">
+                  <Activity className="absolute text-crypto-gold/30 h-20 w-20" />
+                  <div className="flex flex-col items-center justify-center z-10">
+                    <div className="text-crypto-gold text-4xl font-bold mb-1">86%</div>
+                    <div className="text-crypto-gold/90 font-medium text-sm tracking-wider">UNTRACEABLE</div>
+                  </div>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-4 text-crypto-dark">Attribution Black Hole</h3>
@@ -55,9 +62,12 @@ const ProblemSection = () => {
             <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <div className="h-40 w-40 mb-6 relative flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>
-                <div className="flex flex-col items-center justify-center text-center">
-                  <div className="text-crypto-gold text-3xl font-bold mb-2">5x</div>
-                  <div className="text-crypto-gold/90 font-semibold text-sm">WASTED BUDGET</div>
+                <div className="relative flex items-center justify-center">
+                  <DollarSign className="absolute text-crypto-gold/30 h-20 w-20" />
+                  <div className="flex flex-col items-center justify-center z-10">
+                    <div className="text-crypto-gold text-4xl font-bold mb-1">5x</div>
+                    <div className="text-crypto-gold/90 font-medium text-sm tracking-wider">WASTED BUDGET</div>
+                  </div>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-4 text-crypto-dark">Budget Inefficiency</h3>
@@ -69,9 +79,12 @@ const ProblemSection = () => {
             <div className="glass-card p-8 flex flex-col items-center text-center animate-fade-in" style={{ animationDelay: '0.5s' }}>
               <div className="h-40 w-40 mb-6 relative flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-crypto-gold/10 animate-pulse"></div>
-                <div className="flex flex-col items-center justify-center text-center">
-                  <div className="text-crypto-gold text-3xl font-bold mb-2">128</div>
-                  <div className="text-crypto-gold/90 font-semibold text-sm">HOURS MANUAL WORK/MONTH</div>
+                <div className="relative flex items-center justify-center">
+                  <Clock className="absolute text-crypto-gold/30 h-20 w-20" />
+                  <div className="flex flex-col items-center justify-center z-10">
+                    <div className="text-crypto-gold text-4xl font-bold mb-1">128</div>
+                    <div className="text-crypto-gold/90 font-medium text-sm tracking-wider">HOURS WASTED</div>
+                  </div>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-4 text-crypto-dark">Resource Drain</h3>
