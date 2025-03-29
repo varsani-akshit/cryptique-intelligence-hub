@@ -73,7 +73,7 @@ const Index = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen transition-opacity duration-1000 opacity-100">
+    <div className="flex flex-col min-h-screen transition-opacity duration-1000 opacity-100 bg-white">
       <CustomCursor />
       <ParticleBackground />
       <Navbar />

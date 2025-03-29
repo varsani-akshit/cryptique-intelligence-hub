@@ -66,13 +66,21 @@
   .gradient-text {
     @apply bg-golden-gradient bg-clip-text text-transparent;
   }
+  
+  .gold-navy-text {
+    @apply bg-gold-navy-gradient bg-clip-text text-transparent;
+  }
+  
+  .navy-gold-text {
+    @apply bg-navy-gold-gradient bg-clip-text text-transparent;
+  }
 
   .code-block {
     @apply bg-muted/50 border border-muted/30 rounded-lg p-4 font-mono text-sm overflow-x-auto;
   }
 
   .container-section {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 md:py-3;
   }
   
   .cursor-follow {
@@ -218,6 +226,14 @@
     background: linear-gradient(90deg, #CAA968 0%, #E6D5B8 50%, #CAA968 100%);
   }
   
+  .bg-navy-gold-gradient {
+    background: linear-gradient(90deg, #1D0C46 0%, #CAA968 100%);
+  }
+  
+  .bg-gold-navy-gradient {
+    background: linear-gradient(90deg, #CAA968 0%, #1D0C46 100%);
+  }
+  
   .bg-futuristic-glow {
     background: radial-gradient(circle at 50% 50%, rgba(202, 169, 104, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
   }
@@ -225,5 +241,23 @@
   .bg-cyber-grid {
     background-image: linear-gradient(rgba(202, 169, 104, 0.1) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(202, 169, 104, 0.1) 1px, transparent 1px);
+  }
+  
+  /* Interactive feature card */
+  .feature-card {
+    @apply relative overflow-hidden bg-white border border-crypto-gold/20 shadow-md rounded-xl transition-all duration-300;
+  }
+  
+  .feature-card:hover {
+    @apply shadow-lg border-crypto-gold/50 -translate-y-1;
+  }
+  
+  .feature-card::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-crypto-gold via-crypto-navy to-crypto-gold opacity-0 transition-opacity duration-300;
+  }
+  
+  .feature-card:hover::after {
+    @apply opacity-100;
   }
 }

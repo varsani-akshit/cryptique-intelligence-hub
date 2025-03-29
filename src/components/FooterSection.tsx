@@ -9,7 +9,7 @@ import {
 
 const FooterSection = () => {
   return (
-    <footer className="bg-black relative overflow-hidden">
+    <footer className="bg-white relative overflow-hidden">
       {/* Futuristic background elements */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:40px_40px] opacity-5"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-futuristic-glow opacity-20"></div>
@@ -70,7 +70,7 @@ const FooterSection = () => {
         </div>
         
         <div className="border-t border-crypto-gold/20 pt-8 text-center">
-          <p className="text-xl font-medium text-crypto-gold mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <p className="text-xl font-medium text-gradient-primary mb-8 animate-fade-in gold-navy-text" style={{ animationDelay: '0.2s' }}>
             The Best Way for Web3 Businesses to Grow is to Understand Their Users.
           </p>
           
@@ -81,7 +81,8 @@ const FooterSection = () => {
           <div className="flex justify-center gap-8 text-sm text-foreground/60 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <a href="#" className="hover:text-crypto-gold transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-crypto-gold transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-crypto-gold transition-colors">Contact</a>
+            <a href="https://www.blogs.cryptique.io" className="hover:text-crypto-gold transition-colors" target="_blank" rel="noopener noreferrer">Blogs</a>
+            <a href="https://discord.gg/7vnk8duN" className="hover:text-crypto-gold transition-colors" target="_blank" rel="noopener noreferrer">Discord</a>
           </div>
           
           <p className="mt-8 text-sm text-foreground/40 animate-fade-in" style={{ animationDelay: '0.5s' }}>
@@ -91,9 +92,9 @@ const FooterSection = () => {
           {/* Digital circuit pattern */}
           <div className="mt-8 h-8 relative">
             <div className="absolute w-full h-[1px] bg-crypto-gold/10"></div>
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 w-2 h-2 bg-black border border-crypto-gold/30 rounded-full"></div>
-            <div className="absolute left-1/4 -translate-x-1/2 top-0 w-2 h-2 bg-black border border-crypto-gold/30 rounded-full"></div>
-            <div className="absolute left-3/4 -translate-x-1/2 top-0 w-2 h-2 bg-black border border-crypto-gold/30 rounded-full"></div>
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 w-2 h-2 bg-white border border-crypto-gold/30 rounded-full"></div>
+            <div className="absolute left-1/4 -translate-x-1/2 top-0 w-2 h-2 bg-white border border-crypto-gold/30 rounded-full"></div>
+            <div className="absolute left-3/4 -translate-x-1/2 top-0 w-2 h-2 bg-white border border-crypto-gold/30 rounded-full"></div>
           </div>
         </div>
       </div>

@@ -79,6 +79,11 @@ export default {
 					light: '#F8F9FA',
 					gold: '#CAA968',
 					navy: '#1D0C46',
+					// Mixed colors of gold and navy for visual appeal
+					goldNavy: 'linear-gradient(135deg, #CAA968, #1D0C46)',
+					navyGold: 'linear-gradient(135deg, #1D0C46, #CAA968)',
+					goldLight: '#E6D5B8',  // Lighter gold for contrast
+					navyLight: '#3A2A6A',  // Lighter navy for contrast
 				}
 			},
 			borderRadius: {
@@ -171,6 +176,17 @@ export default {
 					'66%': {
 						transform: 'translate(5px, -2px)'
 					}
+				},
+				'feature-hover': {
+					'0%': { 
+						transform: 'scale(1)' 
+					},
+					'50%': { 
+						transform: 'scale(1.05)' 
+					},
+					'100%': { 
+						transform: 'scale(1)' 
+					}
 				}
 			},
 			animation: {
@@ -183,12 +199,16 @@ export default {
 				'shimmer': 'shimmer 8s ease-in-out infinite',
 				'neon-pulse': 'neon-pulse 3s ease-in-out infinite',
 				'cyber-scan': 'cyber-scan 15s ease-in-out infinite',
-				'glitch': 'glitch 0.5s ease-in-out infinite'
+				'glitch': 'glitch 0.5s ease-in-out infinite',
+				'feature-hover': 'feature-hover 3s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'hero-pattern': 'linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(243, 244, 246, 1))',
 				'golden-gradient': 'linear-gradient(45deg, #CAA968, #F5E1A4, #CAA968)',
+				'navy-gradient': 'linear-gradient(45deg, #1D0C46, #3A2A6A, #1D0C46)',
+				'gold-navy-gradient': 'linear-gradient(45deg, #CAA968, #1D0C46)',
+				'navy-gold-gradient': 'linear-gradient(45deg, #1D0C46, #CAA968)',
 				'cyber-grid': 'linear-gradient(#DEDEE6 1px, transparent 1px), linear-gradient(to right, #DEDEE6 1px, #FFF 1px)',
 				'futuristic-glow': 'radial-gradient(circle at center, rgba(202, 169, 104, 0.15) 0%, rgba(255, 255, 255, 0) 70%)',
 			}

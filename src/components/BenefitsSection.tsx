@@ -42,16 +42,16 @@ const BenefitCard = ({ icon, title, delay, index }: BenefitCardProps) => {
       className={`glass-card p-8 flex gap-6 items-start transform translate-y-20 opacity-0 transition-all duration-700 interactive-element`} 
       style={{ 
         transitionDelay: delay,
-        background: 'linear-gradient(145deg, rgba(0,0,0,0.8), rgba(29,12,70,0.3))',
-        borderColor: index % 2 === 0 ? 'rgba(202,169,104,0.3)' : 'rgba(29,12,70,0.5)'
+        background: 'linear-gradient(145deg, rgba(255,255,255,0.9), rgba(248,249,250,0.8))',
+        borderColor: index % 2 === 0 ? 'rgba(202,169,104,0.3)' : 'rgba(29,12,70,0.2)'
       }}
     >
-      <div className="rounded-full bg-crypto-gold/10 p-4 text-crypto-gold">
+      <div className="rounded-full bg-crypto-gold/10 p-4 text-crypto-navy">
         {icon}
       </div>
       <div>
-        <p className="text-xl font-montserrat font-semibold mb-2 text-white">{title}</p>
-        <Button variant="ghost" className="text-crypto-gold hover:text-crypto-gold/80 hover:bg-transparent group p-0">
+        <p className="text-xl font-montserrat font-semibold mb-2 text-crypto-dark">{title}</p>
+        <Button variant="ghost" className="text-crypto-gold hover:text-crypto-navy hover:bg-transparent group p-0">
           Learn more <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
         </Button>
       </div>
@@ -87,15 +87,15 @@ const BenefitsSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative overflow-hidden py-24 md:py-32"
+      className="relative overflow-hidden py-16 md:py-24"
       id="benefits"
       style={{
-        background: 'linear-gradient(to bottom, #000000, #0D0518, #000000)'
+        background: 'linear-gradient(to bottom, #ffffff, #f8f9fa, #ffffff)'
       }}
     >
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
       </div>
       
       <div className="container-section relative z-10">
@@ -103,7 +103,7 @@ const BenefitsSection = () => {
           ref={headingRef}
           className="text-4xl md:text-5xl font-bold mb-16 text-center transform translate-y-20 opacity-0 transition-all duration-1000"
         >
-          Stay Ahead of the <span className="gradient-text">Competition</span>
+          Stay Ahead of the <span className="gold-navy-text">Competition</span>
         </h2>
         
         <div className="max-w-5xl mx-auto space-y-6">

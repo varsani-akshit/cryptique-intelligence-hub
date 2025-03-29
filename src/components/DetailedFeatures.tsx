@@ -26,7 +26,7 @@ const FeatureBlock = ({
 
   return (
     <Card 
-      className="bg-white/90 border border-crypto-gold/20 backdrop-blur-lg rounded-xl animate-fade-in relative overflow-hidden transition-all duration-500 transform hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(202,169,104,0.2)]" 
+      className="bg-white border border-crypto-gold/20 backdrop-blur-lg rounded-xl animate-fade-in relative overflow-hidden transition-all duration-500 transform hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(202,169,104,0.2)]" 
       style={{ animationDelay: delay }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -34,17 +34,30 @@ const FeatureBlock = ({
       <CardContent className="p-8">
         <div className="flex flex-col md:flex-row md:items-center md:gap-8">
           <div className="md:w-1/2 mb-6 md:mb-0">
-            <div className={`rounded-full inline-flex p-3 mb-4 ${iconColor} relative`}>
+            <div className={`rounded-full inline-flex p-3 mb-4 ${iconColor} relative ${isHovered ? 'animate-feature-hover' : ''}`}>
               {icon}
               <div className={`absolute inset-0 rounded-full opacity-30 transition-opacity duration-500 ${isHovered ? 'animate-ping' : ''}`} style={{background: 'radial-gradient(circle, rgba(202,169,104,0.3) 0%, rgba(0,0,0,0) 70%)'}}></div>
             </div>
-            <h3 className="text-xl md:text-2xl font-bold mb-4 text-crypto-dark">{title}</h3>
+            <h3 className={`text-xl md:text-2xl font-bold mb-4 ${isHovered ? 'gold-navy-text' : 'text-crypto-dark'} transition-colors duration-300`}>{title}</h3>
             <p className="text-crypto-dark/80 leading-relaxed">{description}</p>
+            {isHovered && (
+              <button className="mt-4 text-crypto-navy border border-crypto-gold/50 px-4 py-2 rounded-md flex items-center hover:bg-crypto-gold/10 transition-colors duration-300">
+                <span className="mr-2">Learn more</span>
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            )}
           </div>
           
           {image && (
-            <div className="md:w-1/2">
-              <img src={image} alt={title} className="w-full h-auto rounded-md border border-crypto-gold/20" />
+            <div className="md:w-1/2 relative group overflow-hidden rounded-lg">
+              <img 
+                src={image} 
+                alt={title} 
+                className={`w-full h-auto rounded-md border border-crypto-gold/20 transition-transform duration-500 ${isHovered ? 'scale-105' : ''}`} 
+              />
+              {isHovered && (
+                <div className="absolute inset-0 bg-gradient-to-r from-crypto-navy/10 to-crypto-gold/10 opacity-50"></div>
+              )}
             </div>
           )}
         </div>
@@ -54,7 +67,7 @@ const FeatureBlock = ({
           <svg width="100%" height="100%" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
             <path 
               d={`M0,${50 + Math.sin(index) * 20} ${Array.from({length: 10}, (_, i) => `L${50 * (i+1)},${50 + Math.sin(index + i/2) * 20}`).join(' ')}`} 
-              stroke="#CAA968" 
+              stroke={isHovered ? "#1D0C46" : "#CAA968"} 
               strokeWidth="2" 
               fill="none" 
               className={isHovered ? 'animate-pulse' : ''}
@@ -94,17 +107,11 @@ const FeatureBlock = ({
           <div className="absolute bottom-0 left-0 h-6 w-[1px] bg-crypto-gold/30"></div>
         </div>
         
-        {/* Hover indicator */}
-        <div className={`absolute bottom-4 right-4 transition-all duration-500 ${isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}>
-          <div className="flex items-center text-crypto-gold">
-            <span className="mr-2 text-sm font-medium">Learn more</span>
-            <ChevronRight className="w-5 h-5" />
-          </div>
-        </div>
+        {/* Hover indicator - now handled by the button above */}
         
         {/* Glowing edge on hover */}
         <div className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-crypto-gold/50 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-crypto-navy/50 to-transparent"></div>
           <div className="absolute top-0 right-0 w-[2px] h-full bg-gradient-to-b from-transparent via-crypto-gold/50 to-transparent"></div>
         </div>
       </CardContent>
@@ -126,31 +133,32 @@ const DetailedFeatures = () => {
       
       <div className="container-section relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fade-in">
-          The Future of <span className="text-crypto-gold">Web3 Marketing</span> Starts Here
+          The Future of <span className="gold-navy-text">Web3 Marketing</span> Starts Here
         </h2>
         
         <div className="space-y-8">
           <FeatureBlock 
-            icon={<BarChart size={24} />} 
+            icon={<BarChart size={24} className="text-crypto-navy" />} 
             title="Simplified Integration & Use" 
             description="We believe in simplification both with integration and analytics, we analyse every interaction with your socials, Dapps & smart contracts and present it in an easy to comprehend medium so that you can optimise your growth much quicker."
             iconColor="bg-white text-crypto-gold"
             delay="0.1s"
             index={0}
-            image="/lovable-uploads/1c358ad9-706c-4b04-acf1-de20a43a1047.png"
+            image="/lovable-uploads/02c84c52-6d08-455a-a5da-fd3cadfdc771.png"
           />
           
           <FeatureBlock 
-            icon={<Radio size={24} />} 
+            icon={<Radio size={24} className="text-crypto-navy" />} 
             title="Cross Channel Tracking" 
             description="Skip manual analytics—ask Cryptique AI for deep campaign-level and user-level insights, saving hours of time spent on data interpretation."
             iconColor="bg-white text-crypto-gold"
             delay="0.2s"
             index={1}
+            image="/lovable-uploads/ef32b86b-83ad-4452-9c2b-22a3505a4ea8.png"
           />
         
           <FeatureBlock 
-            icon={<Link2 size={24} />} 
+            icon={<Link2 size={24} className="text-crypto-navy" />} 
             title="Campaign Analysis" 
             description="Track every link click, wallet connection, smart contract interaction, and token transfer across all marketing channels. Whether it's Twitter campaigns, influencer referrals, Discord invites, or DAO proposals, all data is under one roof for deep analysis."
             iconColor="bg-white text-crypto-gold"
@@ -160,22 +168,23 @@ const DetailedFeatures = () => {
           />
           
           <FeatureBlock 
-            icon={<Brain size={24} />} 
+            icon={<Brain size={24} className="text-crypto-navy" />} 
             title="AI-Powered Insights with CQ AI" 
             description="Skip manual analytics—ask Cryptique AI for deep campaign-level and user-level insights, saving hours of time spent on data interpretation."
             iconColor="bg-white text-crypto-gold"
             delay="0.4s"
             index={3}
+            image="/lovable-uploads/3cb936f6-fcfe-4837-b598-10e19661614a.png"
           />
         
           <FeatureBlock 
-            icon={<Zap size={24} />} 
+            icon={<Zap size={24} className="text-crypto-navy" />} 
             title="Smart KOL Payouts" 
             description="Don't overpay KOL's without knowing how much they bring to the table, with Cryptique we revolutionise the way KOL's get incentivesed by paying them for the conversions they bring, all automated using smart contracts."
             iconColor="bg-white text-crypto-gold"
             delay="0.5s"
             index={4}
-            image="/lovable-uploads/02c84c52-6d08-455a-a5da-fd3cadfdc771.png"
+            image="/lovable-uploads/1c358ad9-706c-4b04-acf1-de20a43a1047.png"
           />
         </div>
         
