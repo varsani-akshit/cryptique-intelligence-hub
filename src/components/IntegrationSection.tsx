@@ -99,7 +99,7 @@ const IntegrationSection = () => {
             <div className="absolute bottom-8 right-8 w-2 h-4 bg-crypto-gold/70 animate-pulse"></div>
           </div>
           
-          {/* New heading after the code block */}
+          {/* Single heading after the code block - ensuring no duplicates */}
           <h3 className="text-2xl md:text-3xl font-bold my-8 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <span className="relative">
               Stay Ahead of the <span className="gold-navy-text">Competition</span>
