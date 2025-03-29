@@ -31,14 +31,46 @@ const TrustSection = () => {
     dragFree: true
   });
 
-  // Auto-scroll effect
+  // Enhanced continuous scrolling effect
   useEffect(() => {
     if (emblaApi) {
-      const autoplay = setInterval(() => {
-        emblaApi.scrollNext();
-      }, 3000);
+      // Start auto-scrolling with smoother motion
+      let animationFrame: number;
+      let lastTime = performance.now();
+      const speed = 0.5; // pixels per millisecond
       
-      return () => clearInterval(autoplay);
+      const autoScroll = (currentTime: number) => {
+        const deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
+        
+        // Scroll by a small amount each frame for smooth movement
+        emblaApi.scrollBy(speed * deltaTime * 0.001);
+        
+        // Continue the animation loop
+        animationFrame = requestAnimationFrame(autoScroll);
+      };
+      
+      // Start the animation
+      animationFrame = requestAnimationFrame(autoScroll);
+      
+      // Pause scrolling when user interacts with the carousel
+      const onPointerDown = () => {
+        cancelAnimationFrame(animationFrame);
+      };
+      
+      const onPointerUp = () => {
+        lastTime = performance.now();
+        animationFrame = requestAnimationFrame(autoScroll);
+      };
+      
+      emblaApi.on('pointerDown', onPointerDown);
+      emblaApi.on('pointerUp', onPointerUp);
+      
+      return () => {
+        cancelAnimationFrame(animationFrame);
+        emblaApi.off('pointerDown', onPointerDown);
+        emblaApi.off('pointerUp', onPointerUp);
+      };
     }
   }, [emblaApi]);
 
@@ -66,34 +98,39 @@ const TrustSection = () => {
             }}
           >
             <CarouselContent>
-              <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                <ClientLogo 
-                  imageSrc="/lovable-uploads/34f29667-ddfa-4020-bc58-e3534bcd019a.png" 
-                  name="Zeebu" 
-                  description="DeFi Project & Neobank for Telecoms"
-                />
-              </CarouselItem>
-              <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                <ClientLogo 
-                  imageSrc="/lovable-uploads/205f1d5b-8cab-4c36-9060-a06e0adfc531.png" 
-                  name="Cubane" 
-                  description="Layer 1 Blockchain"
-                />
-              </CarouselItem>
-              <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                <ClientLogo 
-                  imageSrc="/lovable-uploads/ca51f057-4832-4bc8-9b33-d34d76e5dcbd.png" 
-                  name="Mobile Wallet (MWT)" 
-                  description="DePIN & DeFi Project"
-                />
-              </CarouselItem>
-              <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                <ClientLogo 
-                  imageSrc="/lovable-uploads/4b6bb044-040e-4c81-9dd5-96b69ef95dd5.png" 
-                  name="Vingt" 
-                  description="DeFi Protocol"
-                />
-              </CarouselItem>
+              {/* Duplicate logos for smoother infinite loop effect */}
+              {[...Array(2)].map((_, duplicateIndex) => (
+                <React.Fragment key={`duplicate-${duplicateIndex}`}>
+                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <ClientLogo 
+                      imageSrc="/lovable-uploads/34f29667-ddfa-4020-bc58-e3534bcd019a.png" 
+                      name="Zeebu" 
+                      description="DeFi Project & Neobank for Telecoms"
+                    />
+                  </CarouselItem>
+                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <ClientLogo 
+                      imageSrc="/lovable-uploads/205f1d5b-8cab-4c36-9060-a06e0adfc531.png" 
+                      name="Cubane" 
+                      description="Layer 1 Blockchain"
+                    />
+                  </CarouselItem>
+                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <ClientLogo 
+                      imageSrc="/lovable-uploads/ca51f057-4832-4bc8-9b33-d34d76e5dcbd.png" 
+                      name="Mobile Wallet (MWT)" 
+                      description="DePIN & DeFi Project"
+                    />
+                  </CarouselItem>
+                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <ClientLogo 
+                      imageSrc="/lovable-uploads/4b6bb044-040e-4c81-9dd5-96b69ef95dd5.png" 
+                      name="Vingt" 
+                      description="DeFi Protocol"
+                    />
+                  </CarouselItem>
+                </React.Fragment>
+              ))}
             </CarouselContent>
           </Carousel>
         </div>
