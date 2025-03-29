@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { UserCheck, Database, Brain, LineChart, ChevronRight, Zap, Link2, Radio, BarChart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -25,13 +26,13 @@ const FeatureBlock = ({
 
   return (
     <Card 
-      className="bg-white border border-crypto-gold/20 backdrop-blur-lg rounded-xl animate-fade-in relative overflow-hidden transition-all duration-500 transform hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(202,169,104,0.2)]" 
+      className="bg-white border border-crypto-gold/20 backdrop-blur-lg rounded-xl animate-fade-in relative overflow-hidden transition-all duration-500 transform hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(202,169,104,0.2)] h-full" 
       style={{ animationDelay: delay }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <CardContent className="p-8">
-        <div className="flex flex-col md:flex-row md:items-center md:gap-8">
+      <CardContent className="p-8 h-full flex flex-col">
+        <div className="flex flex-col md:flex-row md:items-center md:gap-8 h-full">
           <div className="md:w-1/2 mb-6 md:mb-0">
             <div className={`rounded-full inline-flex p-3 mb-4 ${iconColor} relative ${isHovered ? 'animate-feature-hover' : ''}`}>
               {icon}
@@ -39,7 +40,6 @@ const FeatureBlock = ({
             </div>
             <h3 className={`text-xl md:text-2xl font-bold mb-4 ${isHovered ? 'gold-navy-text' : 'text-crypto-dark'} transition-colors duration-300`}>{title}</h3>
             <p className="text-crypto-dark/80 leading-relaxed">{description}</p>
-            {/* Removed the Learn More button that was inside the isHovered condition */}
           </div>
           
           {image && (
@@ -112,6 +112,45 @@ const FeatureBlock = ({
 };
 
 const DetailedFeatures = () => {
+  // Define consistent descriptions with similar length
+  const features = [
+    {
+      icon: <Link2 className="w-6 h-6 text-white" />,
+      title: "Simplified Integration & Use",
+      description: "Streamlined integration with social media, Dapps & smart contracts, with intuitive analytics for quicker growth optimization.",
+      iconColor: "bg-gradient-to-br from-crypto-gold to-amber-600",
+      image: "/lovable-uploads/f962f9fa-c482-4862-b8d7-4153300ff96c.png"
+    },
+    {
+      icon: <Radio className="w-6 h-6 text-white" />,
+      title: "Multi-Channel Attribution",
+      description: "Track user journeys from first click to final transaction. Identify drop-off points to boost retention and target re-engagement effectively.",
+      iconColor: "bg-gradient-to-br from-crypto-navy to-blue-700",
+      image: "/lovable-uploads/7d013bca-7892-4c58-87ee-24c57b680f14.png"
+    },
+    {
+      icon: <BarChart className="w-6 h-6 text-white" />,
+      title: "Campaign Analysis",
+      description: "Monitor every interaction across marketing channels - from clicks and wallet connections to smart contract interactions and token transfers.",
+      iconColor: "bg-gradient-to-br from-purple-600 to-indigo-700",
+      image: "/lovable-uploads/4a9f07f6-15d0-4d26-b886-d47c43f1ffc1.png"
+    },
+    {
+      icon: <Brain className="w-6 h-6 text-white" />,
+      title: "AI-Powered Insights",
+      description: "Let Cryptique AI handle data interpretation, delivering actionable campaign and user insights that save hours of manual analytics work.",
+      iconColor: "bg-gradient-to-br from-crypto-gold to-amber-600",
+      image: "/lovable-uploads/ebd7ff3a-c501-4c22-a327-a3498a5d6047.png"
+    },
+    {
+      icon: <Zap className="w-6 h-6 text-white" />,
+      title: "Smart KOL Payouts",
+      description: "Automate Key Opinion Leader compensation based on actual conversion metrics through smart contracts, ensuring fair value for marketing spend.",
+      iconColor: "bg-gradient-to-br from-crypto-navy to-blue-700",
+      image: "/lovable-uploads/914b279a-f76b-427f-9046-5787335e9bda.png"
+    }
+  ];
+
   return (
     <section className="relative py-20 overflow-hidden bg-white" id="features">
       <div className="absolute inset-0 bg-cyber-grid bg-[size:30px_30px] opacity-5"></div>
@@ -130,55 +169,18 @@ const DetailedFeatures = () => {
         </div>
         
         <div className="grid grid-cols-1 gap-10">
-          <FeatureBlock 
-            icon={<Link2 className="w-6 h-6 text-white" />}
-            title="Simplified Integration & Use"
-            description="We believe in simplification both with integration and analytics, we analyse every interaction with your socials, Dapps & smart contracts and present it in an easy to comprehend medium so that you can optimise your growth much quicker."
-            iconColor="bg-gradient-to-br from-crypto-gold to-amber-600"
-            delay="0.1s"
-            index={1}
-            image="/lovable-uploads/f962f9fa-c482-4862-b8d7-4153300ff96c.png"
-          />
-          
-          <FeatureBlock 
-            icon={<Radio className="w-6 h-6 text-white" />}
-            title="Multi-Channel Attribution"
-            description="Unlock the full picture of your user journey—from the very first click to final transaction. Our multi-attribution model gives you complete visibility into every interaction across channels, allowing you to pinpoint exactly where users are dropping off and why—boosting retention, enabling targeted re-engagement, and ultimately driving higher conversions."
-            iconColor="bg-gradient-to-br from-crypto-navy to-blue-700"
-            delay="0.3s"
-            index={2}
-            image="/lovable-uploads/7d013bca-7892-4c58-87ee-24c57b680f14.png"
-          />
-          
-          <FeatureBlock 
-            icon={<BarChart className="w-6 h-6 text-white" />}
-            title="Campaign Analysis"
-            description="Track every link click, wallet connection, smart contract interaction, and token transfer across all marketing channels. Whether it's Twitter campaigns, influencer referrals, Discord invites, or DAO proposals, all data is under one roof for deep analysis."
-            iconColor="bg-gradient-to-br from-purple-600 to-indigo-700"
-            delay="0.5s"
-            index={3}
-            image="/lovable-uploads/4a9f07f6-15d0-4d26-b886-d47c43f1ffc1.png"
-          />
-          
-          <FeatureBlock 
-            icon={<Brain className="w-6 h-6 text-white" />}
-            title="AI-Powered Insights with CQ AI"
-            description="Skip manual analytics—ask Cryptique AI for deep campaign-level and user-level insights, saving hours of time spent on data interpretation."
-            iconColor="bg-gradient-to-br from-crypto-gold to-amber-600"
-            delay="0.7s"
-            index={4}
-            image="/lovable-uploads/ebd7ff3a-c501-4c22-a327-a3498a5d6047.png"
-          />
-          
-          <FeatureBlock 
-            icon={<Zap className="w-6 h-6 text-white" />}
-            title="Smart KOL Payouts"
-            description="Don't overpay KOL's without knowing how much they bring to the table, with Cryptique we revolutionise the way KOL's get incentivesed by paying them for the conversions they bring, all automated using smart contracts."
-            iconColor="bg-gradient-to-br from-crypto-navy to-blue-700"
-            delay="0.9s"
-            index={5}
-            image="/lovable-uploads/914b279a-f76b-427f-9046-5787335e9bda.png"
-          />
+          {features.map((feature, index) => (
+            <FeatureBlock 
+              key={`feature-${index}`}
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+              iconColor={feature.iconColor}
+              delay={`${0.1 + index * 0.2}s`}
+              index={index + 1}
+              image={feature.image}
+            />
+          ))}
         </div>
       </div>
     </section>
