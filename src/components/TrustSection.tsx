@@ -1,21 +1,19 @@
 
 import React from 'react';
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import useEmblaCarousel from 'embla-carousel-react';
+import { useEffect } from 'react';
 
 const ClientLogo = ({ 
   imageSrc, 
   name, 
-  description,
-  delay 
+  description
 }: { 
   imageSrc: string; 
   name: string; 
   description: string;
-  delay: string;
 }) => (
-  <div 
-    className="glass-card p-6 flex flex-col items-center justify-center animate-fade-in"
-    style={{ animationDelay: delay }}
-  >
+  <div className="glass-card p-6 flex flex-col items-center justify-center h-full">
     <img 
       src={imageSrc} 
       alt={`${name} logo`} 
@@ -27,6 +25,23 @@ const ClientLogo = ({
 );
 
 const TrustSection = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: 'start',
+    dragFree: true
+  });
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (emblaApi) {
+      const autoplay = setInterval(() => {
+        emblaApi.scrollNext();
+      }, 3000);
+      
+      return () => clearInterval(autoplay);
+    }
+  }, [emblaApi]);
+
   return (
     <section className="relative overflow-hidden bg-white py-0" id="trust">
       {/* Background elements */}
@@ -40,25 +55,47 @@ const TrustSection = () => {
           <div className="absolute -bottom-4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
         </h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <ClientLogo 
-            imageSrc="/lovable-uploads/34f29667-ddfa-4020-bc58-e3534bcd019a.png" 
-            name="Zeebu" 
-            description="DeFi Project & Neobank for Telecoms"
-            delay="0.1s"
-          />
-          <ClientLogo 
-            imageSrc="/lovable-uploads/205f1d5b-8cab-4c36-9060-a06e0adfc531.png" 
-            name="Cubane" 
-            description="Layer 1 Blockchain"
-            delay="0.2s"
-          />
-          <ClientLogo 
-            imageSrc="/lovable-uploads/ca51f057-4832-4bc8-9b33-d34d76e5dcbd.png" 
-            name="Mobile Wallet (MWT)" 
-            description="DePIN & DeFi Project"
-            delay="0.3s"
-          />
+        <div className="mb-12">
+          <Carousel 
+            ref={emblaRef} 
+            className="w-full"
+            opts={{
+              loop: true,
+              align: 'start',
+              dragFree: true
+            }}
+          >
+            <CarouselContent>
+              <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                <ClientLogo 
+                  imageSrc="/lovable-uploads/34f29667-ddfa-4020-bc58-e3534bcd019a.png" 
+                  name="Zeebu" 
+                  description="DeFi Project & Neobank for Telecoms"
+                />
+              </CarouselItem>
+              <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                <ClientLogo 
+                  imageSrc="/lovable-uploads/205f1d5b-8cab-4c36-9060-a06e0adfc531.png" 
+                  name="Cubane" 
+                  description="Layer 1 Blockchain"
+                />
+              </CarouselItem>
+              <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                <ClientLogo 
+                  imageSrc="/lovable-uploads/ca51f057-4832-4bc8-9b33-d34d76e5dcbd.png" 
+                  name="Mobile Wallet (MWT)" 
+                  description="DePIN & DeFi Project"
+                />
+              </CarouselItem>
+              <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                <ClientLogo 
+                  imageSrc="/lovable-uploads/4b6bb044-040e-4c81-9dd5-96b69ef95dd5.png" 
+                  name="Voxum" 
+                  description="DeFi Protocol"
+                />
+              </CarouselItem>
+            </CarouselContent>
+          </Carousel>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
