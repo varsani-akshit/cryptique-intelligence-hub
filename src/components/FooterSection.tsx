@@ -52,7 +52,7 @@ const FooterSection = () => {
               <AccordionTrigger className="hover:text-crypto-gold">How much does Cryptique cost?</AccordionTrigger>
               <AccordionContent>
                 Cryptique offers flexible pricing plans to accommodate projects of all sizes. We offer 
-                a free tier to get started, with paid plans starting at $199/month for growing projects. 
+                a free tier to get started, with paid plans starting at $599/month for growing projects. 
                 Enterprise plans with custom features are also available. Contact us for a personalized quote.
               </AccordionContent>
             </AccordionItem>
