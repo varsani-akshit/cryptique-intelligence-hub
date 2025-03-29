@@ -153,7 +153,7 @@ const DetailedFeatures = () => {
             iconColor="bg-gradient-to-br from-crypto-navy to-blue-700"
             delay="0.3s"
             index={2}
-            image="/lovable-uploads/36f7c7b0-05a3-4e6c-a325-da3c0a9ababe.png"
+            image="/lovable-uploads/7d013bca-7892-4c58-87ee-24c57b680f14.png"
           />
           
           <FeatureBlock 
