@@ -106,24 +106,11 @@ const Navbar = () => {
               className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
               aria-label="X (Twitter)"
             >
-              {/* Twitter/X logo SVG */}
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
+              <img 
+                src="/lovable-uploads/013c4383-e6ad-47a6-a4ee-63f061067b2d.png" 
+                alt="X logo" 
                 className="h-5 w-5"
-              >
-                <path d="M18 4H14a4 4 0 0 0-4 4v12" />
-                <path d="M18 10V4" />
-                <path d="m8.5 9 5 5" />
-                <path d="m14.5 4-5 5" />
-              </svg>
+              />
             </a>
             <a 
               href="https://discord.gg/7vnk8duN" 
@@ -240,24 +227,11 @@ const Navbar = () => {
                 className="text-crypto-navy hover:text-crypto-gold"
                 aria-label="X (Twitter)"
               >
-                {/* Twitter/X logo SVG */}
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="24" 
-                  height="24" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                <img 
+                  src="/lovable-uploads/013c4383-e6ad-47a6-a4ee-63f061067b2d.png" 
+                  alt="X logo" 
                   className="h-6 w-6"
-                >
-                  <path d="M18 4H14a4 4 0 0 0-4 4v12" />
-                  <path d="M18 10V4" />
-                  <path d="m8.5 9 5 5" />
-                  <path d="m14.5 4-5 5" />
-                </svg>
+                />
               </a>
               <a 
                 href="https://discord.gg/7vnk8duN" 
