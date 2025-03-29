@@ -64,22 +64,8 @@ const IntegrationSection = () => {
         </h2>
         
         <div className="max-w-3xl mx-auto">
-          <div className="code-block animate-fade-in relative overflow-hidden" style={{ animationDelay: '0.5s' }}>
-            <pre className="text-foreground/90 relative">
-{`useEffect(() => {
-    async function initCryptique() {
-        await cryptique.init('PROJECT_TOKEN');
-    }
-    initCryptique();
-}, []);`}
-            </pre>
-            
-            {/* Blinking cursor effect */}
-            <div className="absolute bottom-8 right-8 w-2 h-4 bg-crypto-gold/70 animate-pulse"></div>
-          </div>
-          
-          {/* SDK cards section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+          {/* SDK cards section - moved here, right after the title */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <SdkCard 
               icon={<Code size={24} />} 
               title="Web SDK" 
@@ -98,6 +84,28 @@ const IntegrationSection = () => {
               comingSoon={true}
             />
           </div>
+          
+          <div className="code-block animate-fade-in relative overflow-hidden" style={{ animationDelay: '0.5s' }}>
+            <pre className="text-foreground/90 relative">
+{`useEffect(() => {
+    async function initCryptique() {
+        await cryptique.init('PROJECT_TOKEN');
+    }
+    initCryptique();
+}, []);`}
+            </pre>
+            
+            {/* Blinking cursor effect */}
+            <div className="absolute bottom-8 right-8 w-2 h-4 bg-crypto-gold/70 animate-pulse"></div>
+          </div>
+          
+          {/* New heading after the code block */}
+          <h3 className="text-2xl md:text-3xl font-bold my-8 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <span className="relative">
+              Stay Ahead of the <span className="gold-navy-text">Competition</span>
+              <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></span>
+            </span>
+          </h3>
           
           {/* Data nodes/connections visualization */}
           <div className="mt-12 relative h-32 hidden md:block">
