@@ -117,16 +117,16 @@ const SolutionSection = () => {
   const iconSizeOuter = isMobile ? 32 : 42; 
   const iconSizeInner = isMobile ? 26 : 34; 
   
-  // Text ring sizes
+  // Text ring sizes - switched outer and inner text positions
   const outerTextRingSize = outerRingSize + 50; // Place text ring outside the icons
   const innerTextRingSize = innerRingSize - 40; // Place text ring inside the icons
   
   const web2Positions = generateOrbitalPositions(web2Icons.length, outerRingSize, Math.PI / 8);
   const web3Positions = generateOrbitalPositions(web3Icons.length, innerRingSize, 0);
   
-  // Generate positions for text elements
-  const web2TextPosition = { x: Math.cos(-Math.PI/4) * outerTextRingSize, y: Math.sin(-Math.PI/4) * outerTextRingSize }; 
-  const web3TextPosition = { x: Math.cos(Math.PI/4) * innerTextRingSize, y: Math.sin(Math.PI/4) * innerTextRingSize };
+  // Generate positions for text elements - switched positioning
+  const web2TextPosition = { x: Math.cos(Math.PI/4) * innerTextRingSize, y: Math.sin(Math.PI/4) * innerTextRingSize };
+  const web3TextPosition = { x: Math.cos(-Math.PI/4) * outerTextRingSize, y: Math.sin(-Math.PI/4) * outerTextRingSize }; 
 
   return (
     <section className="bg-white relative overflow-hidden py-10">
@@ -234,13 +234,15 @@ const SolutionSection = () => {
                 ))}
               </div>
               
-              {/* Rotating Text Ring - Web2 Data Sources */}
+              {/* Modified text ring positions: Web2 inner, Web3 outer */}
+              
+              {/* Inner Ring - Web2 Data Sources text */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div 
                   className="rounded-full border border-crypto-gold/20 animate-spin-slow" 
                   style={{ 
-                    width: outerTextRingSize * 2, 
-                    height: outerTextRingSize * 2,
+                    width: innerTextRingSize * 2, 
+                    height: innerTextRingSize * 2,
                     animationDuration: '45s'
                   }}
                 >
@@ -260,13 +262,13 @@ const SolutionSection = () => {
                 </div>
               </div>
               
-              {/* Rotating Text Ring - Web3 Ecosystem */}
+              {/* Outer Ring - Web3 Ecosystem text */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div 
                   className="rounded-full border border-crypto-navy/20 animate-spin-slow-reverse" 
                   style={{ 
-                    width: innerTextRingSize * 2, 
-                    height: innerTextRingSize * 2,
+                    width: outerTextRingSize * 2, 
+                    height: outerTextRingSize * 2,
                     animationDuration: '40s' 
                   }}
                 >
@@ -286,8 +288,6 @@ const SolutionSection = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Remove the old static labels since we now have them rotating */}
           </div>
           
           {/* Description under the orbital visualization */}
