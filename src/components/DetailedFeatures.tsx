@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { UserCheck, Database, Brain, LineChart, ChevronRight, Zap, BarChart, Link2, Radio } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -184,8 +185,8 @@ const DataFlowVisualization = () => {
             <div className="flex flex-col items-center">
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="#0088cc">
-                  <path d="M12 0c-6.626 0-12 5.372-12 12 0 6.627 5.374 12 12 12 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm-1.218 19.105c-.339 0-.282-.127-.401-.45l-1.001-3.295 7.132-4.367"/>
-                  <path d="M18.429 16.034c.16.059-.057.138-.191.138l-1.85.164-.702.213a.473.473 0 01-.461-.112 19.87 19.87 0 01-4.383-2.849c-.23-.185-.47-.37-.702-.552-.599-.467-1.201-.93-1.8-1.392-.127-.099-.254-.198-.381-.297 1.195-.754 2.411-1.529 3.626-2.292.797-.503 1.595-1.006 2.394-1.509a.36.36 0 00.192-.312c.002-.371-.141-.722-.359-1.021-.219-.3-.503-.552-.799-.778a3.139 3.139 0 00-1.493-.515 3.81 3.81 0 00-1.051.05c-.521.1-1.025.301-1.503.562-1.431.783-2.596 2.006-3.641 3.306-1.084 1.348-2.036 2.807-2.822 4.346-.618 1.209-1.124 2.473-1.518 3.78-.099.326-.184.658-.253.994a.458.458 0 01-.126.264 2.69 2.69 0 01-.409.042"/>
+                  <path d="M12 0c-6.626 0-12 5.372-12 12 0 6.627 5.374 12 12 12 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm-1.218 19.105c-.339 0-.282-.127-.401-.45l-1.001-3.295 7.132-4.367" />
+                  <path d="M18.429 16.034c.16.059-.057.138-.191.138l-1.85.164-.702.213a.473.473 0 01-.461-.112 19.87 19.87 0 01-4.383-2.849c-.23-.185-.47-.37-.702-.552-.599-.467-1.201-.93-1.8-1.392-.127-.099-.254-.198-.381-.297 1.195-.754 2.411-1.529 3.626-2.292.797-.503 1.595-1.006 2.394-1.509a.36.36 0 00.192-.312c.002-.371-.141-.722-.359-1.021-.219-.3-.503-.552-.799-.778a3.139 3.139 0 00-1.493-.515 3.81 3.81 0 00-1.051.05c-.521.1-1.025.301-1.503.562-1.431.783-2.596 2.006-3.641 3.306-1.084 1.348-2.036 2.807-2.822 4.346-.618 1.209-1.124 2.473-1.518 3.78-.099.326-.184.658-.253.994a.458.458 0 01-.126.264 2.69 2.69 0 01-.409.042" />
                 </svg>
               </div>
               <span className="text-xs mt-1">Telegram</span>
@@ -289,3 +290,203 @@ const DataFlowVisualization = () => {
             </div>
             
             {/* Optimism Icon */}
+            <div className="flex flex-col items-center">
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
+                <svg width="16" height="16" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M50 0C22.4 0 0 22.4 0 50C0 77.6 22.4 100 50 100C77.6 100 100 77.6 100 50C100 22.4 77.6 0 50 0Z" fill="#FF0420"/>
+                  <path d="M38.5004 76.9998H27.7004V31.2998H38.5004V50.6998H62.0004V31.2998H72.7004V76.9998H62.0004V59.5998H38.5004V76.9998Z" fill="white"/>
+                </svg>
+              </div>
+              <span className="text-xs mt-1">Optimism</span>
+            </div>
+            
+            {/* Arbitrum Icon */}
+            <div className="flex flex-col items-center">
+              <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
+                <svg width="16" height="16" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M50 100C77.6127 100 100 77.6127 100 50C100 22.3873 77.6127 0 50 0C22.3873 0 0 22.3873 0 50C0 77.6127 22.3873 100 50 100Z" fill="#28A0F0"/>
+                  <path d="M50 12L29 50L50 36.5L71.5 50L50 12Z" fill="white"/>
+                  <path d="M29 50L50 88L71.5 50L50 67L29 50Z" fill="white"/>
+                </svg>
+              </div>
+              <span className="text-xs mt-1">Arbitrum</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Cryptique Platform in the middle */}
+      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+        <div className="relative w-[280px] h-[280px] rounded-full flex items-center justify-center">
+          {/* Pulsing background */}
+          <div className="absolute inset-0 bg-gradient-radial from-crypto-gold/5 to-transparent rounded-full animate-pulse" style={{animationDuration: '3s'}}></div>
+          
+          {/* Inner circle with logo */}
+          <div className="relative w-48 h-48 rounded-full bg-white shadow-lg flex items-center justify-center border border-crypto-gold/20 z-10">
+            <img 
+              src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
+              alt="Cryptique Platform" 
+              className="w-32 h-32 object-contain"
+            />
+          </div>
+          
+          {/* Orbital ring */}
+          <div className="absolute inset-0 rounded-full border-2 border-dashed border-crypto-gold/20 animate-spin-slow"></div>
+        </div>
+        
+        {/* Label */}
+        <div className="absolute top-[280px] left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm py-3 px-6 rounded-lg border border-crypto-gold/20 shadow-lg">
+          <h3 className="text-lg font-bold text-crypto-navy text-center">Cryptique Platform</h3>
+          <p className="text-xs text-crypto-dark/70 text-center mt-1">Seamless Web2/Web3 Integration</p>
+        </div>
+      </div>
+      
+      {/* Data flow connections from Web2 to Cryptique */}
+      <div className={`absolute top-0 left-0 w-full h-full pointer-events-none transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <svg width="100%" height="100%" className="absolute inset-0">
+          {/* Connection line from Web2 to Cryptique */}
+          <path 
+            d="M260,300 C350,300 350,300 420,300" 
+            stroke="#CAA968" 
+            strokeWidth="1.5" 
+            strokeDasharray="5,5" 
+            fill="none"
+          />
+          
+          {/* Data packets from Web2 to Cryptique */}
+          <circle r="4" fill="#CAA968">
+            <animateMotion 
+              path="M260,300 C350,300 350,300 420,300" 
+              dur="3s" 
+              repeatCount="indefinite"
+            />
+          </circle>
+          
+          <circle r="3" fill="#CAA968" opacity="0.7">
+            <animateMotion 
+              path="M260,300 C350,300 350,300 420,300" 
+              dur="4s" 
+              repeatCount="indefinite"
+              begin="1s"
+            />
+          </circle>
+          
+          {/* Connection line from Web3 to Cryptique */}
+          <path 
+            d="M740,300 C650,300 650,300 580,300" 
+            stroke="#CAA968" 
+            strokeWidth="1.5" 
+            strokeDasharray="5,5" 
+            fill="none"
+          />
+          
+          {/* Data packets from Web3 to Cryptique */}
+          <circle r="4" fill="#1D0C46">
+            <animateMotion 
+              path="M740,300 C650,300 650,300 580,300" 
+              dur="3.5s" 
+              repeatCount="indefinite"
+            />
+          </circle>
+          
+          <circle r="3" fill="#1D0C46" opacity="0.7">
+            <animateMotion 
+              path="M740,300 C650,300 650,300 580,300" 
+              dur="4.5s" 
+              repeatCount="indefinite"
+              begin="0.5s"
+            />
+          </circle>
+        </svg>
+      </div>
+      
+      {/* Processing nodes */}
+      <div className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        {/* Node 1 */}
+        <div className="absolute top-[25%] left-[35%] w-6 h-6">
+          <div className="w-full h-full rounded-full bg-crypto-gold/20 animate-pulse" style={{animationDuration: '2s'}}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-crypto-gold"></div>
+        </div>
+        
+        {/* Node 2 */}
+        <div className="absolute bottom-[30%] left-[40%] w-8 h-8">
+          <div className="w-full h-full rounded-full bg-crypto-navy/20 animate-pulse" style={{animationDuration: '3s'}}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-crypto-navy"></div>
+        </div>
+        
+        {/* Node 3 */}
+        <div className="absolute top-[40%] right-[35%] w-7 h-7">
+          <div className="w-full h-full rounded-full bg-crypto-gold/20 animate-pulse" style={{animationDuration: '2.5s'}}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-crypto-gold"></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const DetailedFeatures = () => {
+  return (
+    <section className="relative py-20 overflow-hidden bg-white" id="features">
+      <div className="absolute inset-0 bg-cyber-grid bg-[size:30px_30px] opacity-5"></div>
+      
+      <div className="container-section relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">
+            Key <span className="text-crypto-gold">Features</span>
+          </h2>
+          <p className="text-crypto-dark/80 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Discover how Cryptique revolutionizes marketing in Web3, bringing together the best of both worlds for unprecedented engagement and conversion optimization.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 gap-10">
+          <FeatureBlock 
+            icon={<UserCheck className="w-6 h-6 text-white" />}
+            title="Web2 & Web3 User Tracking"
+            description="Seamlessly track user journeys across traditional and blockchain platforms. Connect wallet activities with social and web behaviors for comprehensive audience insights."
+            iconColor="bg-gradient-to-br from-crypto-gold to-amber-600"
+            delay="0.1s"
+            index={1}
+            image="/lovable-uploads/1c358ad9-706c-4b04-acf1-de20a43a1047.png"
+          />
+          
+          <FeatureBlock 
+            icon={<Database className="w-6 h-6 text-white" />}
+            title="Multi-Chain Analytics"
+            description="Monitor performance across all major blockchains in one unified dashboard. Analyze conversions, engagement metrics, and ROI with precision across the entire Web3 ecosystem."
+            iconColor="bg-gradient-to-br from-crypto-navy to-blue-700"
+            delay="0.3s"
+            index={2}
+            image="/lovable-uploads/932fd99b-baaf-48b3-a282-032c154ed936.png"
+          />
+          
+          <FeatureBlock 
+            icon={<Brain className="w-6 h-6 text-white" />}
+            title="AI-Powered Insights"
+            description="Leverage advanced machine learning to optimize campaigns in real-time. Our AI analyzes blockchain and behavioral data to identify high-value segments and recommend optimal strategy adjustments."
+            iconColor="bg-gradient-to-br from-purple-600 to-indigo-700"
+            delay="0.5s"
+            index={3}
+            image="/lovable-uploads/3cb936f6-fcfe-4837-b598-10e19661614a.png"
+          />
+          
+          <FeatureBlock 
+            icon={<LineChart className="w-6 h-6 text-white" />}
+            title="Token-Gated Campaign Builder"
+            description="Create sophisticated conditional marketing flows based on token holdings and on-chain activities. Deploy personalized experiences that respond to users' blockchain interactions automatically."
+            iconColor="bg-gradient-to-br from-crypto-gold to-amber-600"
+            delay="0.7s"
+            index={4}
+            image="/lovable-uploads/ef32b86b-83ad-4452-9c2b-22a3505a4ea8.png"
+          />
+        </div>
+        
+        <div className="mt-20">
+          <DataFlowVisualization />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default DetailedFeatures;
