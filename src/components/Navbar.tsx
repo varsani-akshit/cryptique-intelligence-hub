@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -56,7 +57,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/b1e36bb6-d421-4078-b7c4-8fc57cfa5092.png" 
                 alt="Cryptique Logo" 
-                className="h-10 md:h-12" 
+                className="h-12 md:h-14" 
               />
             </div>
           </a>
