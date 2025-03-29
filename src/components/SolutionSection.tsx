@@ -246,7 +246,7 @@ const SolutionSection = () => {
               <svg width="100%" height="100%" className="absolute inset-0">
                 {/* Connection line from Web2 to Cryptique - moved further to the left */}
                 <path 
-                  d="M207,300 C295,300 315,300 380,300" 
+                  d="M207,300 C295,300 315,300 370,300" 
                   stroke="#CAA968" 
                   strokeWidth="1.5" 
                   strokeDasharray="5,5" 
@@ -256,7 +256,7 @@ const SolutionSection = () => {
                 {/* Data packets from Web2 to Cryptique */}
                 <circle r="4" fill="#CAA968">
                   <animateMotion 
-                    path="M207,300 C295,300 315,300 380,300" 
+                    path="M207,300 C295,300 315,300 370,300" 
                     dur="3s" 
                     repeatCount="indefinite"
                   />
