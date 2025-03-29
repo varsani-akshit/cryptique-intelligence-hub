@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Zap, Database, Activity, LineChart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -76,7 +75,7 @@ const SolutionSection = () => {
     },
     { name: 'Polygon', 
       icon: <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 38.4 33.5" fill="#8247E5">
-              <path d="M29,10.2c-0.7-0.4-1.6-0.4-2.4,0L21,13.5l-3.8,2.1l-5.5,3.3c-0.7,0.4-1.6,0.4-2.4,0L5,16.3c-0.7-0.4-1.2-1.2-1.2-2.1v-5c0-0.8,0.4-1.6,1.2-2.1l4.3-2.5c0.7-0.4,1.6-0.4,2.4,0L16,7.2c0.7,0.4,1.2,1.2,1.2,2.1v3.3l3.8-2.2V7c0-0.8-0.4-1.6-1.2-2.1l-8-4.7c-0.7-0.4-1.6-0.4-2.4,0L1.2,5C0.4,5.4,0,6.2,0,7v9.4c0,0.8,0.4,1.6,1.2,2.1l8.1,4.7c0.7,0.4,1.6,0.4,2.4,0l5.5-3.2l3.8-2.2l5.5-3.2c0.7-0.4,1.6-0.4,2.4,0l4.3,2.5c0.7,0.4,1.2,1.2,1.2,2.1v5c0,0.8-0.4,1.6-1.2,2.1L29,28.8c-0.7,0.4-1.6,0.4-2.4,0l-4.3-2.5c-0.7-0.4-1.2-1.2-1.2-2.1V21l-3.8,2.2v3.3c0,0.8,0.4,1.6,1.2,2.1l8.1,4.7c0.7,0.4,1.6,0.4,2.4,0l8.1-4.7c0.7-0.4,1.2-1.2,1.2-2.1V17c0-0.8-0.4-1.6-1.2-2.1L29,10.2z"/>
+              <path d="M29,10.2c-0.7-0.4-1.6-0.4-2.4,0L21,13.5l-3.8,2.1l-5.5,3.3c-0.7,0.4-1.6,0.4-2.4,0L5,16.3c-0.7-0.4-1.2-1.2-1.2-2.1v-5c0-0.8,0.4-1.6,1.2-2.1l4.3-2.5c0.7-0.4,1.6-0.4,2.4,0L16,7.2c0.7,0.4,1.2,1.2,1.2,2.1v3.3l3.8-2.2V7c0-0.8-0.4-1.6-1.2-2.1l-8-4.7c-0.7-0.4-1.6-0.4-2.4,0L1.2,5C0.4,5.4,0,6.2,0,7v9.4c0,0.8,0.4,1.6,1.2,2.1l8.1,4.7c0.7,0.4,1.6,0.4,2.4,0l5.5-3.2l3.8-2.2l5.5-3.2c0.7-0.4,1.6-0.4,2.4,0l4.3,2.5c0.7,0.4,1.2,1.2,1.2,2.1v5c0,0.8-0.4-1.6-1.2,2.1L29,28.8c-0.7,0.4-1.6,0.4-2.4,0l-4.3-2.5c-0.7-0.4-1.2-1.2-1.2-2.1V21l-3.8,2.2v3.3c0,0.8,0.4,1.6,1.2,2.1l8.1,4.7c0.7,0.4,1.6,0.4,2.4,0l8.1-4.7c0.7-0.4,1.2-1.2,1.2-2.1V17c0-0.8-0.4-1.6-1.2-2.1L29,10.2z"/>
             </svg>
     },
     { name: 'Solana', 
@@ -117,16 +116,15 @@ const SolutionSection = () => {
   const iconSizeOuter = isMobile ? 32 : 42; 
   const iconSizeInner = isMobile ? 26 : 34; 
   
-  // Text ring sizes - switched outer and inner text positions
+  // Text ring sizes - both text labels will now be on the outer circle
   const outerTextRingSize = outerRingSize + 50; // Place text ring outside the icons
-  const innerTextRingSize = innerRingSize - 40; // Place text ring inside the icons
   
   const web2Positions = generateOrbitalPositions(web2Icons.length, outerRingSize, Math.PI / 8);
   const web3Positions = generateOrbitalPositions(web3Icons.length, innerRingSize, 0);
   
-  // Generate positions for text elements - switched positioning
-  const web2TextPosition = { x: Math.cos(Math.PI/4) * innerTextRingSize, y: Math.sin(Math.PI/4) * innerTextRingSize };
-  const web3TextPosition = { x: Math.cos(-Math.PI/4) * outerTextRingSize, y: Math.sin(-Math.PI/4) * outerTextRingSize }; 
+  // Generate positions for text elements - both on the outer ring but at different positions
+  const web2TextPosition = { x: Math.cos(-Math.PI/4) * outerTextRingSize, y: Math.sin(-Math.PI/4) * outerTextRingSize };
+  const web3TextPosition = { x: Math.cos(Math.PI/4) * outerTextRingSize, y: Math.sin(Math.PI/4) * outerTextRingSize }; 
 
   return (
     <section className="bg-white relative overflow-hidden py-10">
@@ -234,15 +232,13 @@ const SolutionSection = () => {
                 ))}
               </div>
               
-              {/* Modified text ring positions: Web2 inner, Web3 outer */}
-              
-              {/* Inner Ring - Web2 Data Sources text */}
+              {/* Outer Ring - Both Web2 and Web3 text */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <div 
                   className="rounded-full border border-crypto-gold/20 animate-spin-slow" 
                   style={{ 
-                    width: innerTextRingSize * 2, 
-                    height: innerTextRingSize * 2,
+                    width: outerTextRingSize * 2, 
+                    height: outerTextRingSize * 2,
                     animationDuration: '45s'
                   }}
                 >
@@ -252,36 +248,24 @@ const SolutionSection = () => {
                     style={{ 
                       left: `calc(50% + ${web2TextPosition.x}px)`, 
                       top: `calc(50% + ${web2TextPosition.y}px)`,
-                      transform: 'translate(-50%, -50%) rotate(45deg)',
+                      transform: 'translate(-50%, -50%) rotate(-45deg)',
                     }}
                   >
                     <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-gold/20 shadow-sm rotate-text-counter">
                       <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web2 Data Sources</h4>
                     </div>
                   </div>
-                </div>
-              </div>
-              
-              {/* Outer Ring - Web3 Ecosystem text */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div 
-                  className="rounded-full border border-crypto-navy/20 animate-spin-slow-reverse" 
-                  style={{ 
-                    width: outerTextRingSize * 2, 
-                    height: outerTextRingSize * 2,
-                    animationDuration: '40s' 
-                  }}
-                >
+                  
                   {/* Web3 Ecosystem Text */}
                   <div 
-                    className="absolute flex items-center justify-center z-10 text-orbit-reverse"
+                    className="absolute flex items-center justify-center z-10 text-orbit"
                     style={{ 
                       left: `calc(50% + ${web3TextPosition.x}px)`, 
                       top: `calc(50% + ${web3TextPosition.y}px)`,
-                      transform: 'translate(-50%, -50%) rotate(-45deg)',
+                      transform: 'translate(-50%, -50%) rotate(45deg)',
                     }}
                   >
-                    <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-navy/20 shadow-sm rotate-text">
+                    <div className="bg-white/90 backdrop-blur-sm py-2 px-4 rounded-lg border border-crypto-navy/20 shadow-sm rotate-text-counter">
                       <h4 className="text-sm md:text-base font-bold text-crypto-dark">Web3 Ecosystem</h4>
                     </div>
                   </div>
