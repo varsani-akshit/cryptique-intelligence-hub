@@ -50,7 +50,7 @@ const SolutionSection = () => {
             </svg>
     },
     { name: 'QuestN', 
-      icon: <img src="/lovable-uploads/7c936cca-f554-4804-89e4-4b26bbe3d8ce.png" alt="QuestN" className="w-full h-full object-contain" />
+      icon: <span className="text-base font-bold">Q</span>
     },
     { name: 'Google', 
       icon: <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24">
@@ -179,20 +179,18 @@ const SolutionSection = () => {
               
               {/* Outer Ring - Web2 icons */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="rounded-full border border-crypto-gold/20 border-dashed animate-spin-slow" 
-                     style={{ width: outerRingSize * 2, height: outerRingSize * 2 }}></div>
+                <div className={`w-[${outerRingSize * 2}px] h-[${outerRingSize * 2}px] rounded-full border border-crypto-gold/20 border-dashed animate-spin-slow`} style={{ width: outerRingSize * 2, height: outerRingSize * 2 }}></div>
                 
                 {web2Positions.map((pos, index) => (
                   <div 
                     key={`web2-${index}`}
-                    className="absolute rounded-full bg-white shadow-md border border-crypto-gold/20 flex items-center justify-center z-10 animate-pulse-subtle transition-transform duration-500 hover:scale-110"
+                    className="absolute rounded-full bg-white shadow-md border border-crypto-gold/20 flex items-center justify-center z-10"
                     style={{ 
                       width: iconSizeOuter, 
                       height: iconSizeOuter,
                       left: `calc(50% + ${pos.x}px - ${iconSizeOuter/2}px)`, 
                       top: `calc(50% + ${pos.y}px - ${iconSizeOuter/2}px)`,
-                      animationDelay: `${index * 0.2}s`,
-                      transform: `translate(-50%, -50%) rotate(${-pos.angle}rad)`,
+                      animationDelay: `${index * 0.2}s`
                     }}
                   >
                     <div className="w-5 h-5 flex items-center justify-center">
@@ -200,8 +198,7 @@ const SolutionSection = () => {
                     </div>
                     
                     {!isMobile && (
-                      <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-xs whitespace-nowrap opacity-70 pointer-events-none"
-                           style={{ transform: `rotate(${pos.angle}rad)` }}>
+                      <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-xs whitespace-nowrap opacity-70">
                         {web2Icons[index].name}
                       </div>
                     )}
@@ -211,20 +208,18 @@ const SolutionSection = () => {
               
               {/* Inner Ring - Web3 icons */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="rounded-full border border-crypto-navy/20 border-dashed animate-spin-slow-reverse" 
-                     style={{ width: innerRingSize * 2, height: innerRingSize * 2, animationDuration: '30s' }}></div>
+                <div className={`rounded-full border border-crypto-navy/20 border-dashed animate-spin-slow-reverse`} style={{ width: innerRingSize * 2, height: innerRingSize * 2, animationDuration: '30s' }}></div>
                 
                 {web3Positions.map((pos, index) => (
                   <div 
                     key={`web3-${index}`}
-                    className="absolute rounded-full bg-white shadow-md border border-crypto-navy/20 flex items-center justify-center z-10 animate-pulse-subtle transition-transform duration-500 hover:scale-110"
+                    className="absolute rounded-full bg-white shadow-md border border-crypto-navy/20 flex items-center justify-center z-10"
                     style={{ 
                       width: iconSizeInner, 
                       height: iconSizeInner,
                       left: `calc(50% + ${pos.x}px - ${iconSizeInner/2}px)`, 
                       top: `calc(50% + ${pos.y}px - ${iconSizeInner/2}px)`,
-                      animationDelay: `${index * 0.15}s`,
-                      transform: `translate(-50%, -50%) rotate(${pos.angle}rad)`,
+                      animationDelay: `${index * 0.15}s`
                     }}
                   >
                     <div className="w-4 h-4 flex items-center justify-center">
@@ -232,8 +227,7 @@ const SolutionSection = () => {
                     </div>
                     
                     {!isMobile && (
-                      <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-xs whitespace-nowrap opacity-70 pointer-events-none"
-                           style={{ transform: `rotate(${-pos.angle}rad)` }}>
+                      <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 text-xs whitespace-nowrap opacity-70">
                         {web3Icons[index].name}
                       </div>
                     )}
