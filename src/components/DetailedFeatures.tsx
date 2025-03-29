@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { UserCheck, Database, Brain, LineChart, ChevronRight, Zap, Link2, Radio, BarChart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -40,12 +39,7 @@ const FeatureBlock = ({
             </div>
             <h3 className={`text-xl md:text-2xl font-bold mb-4 ${isHovered ? 'gold-navy-text' : 'text-crypto-dark'} transition-colors duration-300`}>{title}</h3>
             <p className="text-crypto-dark/80 leading-relaxed">{description}</p>
-            {isHovered && (
-              <button className="mt-4 text-crypto-navy border border-crypto-gold/50 px-4 py-2 rounded-md flex items-center hover:bg-crypto-gold/10 transition-colors duration-300">
-                <span className="mr-2">Learn more</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            )}
+            {/* Removed the Learn More button that was inside the isHovered condition */}
           </div>
           
           {image && (

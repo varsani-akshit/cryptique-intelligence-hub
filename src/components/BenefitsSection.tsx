@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import { Bookmark, Link, Wallet, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -51,9 +50,6 @@ const BenefitCard = ({ icon, title, delay, index }: BenefitCardProps) => {
       </div>
       <div>
         <p className="text-xl font-montserrat font-semibold mb-2 text-crypto-dark">{title}</p>
-        <Button variant="ghost" className="text-crypto-gold hover:text-crypto-navy hover:bg-transparent group p-0">
-          Learn more <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-        </Button>
       </div>
     </div>
   );
