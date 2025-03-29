@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -53,9 +54,9 @@ const Navbar = () => {
           <a href="#" className="flex items-center">
             <div className="animate-float">
               <img 
-                src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
+                src="/lovable-uploads/b1e36bb6-d421-4078-b7c4-8fc57cfa5092.png" 
                 alt="Cryptique Logo" 
-                className="h-8 md:h-10 mr-2 md:mr-3" 
+                className="h-8 md:h-10" 
               />
             </div>
           </a>
