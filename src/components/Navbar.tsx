@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, FileText, MessageSquare, Twitter, Discord } from 'lucide-react';
+import { Menu, X, FileText, MessageSquare, Twitter, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -88,7 +88,7 @@ const Navbar = () => {
               className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
               aria-label="Discord"
             >
-              <Discord className="h-5 w-5" />
+              <BookOpen className="h-5 w-5" />
             </a>
           </div>
           <Button variant="ghost">Sign In</Button>
@@ -170,7 +170,7 @@ const Navbar = () => {
                 className="text-crypto-navy hover:text-crypto-gold"
                 aria-label="Discord"
               >
-                <Discord className="h-5 w-5" />
+                <BookOpen className="h-5 w-5" />
               </a>
             </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
