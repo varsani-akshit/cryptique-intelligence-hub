@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
@@ -62,7 +61,7 @@ const TrustSection = () => {
       };
     }
   }, [emblaApi]);
-
+  
   return (
     <section className="relative overflow-hidden bg-white py-0" id="trust">
       {/* Background elements */}
@@ -99,7 +98,7 @@ const TrustSection = () => {
                   </CarouselItem>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
                     <ClientLogo 
-                      imageSrc="/lovable-uploads/205f1d5b-8cab-4c36-9060-a06e0adfc531.png" 
+                      imageSrc="/lovable-uploads/4b4a96ef-2445-45a7-83d9-fbdef45423fd.png" 
                       name="Cubane" 
                       description="Layer 1 Blockchain"
                     />
