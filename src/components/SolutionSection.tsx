@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Zap, Database, Activity, LineChart } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -174,12 +175,13 @@ const SolutionSection = () => {
                 {web2Positions.map((pos, index) => (
                   <div 
                     key={`web2-${index}`}
-                    className="absolute rounded-full bg-white shadow-md border border-crypto-gold/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300 icon-orbit"
+                    className="absolute rounded-full bg-white shadow-md border border-crypto-gold/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300"
                     style={{ 
                       width: iconSizeOuter, 
                       height: iconSizeOuter,
                       left: `calc(50% + ${pos.x}px - ${iconSizeOuter/2}px)`, 
                       top: `calc(50% + ${pos.y}px - ${iconSizeOuter/2}px)`,
+                      animation: `orbit-counterclockwise ${20 + index * 2}s linear infinite`,
                       animationDelay: `${index * 0.2}s`
                     }}
                   >
@@ -203,12 +205,13 @@ const SolutionSection = () => {
                 {web3Positions.map((pos, index) => (
                   <div 
                     key={`web3-${index}`}
-                    className="absolute rounded-full bg-white shadow-md border border-crypto-navy/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300 icon-orbit-reverse"
+                    className="absolute rounded-full bg-white shadow-md border border-crypto-navy/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300"
                     style={{ 
                       width: iconSizeInner, 
                       height: iconSizeInner,
                       left: `calc(50% + ${pos.x}px - ${iconSizeInner/2}px)`, 
                       top: `calc(50% + ${pos.y}px - ${iconSizeInner/2}px)`,
+                      animation: `orbit-clockwise ${15 + index * 2}s linear infinite`,
                       animationDelay: `${index * 0.15}s`
                     }}
                   >
