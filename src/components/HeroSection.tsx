@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MousePointer } from 'lucide-react';
@@ -74,18 +75,17 @@ const HeroSection = () => {
       </div>
       
       <div className="container-section relative z-10 flex flex-col items-center justify-center min-h-screen text-center">
-        {/* 3D rotating logo */}
+        {/* 3D rotating logo - updated to use the new CQ logo without background square */}
         <div 
           ref={cryptiqueLogoRef}
           className="relative mb-8 w-32 h-32 transition-transform duration-300 ease-out perspective"
           style={{
             perspective: '1000px', 
             transformStyle: 'preserve-3d',
-            boxShadow: '0 0 30px rgba(202, 169, 104, 0.3)'
           }}
         >
           <img 
-            src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
+            src="/lovable-uploads/540775da-1d19-454b-8cc3-00b93142bc89.png" 
             alt="Cryptique Logo" 
             className="object-contain w-full h-full animate-float"
           />
