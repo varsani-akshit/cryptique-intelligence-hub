@@ -50,7 +50,7 @@ const SolutionSection = () => {
             </svg>
     },
     { name: 'QuestN', 
-      icon: <span className="text-base font-bold">Q</span>
+      icon: <img src="/lovable-uploads/ef32b86b-83ad-4452-9c2b-22a3505a4ea8.png" alt="QuestN Logo" className="w-full h-full object-contain" />
     },
     { name: 'Google', 
       icon: <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24">
@@ -121,10 +121,11 @@ const SolutionSection = () => {
     });
   };
 
-  const outerRingSize = isMobile ? 120 : 150;
-  const innerRingSize = isMobile ? 80 : 100;
-  const iconSizeOuter = isMobile ? 30 : 40;
-  const iconSizeInner = isMobile ? 24 : 32;
+  // Increased sizes for wider rings and more space between them
+  const outerRingSize = isMobile ? 160 : 200; // Increased from 120/150
+  const innerRingSize = isMobile ? 100 : 130; // Increased from 80/100
+  const iconSizeOuter = isMobile ? 32 : 42; // Slightly larger icons
+  const iconSizeInner = isMobile ? 26 : 34; // Slightly larger icons
   
   const web2Positions = generateOrbitalPositions(web2Icons.length, outerRingSize, Math.PI / 8);
   const web3Positions = generateOrbitalPositions(web3Icons.length, innerRingSize, 0);
@@ -149,8 +150,8 @@ const SolutionSection = () => {
             ref={containerRef}
             className="relative mx-auto"
             style={{ 
-              height: isMobile ? '480px' : '600px', 
-              maxWidth: isMobile ? '100%' : '600px'
+              height: isMobile ? '520px' : '640px', // Increased height to accommodate larger rings
+              maxWidth: isMobile ? '100%' : '640px'  // Increased width to accommodate larger rings
             }}
           >
             {/* Background elements */}
@@ -179,12 +180,12 @@ const SolutionSection = () => {
               
               {/* Outer Ring - Web2 icons */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className={`w-[${outerRingSize * 2}px] h-[${outerRingSize * 2}px] rounded-full border border-crypto-gold/20 border-dashed animate-spin-slow`} style={{ width: outerRingSize * 2, height: outerRingSize * 2 }}></div>
+                <div className={`rounded-full border border-crypto-gold/20 border-dashed animate-spin-slow`} style={{ width: outerRingSize * 2, height: outerRingSize * 2 }}></div>
                 
                 {web2Positions.map((pos, index) => (
                   <div 
                     key={`web2-${index}`}
-                    className="absolute rounded-full bg-white shadow-md border border-crypto-gold/20 flex items-center justify-center z-10"
+                    className="absolute rounded-full bg-white shadow-md border border-crypto-gold/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300"
                     style={{ 
                       width: iconSizeOuter, 
                       height: iconSizeOuter,
@@ -213,7 +214,7 @@ const SolutionSection = () => {
                 {web3Positions.map((pos, index) => (
                   <div 
                     key={`web3-${index}`}
-                    className="absolute rounded-full bg-white shadow-md border border-crypto-navy/20 flex items-center justify-center z-10"
+                    className="absolute rounded-full bg-white shadow-md border border-crypto-navy/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300"
                     style={{ 
                       width: iconSizeInner, 
                       height: iconSizeInner,
