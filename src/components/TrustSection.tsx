@@ -34,7 +34,8 @@ const TrustSection = () => {
   // Enhanced continuous scrolling effect - always moving regardless of interaction
   useEffect(() => {
     if (emblaApi) {
-      let animationFrame: number;
+      // Change type from number to NodeJS.Timeout to match setTimeout return type
+      let animationFrame: NodeJS.Timeout;
       const scrollInterval = 30; // Controls the speed (lower = faster)
       
       const autoScroll = () => {
