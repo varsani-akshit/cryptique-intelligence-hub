@@ -202,6 +202,33 @@
     animation: shimmer 3s linear infinite;
   }
   
+  /* Orbital animations */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes spin-slow-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 40s linear infinite;
+  }
+  
+  .animate-spin-slow-reverse {
+    animation: spin-slow-reverse 30s linear infinite;
+  }
+  
   .bg-crypto-gold {
     background-color: #CAA968;
   }
