@@ -19,7 +19,7 @@ const ClientLogo = ({
     <img 
       src={imageSrc} 
       alt={`${name} logo`} 
-      className={`${isLarge ? 'h-24' : 'h-18'} mb-4 object-contain`}
+      className={`${isLarge ? 'h-28' : 'h-22'} mb-4 object-contain`}
     />
     <h3 className="text-lg font-semibold mb-1 text-crypto-gold">{name}</h3>
     <p className="text-sm text-center text-crypto-dark/70">{description}</p>
