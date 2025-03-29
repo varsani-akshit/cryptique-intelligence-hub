@@ -148,7 +148,7 @@ const DetailedFeatures = () => {
           
           <FeatureBlock 
             icon={<Radio className="w-6 h-6 text-white" />}
-            title="Cross Channel Tracking"
+            title="Multi-Channel Attribution"
             description="Track every link click, wallet connection, smart contract interaction, and token transfer across all marketing channels. Whether it's Twitter campaigns, influencer referrals, Discord invites, or DAO proposals, all data is under one roof for deep analysis."
             iconColor="bg-gradient-to-br from-crypto-navy to-blue-700"
             delay="0.3s"
