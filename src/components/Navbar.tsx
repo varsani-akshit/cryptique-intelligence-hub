@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText, MessageSquare, Twitter, Discord } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -31,14 +31,13 @@ const Navbar = () => {
       <div className="container-section mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <a href="#" className="flex items-center">
-            <img 
-              src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
-              alt="Cryptique Logo" 
-              className="h-10 mr-3" 
-            />
-            <span className={`font-bold text-xl ${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'}`}>
-              Cryptique
-            </span>
+            <div className="animate-float">
+              <img 
+                src="/lovable-uploads/03634fb0-35b0-4a05-bf7c-76242f4083b7.png" 
+                alt="Cryptique Logo" 
+                className="h-10 mr-3" 
+              />
+            </div>
           </a>
         </div>
         
@@ -62,6 +61,36 @@ const Navbar = () => {
           >
             Features
           </a>
+          <a 
+            href="#" 
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors flex items-center`}
+          >
+            <FileText className="h-4 w-4 mr-1" />
+            Documentation
+          </a>
+          <a 
+            href="#" 
+            className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors flex items-center`}
+          >
+            <MessageSquare className="h-4 w-4 mr-1" />
+            Blog
+          </a>
+          <div className="flex space-x-3">
+            <a 
+              href="#" 
+              className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
+              aria-label="X (Twitter)"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a 
+              href="#" 
+              className={`${isScrolled ? 'text-crypto-navy' : 'text-crypto-navy'} hover:text-crypto-gold transition-colors`}
+              aria-label="Discord"
+            >
+              <Discord className="h-5 w-5" />
+            </a>
+          </div>
           <Button variant="ghost">Sign In</Button>
           <Button 
             className="bg-crypto-gold hover:bg-crypto-gold/90 text-crypto-navy"
@@ -112,6 +141,38 @@ const Navbar = () => {
             >
               Features
             </a>
+            <a 
+              href="#"
+              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <FileText className="h-4 w-4 mr-2" />
+              Documentation
+            </a>
+            <a 
+              href="#"
+              className="block px-3 py-2 rounded-md text-base font-medium text-crypto-navy hover:text-crypto-gold flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <MessageSquare className="h-4 w-4 mr-2" />
+              Blog
+            </a>
+            <div className="flex space-x-4 px-3 py-2">
+              <a 
+                href="#" 
+                className="text-crypto-navy hover:text-crypto-gold"
+                aria-label="X (Twitter)"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a 
+                href="#" 
+                className="text-crypto-navy hover:text-crypto-gold"
+                aria-label="Discord"
+              >
+                <Discord className="h-5 w-5" />
+              </a>
+            </div>
             <div className="pt-4 pb-3 border-t border-gray-200">
               <Button variant="ghost" className="w-full justify-start">Sign In</Button>
               <Button 

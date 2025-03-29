@@ -30,7 +30,7 @@ const SolutionSection = () => {
   }, []);
 
   return (
-    <section className="bg-black relative overflow-hidden py-10">
+    <section className="bg-white relative overflow-hidden py-10">
       {/* Background decorative elements */}
       <div className="absolute top-1/2 -translate-y-1/2 -right-24 w-64 h-64 bg-crypto-navy/10 rounded-full blur-3xl"></div>
       <div className="absolute top-1/4 -left-24 w-48 h-48 bg-crypto-gold/10 rounded-full blur-3xl"></div>
