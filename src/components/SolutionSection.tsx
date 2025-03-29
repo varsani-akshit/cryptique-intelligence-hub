@@ -256,7 +256,7 @@ const SolutionSection = () => {
                 {/* Data packets from Web2 to Cryptique */}
                 <circle r="4" fill="#CAA968">
                   <animateMotion 
-                    path="M220,300 C295,300 315,300 380,300" 
+                    path="M200,300 C295,300 315,300 380,300" 
                     dur="3s" 
                     repeatCount="indefinite"
                   />
