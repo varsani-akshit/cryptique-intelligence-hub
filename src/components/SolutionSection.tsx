@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Zap, Database, Activity, LineChart, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -180,8 +179,8 @@ const SolutionSection = () => {
             ref={containerRef}
             className="relative mx-auto"
             style={{ 
-              height: isMobile ? '560px' : '680px', // Increased height even more
-              maxWidth: isMobile ? '100%' : '680px'  // Increased width even more
+              height: isMobile ? '560px' : '680px',
+              maxWidth: isMobile ? '100%' : '680px'
             }}
           >
             {/* Background elements */}
@@ -278,10 +277,7 @@ const SolutionSection = () => {
                 </div>
               </div>
               
-              {/* Arrow path from Web2 to Center */}
-              <div className="absolute left-[50%] top-full mt-1 h-[60px] w-[2px] bg-gradient-to-b from-crypto-gold/60 to-crypto-gold/0">
-                <div className="absolute -left-1 bottom-0 h-2 w-2 bg-crypto-gold rounded-full animate-pulse-glow"></div>
-              </div>
+              {/* Arrow path from Web2 to Center (removed) */}
             </div>
             
             <div className={`absolute bottom-0 right-4 md:right-8 mb-4 transition-all duration-500 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-4'}`}>
@@ -294,18 +290,15 @@ const SolutionSection = () => {
                 </div>
               </div>
               
-              {/* Arrow path from Web3 to Center */}
-              <div className="absolute right-[50%] bottom-full mb-1 h-[60px] w-[2px] bg-gradient-to-t from-crypto-navy/60 to-crypto-navy/0">
-                <div className="absolute -right-1 top-0 h-2 w-2 bg-crypto-navy rounded-full animate-pulse-glow"></div>
-              </div>
+              {/* Arrow path from Web3 to Center (removed) */}
             </div>
             
-            {/* Bidirectional data flow arrows between boxes */}
+            {/* Bidirectional data flow arrows between boxes - UPDATED to go around the center */}
             <div className={`absolute bottom-0 left-0 top-0 right-0 pointer-events-none ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-              {/* Curved arrow from Web2 to Web3 */}
+              {/* Curved arrow from Web2 to Web3 - UPDATED */}
               <svg className="absolute top-0 right-0 w-full h-full" viewBox="0 0 680 680" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path 
-                  d="M100 80 C 200 200, 500 200, 580 600" 
+                  d="M100 80 C 20 250, 20 430, 580 600" 
                   stroke="url(#web2-to-web3)" 
                   strokeWidth="2" 
                   strokeDasharray="6 4"
@@ -326,10 +319,10 @@ const SolutionSection = () => {
                 </defs>
               </svg>
               
-              {/* Curved arrow from Web3 to Web2 */}
+              {/* Curved arrow from Web3 to Web2 - UPDATED */}
               <svg className="absolute top-0 right-0 w-full h-full" viewBox="0 0 680 680" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path 
-                  d="M580 600 C 400 500, 200 400, 100 80" 
+                  d="M580 600 C 660 430, 660 250, 100 80" 
                   stroke="url(#web3-to-web2)" 
                   strokeWidth="2" 
                   strokeDasharray="6 4"
@@ -350,14 +343,14 @@ const SolutionSection = () => {
                 </defs>
               </svg>
               
-              {/* Animated data packets */}
+              {/* Animated data packets - UPDATED */}
               {[...Array(5)].map((_, index) => (
                 <div 
                   key={`data-packet-1-${index}`}
                   className="absolute h-2 w-2 rounded-full bg-crypto-gold/80"
                   style={{
-                    top: `${80 + (index * 28)}px`,
-                    left: `${130 + (index * 92)}px`,
+                    top: `${130 + (index * 50)}px`,
+                    left: `${40 + (index * 10)}px`,
                     animation: `pulse-glow 2s infinite ${index * 0.5}s`
                   }}
                 />
@@ -368,8 +361,8 @@ const SolutionSection = () => {
                   key={`data-packet-2-${index}`}
                   className="absolute h-2 w-2 rounded-full bg-crypto-navy/80"
                   style={{
-                    bottom: `${120 + (index * 28)}px`,
-                    right: `${140 + (index * 70)}px`,
+                    bottom: `${130 + (index * 50)}px`,
+                    right: `${40 + (index * 10)}px`,
                     animation: `pulse-glow 2s infinite ${index * 0.5}s`
                   }}
                 />
@@ -383,14 +376,3 @@ const SolutionSection = () => {
               <span className="gold-navy-text">One Platform</span>, Unlimited Possibilities
             </h3>
             <p className="text-gray-700">
-              Cryptique seamlessly integrates Web2 data sources with Web3 blockchain ecosystems to 
-              provide comprehensive marketing analytics and insights for your crypto projects.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default SolutionSection;
