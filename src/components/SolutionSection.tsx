@@ -44,26 +44,16 @@ const SolutionSection = () => {
             </svg>
     },
     { name: 'Telegram', 
-      icon: <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24" fill="#0088cc">
-              <path d="M12 0c-6.626 0-12 5.372-12 12 0 6.627 5.374 12 12 12 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm-1.218 19.105c-.339 0-.282-.127-.401-.45l-1.001-3.295 7.132-4.367"/>
-              <path d="M18.429 16.034c.16.059-.057.138-.191.138l-1.85.164-.702.213a.473.473 0 01-.461-.112 19.87 19.87 0 01-4.383-2.849c-.23-.185-.47-.37-.702-.552-.599-.467-1.201-.93-1.8-1.392-.127-.099-.254-.198-.381-.297 1.195-.754 2.411-1.529 3.626-2.292.797-.503 1.595-1.006 2.394-1.509a.36.36 0 00.192-.312c.002-.371-.141-.722-.359-1.021-.219-.3-.503-.552-.799-.778a3.139 3.139 0 00-1.493-.515 3.81 3.81 0 00-1.051.05c-.521.1-1.025.301-1.503.562-1.431.783-2.596 2.006-3.641 3.306-1.084 1.348-2.036 2.807-2.822 4.346-.618 1.209-1.124 2.473-1.518 3.78-.099.326-.184.658-.253.994a.458.458 0 01-.126.264 2.69 2.69 0 01-.409.042"/>
-            </svg>
+      icon: <img src="/lovable-uploads/20e8e068-4233-4367-bf9c-e275b95c573e.png" alt="Telegram Logo" className="w-full h-full object-contain" />
     },
     { name: 'QuestN', 
-      icon: <img src="/lovable-uploads/ef32b86b-83ad-4452-9c2b-22a3505a4ea8.png" alt="QuestN Logo" className="w-full h-full object-contain" />
+      icon: <img src="/lovable-uploads/b28bbf9f-cbf5-4d75-8777-0d11d86fb0e9.png" alt="QuestN Logo" className="w-full h-full object-contain" />
     },
-    { name: 'Google', 
-      icon: <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path>
-              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path>
-              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"></path>
-              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"></path>
-            </svg>
+    { name: 'Google Ads', 
+      icon: <img src="/lovable-uploads/f89b5608-32f7-432e-a8df-6469ad60dcd3.png" alt="Google Ads Logo" className="w-full h-full object-contain" />
     },
-    { name: 'Meta', 
-      icon: <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 24 24" fill="#1877F2">
-              <path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"></path>
-            </svg>
+    { name: 'Meta Ads', 
+      icon: <img src="/lovable-uploads/d98846ba-c367-45ff-a7d6-c8ffa5012877.png" alt="Meta Logo" className="w-full h-full object-contain" />
     },
   ];
 
@@ -121,11 +111,11 @@ const SolutionSection = () => {
     });
   };
 
-  // Increased sizes for wider rings and more space between them
-  const outerRingSize = isMobile ? 160 : 200; // Increased from 120/150
-  const innerRingSize = isMobile ? 100 : 130; // Increased from 80/100
-  const iconSizeOuter = isMobile ? 32 : 42; // Slightly larger icons
-  const iconSizeInner = isMobile ? 26 : 34; // Slightly larger icons
+  // Further increased sizes for wider rings and more space between them
+  const outerRingSize = isMobile ? 180 : 230; // Increased even more
+  const innerRingSize = isMobile ? 110 : 150; // Increased even more
+  const iconSizeOuter = isMobile ? 32 : 42; 
+  const iconSizeInner = isMobile ? 26 : 34; 
   
   const web2Positions = generateOrbitalPositions(web2Icons.length, outerRingSize, Math.PI / 8);
   const web3Positions = generateOrbitalPositions(web3Icons.length, innerRingSize, 0);
@@ -150,8 +140,8 @@ const SolutionSection = () => {
             ref={containerRef}
             className="relative mx-auto"
             style={{ 
-              height: isMobile ? '520px' : '640px', // Increased height to accommodate larger rings
-              maxWidth: isMobile ? '100%' : '640px'  // Increased width to accommodate larger rings
+              height: isMobile ? '560px' : '680px', // Increased height even more
+              maxWidth: isMobile ? '100%' : '680px'  // Increased width even more
             }}
           >
             {/* Background elements */}
@@ -180,12 +170,12 @@ const SolutionSection = () => {
               
               {/* Outer Ring - Web2 icons */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className={`rounded-full border border-crypto-gold/20 border-dashed animate-spin-slow`} style={{ width: outerRingSize * 2, height: outerRingSize * 2 }}></div>
+                <div className="rounded-full border border-crypto-gold/20 border-dashed animate-spin-slow" style={{ width: outerRingSize * 2, height: outerRingSize * 2 }}></div>
                 
                 {web2Positions.map((pos, index) => (
                   <div 
                     key={`web2-${index}`}
-                    className="absolute rounded-full bg-white shadow-md border border-crypto-gold/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300"
+                    className="absolute rounded-full bg-white shadow-md border border-crypto-gold/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300 icon-orbit"
                     style={{ 
                       width: iconSizeOuter, 
                       height: iconSizeOuter,
@@ -194,7 +184,7 @@ const SolutionSection = () => {
                       animationDelay: `${index * 0.2}s`
                     }}
                   >
-                    <div className="w-5 h-5 flex items-center justify-center">
+                    <div className="w-full h-full p-1.5 flex items-center justify-center">
                       {web2Icons[index].icon}
                     </div>
                     
@@ -209,12 +199,12 @@ const SolutionSection = () => {
               
               {/* Inner Ring - Web3 icons */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className={`rounded-full border border-crypto-navy/20 border-dashed animate-spin-slow-reverse`} style={{ width: innerRingSize * 2, height: innerRingSize * 2, animationDuration: '30s' }}></div>
+                <div className="rounded-full border border-crypto-navy/20 border-dashed animate-spin-slow-reverse" style={{ width: innerRingSize * 2, height: innerRingSize * 2, animationDuration: '30s' }}></div>
                 
                 {web3Positions.map((pos, index) => (
                   <div 
                     key={`web3-${index}`}
-                    className="absolute rounded-full bg-white shadow-md border border-crypto-navy/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300"
+                    className="absolute rounded-full bg-white shadow-md border border-crypto-navy/20 flex items-center justify-center z-10 hover:scale-110 transition-transform duration-300 icon-orbit-reverse"
                     style={{ 
                       width: iconSizeInner, 
                       height: iconSizeInner,
@@ -223,7 +213,7 @@ const SolutionSection = () => {
                       animationDelay: `${index * 0.15}s`
                     }}
                   >
-                    <div className="w-4 h-4 flex items-center justify-center">
+                    <div className="w-full h-full p-1 flex items-center justify-center">
                       {web3Icons[index].icon}
                     </div>
                     
