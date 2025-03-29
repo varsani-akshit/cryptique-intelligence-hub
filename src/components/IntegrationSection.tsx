@@ -99,46 +99,6 @@ const IntegrationSection = () => {
             <div className="absolute bottom-8 right-8 w-2 h-4 bg-crypto-gold/70 animate-pulse"></div>
           </div>
           
-          {/* Single heading after the code block - ensuring no duplicates */}
-          <h3 className="text-2xl md:text-3xl font-bold my-8 text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <span className="relative">
-              Stay Ahead of the <span className="gold-navy-text">Competition</span>
-              <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></span>
-            </span>
-          </h3>
-          
-          {/* Data nodes/connections visualization */}
-          <div className="mt-12 relative h-32 hidden md:block">
-            <svg className="absolute inset-0" xmlns="http://www.w3.org/2000/svg">
-              <path d="M100,16 C200,16 300,80 400,80" stroke="#CAA968" strokeWidth="1" strokeDasharray="5,3" fill="none"/>
-              <path d="M100,80 C200,80 300,16 400,16" stroke="#CAA968" strokeWidth="1" strokeDasharray="5,3" fill="none"/>
-              <path d="M100,48 L400,48" stroke="#CAA968" strokeWidth="1" strokeDasharray="5,3" fill="none"/>
-              
-              <circle cx="100" cy="16" r="4" fill="#CAA968">
-                <animate attributeName="opacity" values="1;0.3;1" dur="4s" repeatCount="indefinite"/>
-              </circle>
-              <circle cx="100" cy="48" r="4" fill="#CAA968">
-                <animate attributeName="opacity" values="1;0.3;1" dur="4s" repeatCount="indefinite" begin="1s"/>
-              </circle>
-              <circle cx="100" cy="80" r="4" fill="#CAA968">
-                <animate attributeName="opacity" values="1;0.3;1" dur="4s" repeatCount="indefinite" begin="2s"/>
-              </circle>
-              
-              <circle cx="400" cy="16" r="4" fill="#CAA968">
-                <animate attributeName="opacity" values="1;0.3;1" dur="4s" repeatCount="indefinite" begin="2s"/>
-              </circle>
-              <circle cx="400" cy="48" r="4" fill="#CAA968">
-                <animate attributeName="opacity" values="1;0.3;1" dur="4s" repeatCount="indefinite" begin="1s"/>
-              </circle>
-              <circle cx="400" cy="80" r="4" fill="#CAA968">
-                <animate attributeName="opacity" values="1;0.3;1" dur="4s" repeatCount="indefinite"/>
-              </circle>
-              
-              <circle cx="250" cy="48" r="6" fill="#ffffff" stroke="#CAA968" strokeWidth="1">
-                <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
-              </circle>
-            </svg>
-          </div>
         </div>
       </div>
     </section>
