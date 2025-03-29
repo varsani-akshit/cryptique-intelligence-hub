@@ -28,19 +28,19 @@ const ClientLogo = ({
 
 const TrustSection = () => {
   return (
-    <section className="relative overflow-hidden bg-black py-10">
+    <section className="relative overflow-hidden bg-black py-0">
       {/* Background elements */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:30px_30px] opacity-5"></div>
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent"></div>
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent"></div>
       
       <div className="container-section">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-fade-in relative inline-block mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fade-in relative inline-block mx-auto">
           Trusted by Leading <span className="text-crypto-gold">Web3 Projects</span>
           <div className="absolute -bottom-4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
         </h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           <ClientLogo 
             imageSrc="/lovable-uploads/34f29667-ddfa-4020-bc58-e3534bcd019a.png" 
             name="Zeebu" 
@@ -61,7 +61,7 @@ const TrustSection = () => {
           />
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
           <div 
             className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold" 
             style={{ animationDelay: "0.1s" }}
@@ -89,7 +89,7 @@ const TrustSection = () => {
         </div>
         
         {/* Enhanced data visualization element */}
-        <div className="mt-16 relative h-16">
+        <div className="mt-12 relative h-16">
           <div className="absolute left-0 top-1/2 w-full h-px bg-gradient-to-r from-transparent via-crypto-gold/40 to-transparent"></div>
           
           {/* Data nodes */}

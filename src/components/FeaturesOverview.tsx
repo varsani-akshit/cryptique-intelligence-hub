@@ -97,7 +97,7 @@ const FeaturesOverview = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-black relative overflow-hidden py-10" id="features">
+    <section ref={sectionRef} className="bg-black relative overflow-hidden py-0" id="features">
       {/* Futuristic background */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:40px_40px] opacity-5"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-futuristic-glow opacity-30"></div>
@@ -110,7 +110,7 @@ const FeaturesOverview = () => {
           Core <span className="text-crypto-gold">Features</span>
         </h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-8">
           <FeatureCard 
             icon={<BarChart3 size={24} />} 
             title="Simplified Dashboard" 
@@ -139,7 +139,7 @@ const FeaturesOverview = () => {
         </div>
         
         {/* Data flow visualization */}
-        <div className="mt-16 relative h-40">
+        <div className="mt-12 relative h-40">
           <svg 
             className="w-full h-full absolute top-0 left-0" 
             viewBox="0 0 1000 120" 

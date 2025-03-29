@@ -72,7 +72,7 @@
   }
 
   .container-section {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12;
   }
   
   .cursor-follow {
@@ -112,21 +112,8 @@
   }
 
   /* Futuristic elements */
-  .scanline {
-    @apply fixed left-0 w-full h-px bg-crypto-gold/30 pointer-events-none z-50;
-    box-shadow: 0 0 5px rgba(202, 169, 104, 0.3);
-    animation: scanline 8s linear infinite;
-  }
-
-  @keyframes scanline {
-    0% {
-      top: 0%;
-    }
-    100% {
-      top: 100%;
-    }
-  }
-
+  /* Removed the scanline */
+  
   .cyber-frame {
     @apply relative border border-crypto-gold/20;
   }

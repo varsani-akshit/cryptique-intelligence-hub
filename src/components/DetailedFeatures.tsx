@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { UserCheck, Database, Brain, LineChart, ChevronRight, Zap, BarChart, Link2, Radio } from 'lucide-react';
+import { UserCheck, Database, Brain, LineChart, ChevronRight, Zap, BarChart, Link2, Radio, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 interface FeatureBlockProps {
@@ -110,7 +110,7 @@ const FeatureBlock = ({
 
 const DetailedFeatures = () => {
   return (
-    <section className="bg-black relative overflow-hidden py-10" id="solutions">
+    <section className="bg-black relative overflow-hidden py-0" id="solutions">
       {/* Animated background elements */}
       <div className="absolute top-1/3 -right-32 w-80 h-80 bg-crypto-navy/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 -left-32 w-80 h-80 bg-crypto-gold/5 rounded-full blur-3xl"></div>
@@ -121,8 +121,8 @@ const DetailedFeatures = () => {
       <div className="absolute top-0 left-3/4 w-[1px] h-full bg-crypto-gold/5"></div>
       
       <div className="container-section relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-fade-in">
-          Solutions to <span className="text-crypto-gold">Supercharge</span> Your Web3 Marketing
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fade-in">
+          Our Solution: <span className="text-crypto-gold">Redefining Web3 Marketing Intelligence</span>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -133,7 +133,7 @@ const DetailedFeatures = () => {
             iconColor="bg-black text-crypto-gold"
             delay="0.1s"
             index={0}
-            image="/lovable-uploads/932fd99b-baaf-48b3-a282-032c154ed936.png"
+            image="/lovable-uploads/1c358ad9-706c-4b04-acf1-de20a43a1047.png"
           />
           
           <FeatureBlock 
@@ -154,7 +154,7 @@ const DetailedFeatures = () => {
             iconColor="bg-black text-crypto-gold"
             delay="0.3s"
             index={2}
-            image="/lovable-uploads/a1efcdb6-aab8-4df1-87e9-013cb6a99799.png"
+            image="/lovable-uploads/54599ecb-81e5-4644-9f45-3a41fd39edd3.png"
           />
           
           <FeatureBlock 
@@ -167,7 +167,7 @@ const DetailedFeatures = () => {
           />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-8">
           <FeatureBlock 
             icon={<Zap size={24} />} 
             title="Smart KOL Payouts" 
@@ -175,12 +175,22 @@ const DetailedFeatures = () => {
             iconColor="bg-black text-crypto-gold"
             delay="0.5s"
             index={4}
+            image="/lovable-uploads/02c84c52-6d08-455a-a5da-fd3cadfdc771.png"
+          />
+          
+          <FeatureBlock 
+            icon={<Users size={24} />} 
+            title="Custom Audience for Ad Campaigns" 
+            description="Create highly targeted audience segments based on on-chain behavior and Web3 interactions. Export these audiences directly to ad platforms for more effective retargeting and lookalike campaigns."
+            iconColor="bg-black text-crypto-gold"
+            delay="0.6s"
+            index={5}
           />
         </div>
         
         {/* SDKs Available Section */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-center mb-8">
+        <div className="mt-12">
+          <h3 className="text-2xl font-bold text-center mb-6">
             SDKs Available for
           </h3>
           
