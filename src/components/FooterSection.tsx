@@ -78,11 +78,16 @@ const FooterSection = () => {
             Empowering Web3 marketing teams to make better, data-driven decisions.
           </p>
           
-          <div className="flex justify-center gap-8 text-sm text-foreground/60 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-foreground/60 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <a href="#" className="hover:text-crypto-gold transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-crypto-gold transition-colors">Terms of Service</a>
             <a href="https://www.blogs.cryptique.io" className="hover:text-crypto-gold transition-colors" target="_blank" rel="noopener noreferrer">Blogs</a>
-            <a href="https://x.com/Cryptiqueio" className="hover:text-crypto-gold transition-colors" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+            <a href="https://x.com/Cryptiqueio" className="hover:text-crypto-gold transition-colors flex items-center gap-1" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              <span>X (Twitter)</span>
+            </a>
             <a href="https://discord.gg/7vnk8duN" className="hover:text-crypto-gold transition-colors" target="_blank" rel="noopener noreferrer">Discord</a>
           </div>
           

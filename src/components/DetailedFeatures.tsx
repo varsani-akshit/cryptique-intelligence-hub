@@ -185,8 +185,8 @@ const DataFlowVisualization = () => {
             <div className="flex flex-col items-center">
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="#0088cc">
-                  <path d="M12 0c-6.626 0-12 5.372-12 12 0 6.627 5.374 12 12 12 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm-1.218 19.105c-.339 0-.282-.127-.401-.45l-1.001-3.295 7.132-4.367"></path>
-                  <path d="M18.429 16.034c.16.059-.057.138-.191.138l-1.85.164-.702.213a.473.473 0 01-.461-.112 19.87 19.87 0 01-4.383-2.849c-.23-.185-.47-.37-.702-.552-.599-.467-1.201-.93-1.8-1.392-.127-.099-.254-.198-.381-.297 1.195-.754 2.411-1.529 3.626-2.292.797-.503 1.595-1.006 2.394-1.509a.36.36 0 00.192-.312c.002-.371-.141-.722-.359-1.021-.219-.3-.503-.552-.799-.778a3.139 3.139 0 00-1.493-.515 3.81 3.81 0 00-1.051.05c-.521.1-1.025.301-1.503.562-1.431.783-2.596 2.006-3.641 3.306-1.084 1.348-2.036 2.807-2.822 4.346-.618 1.209-1.124 2.473-1.518 3.78-.099.326-.184.658-.253.994a.458.458 0 01-.126.264 2.69 2.69 0 01-.409.042"></path>
+                  <path d="M12 0c-6.626 0-12 5.372-12 12 0 6.627 5.374 12 12 12 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm-1.218 19.105c-.339 0-.282-.127-.401-.45l-1.001-3.295 7.132-4.367"/>
+                  <path d="M18.429 16.034c.16.059-.057.138-.191.138l-1.85.164-.702.213a.473.473 0 01-.461-.112 19.87 19.87 0 01-4.383-2.849c-.23-.185-.47-.37-.702-.552-.599-.467-1.201-.93-1.8-1.392-.127-.099-.254-.198-.381-.297 1.195-.754 2.411-1.529 3.626-2.292.797-.503 1.595-1.006 2.394-1.509a.36.36 0 00.192-.312c.002-.371-.141-.722-.359-1.021-.219-.3-.503-.552-.799-.778a3.139 3.139 0 00-1.493-.515 3.81 3.81 0 00-1.051.05c-.521.1-1.025.301-1.503.562-1.431.783-2.596 2.006-3.641 3.306-1.084 1.348-2.036 2.807-2.822 4.346-.618 1.209-1.124 2.473-1.518 3.78-.099.326-.184.658-.253.994a.458.458 0 01-.126.264 2.69 2.69 0 01-.409.042"/>
                 </svg>
               </div>
               <span className="text-xs mt-1">Telegram</span>
@@ -340,24 +340,24 @@ const DataFlowVisualization = () => {
         </div>
       </div>
       
-      {/* Animated Data Flow Lines */}
+      {/* Fixed: Animated Data Flow Lines - Web2 to Cryptique */}
       {isVisible && (
         <>
-          {/* Web2 to Cryptique Data Flow */}
-          <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            {/* Connection path from Web2 to Cryptique */}
             <path 
-              d="M230,300 C270,300 280,250 320,250" 
+              d="M240,300 C290,300 320,280 350,250" 
               stroke="#CAA968" 
               strokeWidth="1.5" 
               fill="none" 
               strokeDasharray="5,3"
             />
             
-            {/* Animated data packets */}
+            {/* Animated data packets on Web2 path */}
             {Array.from({ length: 10 }).map((_, i) => (
               <circle key={`web2-${i}`} r="3" fill="#CAA968">
                 <animateMotion
-                  path="M230,300 C270,300 280,250 320,250"
+                  path="M240,300 C290,300 320,280 350,250"
                   dur={`${3 + (i * 0.3)}s`}
                   begin={`${i * 0.2}s`}
                   repeatCount="indefinite"
@@ -365,23 +365,21 @@ const DataFlowVisualization = () => {
                 <animate attributeName="opacity" values="0;1;0" dur={`${3 + (i * 0.3)}s`} begin={`${i * 0.2}s`} repeatCount="indefinite" />
               </circle>
             ))}
-          </svg>
-
-          {/* Web3 to Cryptique Data Flow */}
-          <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            
+            {/* Connection path from Web3 to Cryptique */}
             <path 
-              d="M565,300 C525,300 515,250 475,250" 
+              d="M550,300 C500,300 470,280 440,250" 
               stroke="#1D0C46" 
               strokeWidth="1.5" 
               fill="none" 
               strokeDasharray="5,3"
             />
             
-            {/* Animated data packets */}
+            {/* Animated data packets on Web3 path */}
             {Array.from({ length: 10 }).map((_, i) => (
               <circle key={`web3-${i}`} r="3" fill="#1D0C46">
                 <animateMotion
-                  path="M565,300 C525,300 515,250 475,250"
+                  path="M550,300 C500,300 470,280 440,250"
                   dur={`${3 + (i * 0.3)}s`}
                   begin={`${i * 0.2}s`}
                   repeatCount="indefinite"
@@ -409,6 +407,28 @@ const DataFlowVisualization = () => {
             ))}
           </div>
         </>
+      )}
+      
+      {/* Additional data flow visualization elements */}
+      {isVisible && (
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Processing nodes on data paths */}
+          <div className="absolute left-[35%] top-[40%] w-6 h-6 bg-white border border-crypto-gold/30 rounded-full flex items-center justify-center">
+            <div className="w-3 h-3 bg-crypto-gold/20 rounded-full animate-pulse"></div>
+          </div>
+          
+          <div className="absolute left-[65%] top-[40%] w-6 h-6 bg-white border border-crypto-navy/30 rounded-full flex items-center justify-center">
+            <div className="w-3 h-3 bg-crypto-navy/20 rounded-full animate-pulse" style={{animationDelay: "0.5s"}}></div>
+          </div>
+          
+          <div className="absolute left-[30%] top-[60%] w-6 h-6 bg-white border border-crypto-gold/30 rounded-full flex items-center justify-center">
+            <div className="w-3 h-3 bg-crypto-gold/20 rounded-full animate-pulse" style={{animationDelay: "0.7s"}}></div>
+          </div>
+          
+          <div className="absolute left-[70%] top-[60%] w-6 h-6 bg-white border border-crypto-navy/30 rounded-full flex items-center justify-center">
+            <div className="w-3 h-3 bg-crypto-navy/20 rounded-full animate-pulse" style={{animationDelay: "1.2s"}}></div>
+          </div>
+        </div>
       )}
     </div>
   );
