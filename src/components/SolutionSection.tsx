@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Zap, Database, Activity, LineChart, ArrowRight, ArrowLeft } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -376,3 +377,13 @@ const SolutionSection = () => {
               <span className="gold-navy-text">One Platform</span>, Unlimited Possibilities
             </h3>
             <p className="text-gray-700">
+              Cryptique seamlessly bridges Web2 and Web3, enabling businesses to leverage traditional marketing channels while expanding their reach into blockchain ecosystems with precision targeting and analytics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SolutionSection;
