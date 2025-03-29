@@ -36,7 +36,7 @@ const ProblemSection = () => {
                   </div>
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
-                      <h3 className="text-3xl font-bold text-crypto-gold">74%</h3>
+                      <h3 className="text-3xl font-bold text-crypto-navy">74%</h3>
                       <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Data Lost</span>
                     </div>
                     <p className="text-crypto-dark/70">
@@ -57,7 +57,7 @@ const ProblemSection = () => {
                   </div>
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
-                      <h3 className="text-3xl font-bold text-crypto-gold">86%</h3>
+                      <h3 className="text-3xl font-bold text-crypto-navy">86%</h3>
                       <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Untraceable</span>
                     </div>
                     <p className="text-crypto-dark/70">
@@ -78,7 +78,7 @@ const ProblemSection = () => {
                   </div>
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
-                      <h3 className="text-3xl font-bold text-crypto-gold">5x</h3>
+                      <h3 className="text-3xl font-bold text-crypto-navy">5x</h3>
                       <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Wasted Budget</span>
                     </div>
                     <p className="text-crypto-dark/70">
@@ -99,7 +99,7 @@ const ProblemSection = () => {
                   </div>
                   <div>
                     <div className="flex items-baseline gap-2 mb-2">
-                      <h3 className="text-3xl font-bold text-crypto-gold">128</h3>
+                      <h3 className="text-3xl font-bold text-crypto-navy">128</h3>
                       <span className="font-semibold text-crypto-gold/70 uppercase text-sm tracking-wider">Hours Wasted</span>
                     </div>
                     <p className="text-crypto-dark/70">
