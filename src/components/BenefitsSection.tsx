@@ -109,7 +109,7 @@ const BenefitsSection = () => {
         <div className="max-w-5xl mx-auto space-y-6">
           <BenefitCard 
             icon={<Bookmark size={24} className="text-gradient-gold-navy" />} 
-            title="Use your own branded domain (e.g., track.mydao.com)" 
+            title="40% less marketing spend, 3x more conversion & 120+ hours saved." 
             delay="0.1s"
             index={0}
           />
