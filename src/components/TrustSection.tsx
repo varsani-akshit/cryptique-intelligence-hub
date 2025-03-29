@@ -90,7 +90,7 @@ const TrustSection = () => {
               <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
                 <ClientLogo 
                   imageSrc="/lovable-uploads/4b6bb044-040e-4c81-9dd5-96b69ef95dd5.png" 
-                  name="Voxum" 
+                  name="Vingt" 
                   description="DeFi Protocol"
                 />
               </CarouselItem>
