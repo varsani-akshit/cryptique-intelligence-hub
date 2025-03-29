@@ -7,21 +7,21 @@ import { useEffect } from 'react';
 const ClientLogo = ({ 
   imageSrc, 
   name, 
-  description,
-  isLarge = false
+  description
 }: { 
   imageSrc: string; 
   name: string; 
   description: string;
-  isLarge?: boolean;
 }) => (
   <div className="glass-card p-6 flex flex-col items-center justify-center h-full">
-    <img 
-      src={imageSrc} 
-      alt={`${name} logo`} 
-      className={`${isLarge ? 'h-22' : 'h-18'} mb-4 object-contain`}
-    />
-    <h3 className="text-lg font-semibold mb-1 text-crypto-gold">{name}</h3>
+    <div className="h-24 flex items-center justify-center mb-4">
+      <img 
+        src={imageSrc} 
+        alt={`${name} logo`} 
+        className="h-24 max-w-[80%] object-contain"
+      />
+    </div>
+    <h3 className="text-lg font-semibold mb-1 text-crypto-gold text-center">{name}</h3>
     <p className="text-sm text-center text-crypto-dark/70">{description}</p>
   </div>
 );
@@ -102,7 +102,6 @@ const TrustSection = () => {
                       imageSrc="/lovable-uploads/205f1d5b-8cab-4c36-9060-a06e0adfc531.png" 
                       name="Cubane" 
                       description="Layer 1 Blockchain"
-                      isLarge={true}
                     />
                   </CarouselItem>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
