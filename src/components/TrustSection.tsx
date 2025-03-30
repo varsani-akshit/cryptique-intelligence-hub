@@ -43,12 +43,16 @@ const TrustSection = () => {
     emblaApi.on('pointerDown', () => false);
     
     const autoScrollInterval = setInterval(() => {
-      emblaApi.scrollNext({ loop: true });
+      if (!emblaApi.canScrollNext()) {
+        emblaApi.scrollTo(0, false);
+      } else {
+        emblaApi.scrollNext(false);
+      }
     }, 2000);
 
     return () => {
       clearInterval(autoScrollInterval);
-      emblaApi.off('pointerDown');
+      emblaApi.off('pointerDown', () => false);
     };
   }, [emblaApi]);
   
@@ -67,12 +71,16 @@ const TrustSection = () => {
     categoryEmblaApi.on('pointerDown', () => false);
     
     const autoCategoryScrollInterval = setInterval(() => {
-      categoryEmblaApi.scrollNext({ loop: true });
+      if (!categoryEmblaApi.canScrollNext()) {
+        categoryEmblaApi.scrollTo(0, false);
+      } else {
+        categoryEmblaApi.scrollNext(false);
+      }
     }, 3000);
 
     return () => {
       clearInterval(autoCategoryScrollInterval);
-      categoryEmblaApi.off('pointerDown');
+      categoryEmblaApi.off('pointerDown', () => false);
     };
   }, [categoryEmblaApi]);
   
