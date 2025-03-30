@@ -65,6 +65,39 @@ const TrustSection = () => {
     }
   }, [emblaApi]);
   
+  // Create a new carousel for trust category blocks
+  const [categoryEmblaRef, categoryEmblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: 'start',
+    dragFree: true
+  });
+
+  // Add continuous scrolling effect for the category blocks
+  useEffect(() => {
+    if (categoryEmblaApi) {
+      let categoryAnimationFrame: NodeJS.Timeout;
+      const scrollInterval = 50; // Slightly slower than the main carousel
+      
+      const autoCategoryScroll = () => {
+        if (categoryEmblaApi) {
+          categoryEmblaApi.scrollNext();
+          
+          categoryAnimationFrame = setTimeout(() => {
+            requestAnimationFrame(autoCategoryScroll);
+          }, scrollInterval);
+        }
+      };
+      
+      categoryAnimationFrame = setTimeout(() => {
+        requestAnimationFrame(autoCategoryScroll);
+      }, scrollInterval);
+      
+      return () => {
+        clearTimeout(categoryAnimationFrame);
+      };
+    }
+  }, [categoryEmblaApi]);
+  
   return (
     <section className="relative overflow-hidden bg-white py-0" id="trust">
       {/* Background elements */}
@@ -127,31 +160,45 @@ const TrustSection = () => {
           </Carousel>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-          <div 
-            className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold" 
-            style={{ animationDelay: "0.1s" }}
+        {/* Replace the grid with a carousel for continuous motion */}
+        <div className="mt-8">
+          <Carousel 
+            ref={categoryEmblaRef} 
+            className="w-full"
+            opts={{
+              loop: true,
+              align: 'start',
+              dragFree: true
+            }}
           >
-            <p className="text-lg font-medium text-crypto-dark">DeFi Protocols</p>
-          </div>
-          <div 
-            className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy" 
-            style={{ animationDelay: "0.2s" }}
-          >
-            <p className="text-lg font-medium text-crypto-dark">GameFi & NFT Platforms</p>
-          </div>
-          <div 
-            className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy" 
-            style={{ animationDelay: "0.3s" }}
-          >
-            <p className="text-lg font-medium text-crypto-dark">DAOs & SocialFi</p>
-          </div>
-          <div 
-            className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold" 
-            style={{ animationDelay: "0.4s" }}
-          >
-            <p className="text-lg font-medium text-crypto-dark">Layer 1 & Layer 2 Blockchains</p>
-          </div>
+            <CarouselContent>
+              {/* Duplicate the categories twice for smoother infinite loop */}
+              {[...Array(3)].map((_, dupIndex) => (
+                <React.Fragment key={`category-dup-${dupIndex}`}>
+                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold h-full" style={{ animationDelay: "0.1s" }}>
+                      <p className="text-lg font-medium text-crypto-dark">DeFi Protocols</p>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy h-full" style={{ animationDelay: "0.2s" }}>
+                      <p className="text-lg font-medium text-crypto-dark">GameFi & NFT Platforms</p>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy h-full" style={{ animationDelay: "0.3s" }}>
+                      <p className="text-lg font-medium text-crypto-dark">DAOs & SocialFi</p>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                    <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold h-full" style={{ animationDelay: "0.4s" }}>
+                      <p className="text-lg font-medium text-crypto-dark">Layer 1 & Layer 2 Blockchains</p>
+                    </div>
+                  </CarouselItem>
+                </React.Fragment>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
         
         {/* Enhanced data visualization element */}
