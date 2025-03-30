@@ -42,13 +42,17 @@ const TrustSection = () => {
       const scrollStep = 0.5; // Controls the speed (lower = slower)
       
       const autoScroll = () => {
-        if (emblaApi && !emblaApi.slideLooperInstance) {
-          emblaApi.scrollProgress += scrollStep / 100;
+        if (emblaApi) {
+          // Get current scroll position
+          const currentPosition = emblaApi.scrollProgress();
+          // Calculate new position
+          const newPosition = (currentPosition + scrollStep / 100) % 1;
           
-          // When reaching the end, loop back to start
-          if (emblaApi.scrollProgress >= 1) {
-            emblaApi.scrollTo(0);
-          }
+          // Apply scroll - we need to use scrollTo with a specific index
+          // Convert scroll progress to slide index
+          const slideCount = emblaApi.slideNodes().length;
+          const targetIndex = Math.floor(newPosition * slideCount);
+          emblaApi.scrollTo(targetIndex, true);
         }
         
         animationId = requestAnimationFrame(autoScroll);
@@ -77,13 +81,17 @@ const TrustSection = () => {
       const scrollStep = 0.3; // Slightly slower than the main carousel
       
       const autoCategoryScroll = () => {
-        if (categoryEmblaApi && !categoryEmblaApi.slideLooperInstance) {
-          categoryEmblaApi.scrollProgress += scrollStep / 100;
+        if (categoryEmblaApi) {
+          // Get current scroll position
+          const currentPosition = categoryEmblaApi.scrollProgress();
+          // Calculate new position
+          const newPosition = (currentPosition + scrollStep / 100) % 1;
           
-          // When reaching the end, loop back to start
-          if (categoryEmblaApi.scrollProgress >= 1) {
-            categoryEmblaApi.scrollTo(0);
-          }
+          // Apply scroll - we need to use scrollTo with a specific index
+          // Convert scroll progress to slide index
+          const slideCount = categoryEmblaApi.slideNodes().length;
+          const targetIndex = Math.floor(newPosition * slideCount);
+          categoryEmblaApi.scrollTo(targetIndex, true);
         }
         
         categoryAnimationId = requestAnimationFrame(autoCategoryScroll);
@@ -239,4 +247,3 @@ const TrustSection = () => {
 };
 
 export default TrustSection;
-
