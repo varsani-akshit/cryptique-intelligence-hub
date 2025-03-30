@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import useEmblaCarousel from 'embla-carousel-react';
+import React from 'react';
 
 const ClientLogo = ({
   imageSrc,
@@ -27,68 +25,6 @@ const ClientLogo = ({
 );
 
 const TrustSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: 'start',
-    dragFree: true,
-  });
-
-  const [categoryEmblaRef, categoryEmblaApi] = useEmblaCarousel({
-    loop: true,
-    align: 'start',
-    dragFree: true,
-  });
-
-  useEffect(() => {
-    if (emblaApi) {
-      let animationId: number;
-      const scrollStep = 1; // Adjust for smoother speed
-      let scrollPosition = 0;
-
-      const autoScroll = () => {
-        if (emblaApi) {
-          scrollPosition += scrollStep;
-          emblaApi.scrollTo(scrollPosition, false); // Use false for smooth scroll
-          if (scrollPosition >= emblaApi.scrollSnapList().length * emblaApi.slideRects()[0].width) {
-             scrollPosition = 0;
-          }
-        }
-        animationId = requestAnimationFrame(autoScroll);
-      };
-
-      animationId = requestAnimationFrame(autoScroll);
-
-      return () => {
-        cancelAnimationFrame(animationId);
-      };
-    }
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (categoryEmblaApi) {
-      let categoryAnimationId: number;
-      const scrollStep = 0.7; // Adjust for slightly slower speed
-      let categoryScrollPosition = 0;
-
-      const autoCategoryScroll = () => {
-        if (categoryEmblaApi) {
-          categoryScrollPosition += scrollStep;
-          categoryEmblaApi.scrollTo(categoryScrollPosition, false); // Use false for smooth scroll
-          if (categoryScrollPosition >= categoryEmblaApi.scrollSnapList().length * categoryEmblaApi.slideRects()[0].width) {
-             categoryScrollPosition = 0;
-          }
-        }
-        categoryAnimationId = requestAnimationFrame(autoCategoryScroll);
-      };
-
-      categoryAnimationId = requestAnimationFrame(autoCategoryScroll);
-
-      return () => {
-        cancelAnimationFrame(categoryAnimationId);
-      };
-    }
-  }, [categoryEmblaApi]);
-
   return (
     <section className="relative overflow-hidden bg-white py-0" id="trust">
       {/* Background elements */}
@@ -102,94 +38,73 @@ const TrustSection = () => {
           <div className="absolute -bottom-4 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></div>
         </h2>
 
-        <div className="mb-12">
-          <Carousel
-            ref={emblaRef}
-            className="w-full"
-            opts={{
-              loop: true,
-              align: 'start',
-              dragFree: true,
-            }}
-          >
-            <CarouselContent>
-              {/* Duplicate logos for smoother infinite loop effect */}
-              {[...Array(2)].map((_, duplicateIndex) => (
-                <React.Fragment key={`duplicate-${duplicateIndex}`}>
-                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                    <ClientLogo
-                      imageSrc="/lovable-uploads/34f29667-ddfa-4020-bc58-e3534bcd019a.png"
-                      name="Zeebu"
-                      description="Protocol & Neobank for Telecoms"
-                    />
-                  </CarouselItem>
-                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                    <ClientLogo
-                      imageSrc="/lovable-uploads/4b4a96ef-2445-45a7-83d9-fbdef45423fd.png"
-                      name="Cubane"
-                      description="Layer 1 Blockchain"
-                      isLarge={true}
-                    />
-                  </CarouselItem>
-                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                    <ClientLogo
-                      imageSrc="/lovable-uploads/ca51f057-4832-4bc8-9b33-d34d76e5dcbd.png"
-                      name="Mobile Wallet (MWT)"
-                      description="DePIN & Consumer Crypto"
-                    />
-                  </CarouselItem>
-                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                    <ClientLogo
-                      imageSrc="/lovable-uploads/4b6bb044-040e-4c81-9dd5-96b69ef95dd5.png"
-                      name="Vingt"
-                      description="DeFi - Asset Management"
-                    />
-                  </CarouselItem>
-                </React.Fragment>
-              ))}
-            </CarouselContent>
-          </Carousel>
+        <div className="mb-12 overflow-hidden">
+          <div className="flex w-fit animate-logo-scroll whitespace-nowrap">
+            {/* Duplicate logos for seamless looping */}
+            {[...Array(3)].map((_, duplicateIndex) => (
+              <React.Fragment key={`duplicate-${duplicateIndex}`}>
+                <div className="pl-4">
+                  <ClientLogo
+                    imageSrc="/lovable-uploads/34f29667-ddfa-4020-bc58-e3534bcd019a.png"
+                    name="Zeebu"
+                    description="Protocol & Neobank for Telecoms"
+                  />
+                </div>
+                <div className="pl-4">
+                  <ClientLogo
+                    imageSrc="/lovable-uploads/4b4a96ef-2445-45a7-83d9-fbdef45423fd.png"
+                    name="Cubane"
+                    description="Layer 1 Blockchain"
+                    isLarge={true}
+                  />
+                </div>
+                <div className="pl-4">
+                  <ClientLogo
+                    imageSrc="/lovable-uploads/ca51f057-4832-4bc8-9b33-d34d76e5dcbd.png"
+                    name="Mobile Wallet (MWT)"
+                    description="DePIN & Consumer Crypto"
+                  />
+                </div>
+                <div className="pl-4">
+                  <ClientLogo
+                    imageSrc="/lovable-uploads/4b6bb044-040e-4c81-9dd5-96b69ef95dd5.png"
+                    name="Vingt"
+                    description="DeFi - Asset Management"
+                  />
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
 
-        {/* Replace the grid with a carousel for continuous motion */}
-        <div className="mt-8">
-          <Carousel
-            ref={categoryEmblaRef}
-            className="w-full"
-            opts={{
-              loop: true,
-              align: 'start',
-              dragFree: true,
-            }}
-          >
-            <CarouselContent>
-              {/* Duplicate the categories twice for smoother infinite loop */}
-              {[...Array(3)].map((_, dupIndex) => (
-                <React.Fragment key={`category-dup-${dupIndex}`}>
-                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                    <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold h-full" style={{ animationDelay: "0.1s" }}>
-                      <p className="text-lg font-medium text-crypto-dark">DeFi Protocols</p>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                    <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy h-full" style={{ animationDelay: "0.2s" }}>
-                      <p className="text-lg font-medium text-crypto-dark">GameFi & NFT Platforms</p>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                    <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy h-full" style={{ animationDelay: "0.3s" }}>
-                      <p className="text-lg font-medium text-crypto-dark">DAOs & SocialFi</p>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                    <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold h-full" style={{ animationDelay: "0.4s" }}>
-                      <p className="text-lg font-medium text-crypto-dark">Layer 1 & Layer 2 Blockchains</p>
-                    </div>
-                  </CarouselItem>
-                </React.Fragment>
-              ))}
-            </CarouselContent>
-          </Carousel>
+        <div className="mt-8 overflow-hidden">
+          <div className="flex w-fit animate-category-scroll whitespace-nowrap">
+            {/* Duplicate categories for seamless looping */}
+            {[...Array(3)].map((_, dupIndex) => (
+              <React.Fragment key={`category-dup-${dupIndex}`}>
+                <div className="pl-4">
+                  <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold h-full" style={{ animationDelay: "0.1s" }}>
+                    <p className="text-lg font-medium text-crypto-dark">DeFi Protocols</p>
+                  </div>
+                </div>
+                <div className="pl-4">
+                  <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy h-full" style={{ animationDelay: "0.2s" }}>
+                    <p className="text-lg font-medium text-crypto-dark">GameFi & NFT Platforms</p>
+                  </div>
+                </div>
+                <div className="pl-4">
+                  <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-navy h-full" style={{ animationDelay: "0.3s" }}>
+                    <p className="text-lg font-medium text-crypto-dark">DAOs & SocialFi</p>
+                  </div>
+                </div>
+                <div className="pl-4">
+                  <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold h-full" style={{ animationDelay: "0.4s" }}>
+                    <p className="text-lg font-medium text-crypto-dark">Layer 1 & Layer 2 Blockchains</p>
+                  </div>
+                </div>
+              </React.Fragment>
+            ))}
+          </div>
         </div>
 
         {/* Enhanced data visualization element */}
@@ -226,6 +141,22 @@ const TrustSection = () => {
           ))}
         </div>
       </div>
+      <style jsx global>{`
+        @keyframes logo-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); } /* Adjust based on content width */
+        }
+        @keyframes category-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); } /* Adjust based on content width */
+        }
+        .animate-logo-scroll {
+          animation: logo-scroll 30s linear infinite; /* Adjust duration */
+        }
+        .animate-category-scroll {
+          animation: category-scroll 40s linear infinite; /* Adjust duration */
+        }
+      `}</style>
     </section>
   );
 };
