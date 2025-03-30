@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
@@ -34,45 +35,52 @@ const TrustSection = () => {
     dragFree: true
   });
 
-  // Improved continuous scrolling implementation
+  // Enhanced automatic scrolling with no manual interaction
   useEffect(() => {
     if (!emblaApi) return;
-
+    
+    // Disable any drag interaction to ensure only automatic scrolling
+    emblaApi.on('pointerDown', () => false);
+    
     const autoScrollInterval = setInterval(() => {
       if (!emblaApi.canScrollNext()) {
-        // If can't scroll next, we'll reset to the beginning
-        emblaApi.scrollTo(0);
+        emblaApi.scrollTo(0, false);
       } else {
-        // Otherwise, scroll to the next slide
-        emblaApi.scrollNext();
+        emblaApi.scrollNext(false);
       }
-    }, 2000); // Scroll every 2 seconds
+    }, 2000);
 
-    return () => clearInterval(autoScrollInterval);
+    return () => {
+      clearInterval(autoScrollInterval);
+      emblaApi.off('pointerDown');
+    };
   }, [emblaApi]);
   
-  // Second carousel for trust category blocks
   const [categoryEmblaRef, categoryEmblaApi] = useEmblaCarousel({ 
     loop: true,
     align: 'start',
     dragFree: true
   });
 
-  // Improved continuous scrolling for category carousel
+  // Enhanced automatic scrolling with no manual interaction for categories
   useEffect(() => {
     if (!categoryEmblaApi) return;
-
+    
+    // Disable any drag interaction to ensure only automatic scrolling
+    categoryEmblaApi.on('pointerDown', () => false);
+    
     const autoCategoryScrollInterval = setInterval(() => {
       if (!categoryEmblaApi.canScrollNext()) {
-        // If can't scroll next, we'll reset to the beginning
-        categoryEmblaApi.scrollTo(0);
+        categoryEmblaApi.scrollTo(0, false);
       } else {
-        // Otherwise, scroll to the next slide
-        categoryEmblaApi.scrollNext();
+        categoryEmblaApi.scrollNext(false);
       }
-    }, 3000); // Slightly slower scroll (every 3 seconds)
+    }, 3000);
 
-    return () => clearInterval(autoCategoryScrollInterval);
+    return () => {
+      clearInterval(autoCategoryScrollInterval);
+      categoryEmblaApi.off('pointerDown');
+    };
   }, [categoryEmblaApi]);
   
   return (
@@ -99,8 +107,8 @@ const TrustSection = () => {
             }}
           >
             <CarouselContent>
-              {/* Duplicate logos for smoother infinite loop effect */}
-              {[...Array(2)].map((_, duplicateIndex) => (
+              {/* Fix the React.Fragment invalid prop warning by removing data-lov-id */}
+              {[0, 1].map((duplicateIndex) => (
                 <React.Fragment key={`duplicate-${duplicateIndex}`}>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
                     <ClientLogo 
@@ -149,8 +157,8 @@ const TrustSection = () => {
             }}
           >
             <CarouselContent>
-              {/* Duplicate the categories twice for smoother infinite loop */}
-              {[...Array(3)].map((_, dupIndex) => (
+              {/* Fix the React.Fragment invalid prop warning by removing data-lov-id */}
+              {[0, 1, 2].map((dupIndex) => (
                 <React.Fragment key={`category-dup-${dupIndex}`}>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
                     <div className="glass-card flex items-center justify-center py-6 px-4 animate-fade-in border-l-4 border-crypto-gold h-full" style={{ animationDelay: "0.1s" }}>
