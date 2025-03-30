@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
@@ -35,74 +34,45 @@ const TrustSection = () => {
     dragFree: true
   });
 
-  // Enhanced continuous scrolling effect - always moving regardless of interaction
+  // Improved continuous scrolling implementation
   useEffect(() => {
-    if (emblaApi) {
-      let animationId: number;
-      const scrollStep = 0.5; // Controls the speed (lower = slower)
-      
-      const autoScroll = () => {
-        if (emblaApi) {
-          // Get current scroll position
-          const currentPosition = emblaApi.scrollProgress();
-          // Calculate new position
-          const newPosition = (currentPosition + scrollStep / 100) % 1;
-          
-          // Apply scroll - we need to use scrollTo with a specific index
-          // Convert scroll progress to slide index
-          const slideCount = emblaApi.slideNodes().length;
-          const targetIndex = Math.floor(newPosition * slideCount);
-          emblaApi.scrollTo(targetIndex, true);
-        }
-        
-        animationId = requestAnimationFrame(autoScroll);
-      };
-      
-      // Start the continuous animation
-      animationId = requestAnimationFrame(autoScroll);
-      
-      return () => {
-        cancelAnimationFrame(animationId);
-      };
-    }
+    if (!emblaApi) return;
+
+    const autoScrollInterval = setInterval(() => {
+      if (!emblaApi.canScrollNext()) {
+        // If can't scroll next, we'll reset to the beginning
+        emblaApi.scrollTo(0);
+      } else {
+        // Otherwise, scroll to the next slide
+        emblaApi.scrollNext();
+      }
+    }, 2000); // Scroll every 2 seconds
+
+    return () => clearInterval(autoScrollInterval);
   }, [emblaApi]);
   
-  // Create a new carousel for trust category blocks
+  // Second carousel for trust category blocks
   const [categoryEmblaRef, categoryEmblaApi] = useEmblaCarousel({ 
     loop: true,
     align: 'start',
     dragFree: true
   });
 
-  // Add continuous scrolling effect for the category blocks
+  // Improved continuous scrolling for category carousel
   useEffect(() => {
-    if (categoryEmblaApi) {
-      let categoryAnimationId: number;
-      const scrollStep = 0.3; // Slightly slower than the main carousel
-      
-      const autoCategoryScroll = () => {
-        if (categoryEmblaApi) {
-          // Get current scroll position
-          const currentPosition = categoryEmblaApi.scrollProgress();
-          // Calculate new position
-          const newPosition = (currentPosition + scrollStep / 100) % 1;
-          
-          // Apply scroll - we need to use scrollTo with a specific index
-          // Convert scroll progress to slide index
-          const slideCount = categoryEmblaApi.slideNodes().length;
-          const targetIndex = Math.floor(newPosition * slideCount);
-          categoryEmblaApi.scrollTo(targetIndex, true);
-        }
-        
-        categoryAnimationId = requestAnimationFrame(autoCategoryScroll);
-      };
-      
-      categoryAnimationId = requestAnimationFrame(autoCategoryScroll);
-      
-      return () => {
-        cancelAnimationFrame(categoryAnimationId);
-      };
-    }
+    if (!categoryEmblaApi) return;
+
+    const autoCategoryScrollInterval = setInterval(() => {
+      if (!categoryEmblaApi.canScrollNext()) {
+        // If can't scroll next, we'll reset to the beginning
+        categoryEmblaApi.scrollTo(0);
+      } else {
+        // Otherwise, scroll to the next slide
+        categoryEmblaApi.scrollNext();
+      }
+    }, 3000); // Slightly slower scroll (every 3 seconds)
+
+    return () => clearInterval(autoCategoryScrollInterval);
   }, [categoryEmblaApi]);
   
   return (
@@ -167,7 +137,7 @@ const TrustSection = () => {
           </Carousel>
         </div>
         
-        {/* Replace the grid with a carousel for continuous motion */}
+        {/* Category carousel */}
         <div className="mt-8">
           <Carousel 
             ref={categoryEmblaRef} 
