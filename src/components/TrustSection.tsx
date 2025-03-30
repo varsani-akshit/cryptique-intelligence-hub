@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from 'embla-carousel-react';
@@ -32,10 +31,11 @@ const TrustSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
     align: 'start',
-    dragFree: true
+    dragFree: true,
+    direction: 'ltr' // Ensure left-to-right direction
   });
 
-  // Enhanced automatic scrolling with no manual interaction
+  // Enhanced automatic scrolling with continuous loop
   useEffect(() => {
     if (!emblaApi) return;
     
@@ -43,11 +43,7 @@ const TrustSection = () => {
     emblaApi.on('pointerDown', () => false);
     
     const autoScrollInterval = setInterval(() => {
-      if (!emblaApi.canScrollNext()) {
-        emblaApi.scrollTo(0, false);
-      } else {
-        emblaApi.scrollNext(false);
-      }
+      emblaApi.scrollNext({ loop: true });
     }, 2000);
 
     return () => {
@@ -59,10 +55,11 @@ const TrustSection = () => {
   const [categoryEmblaRef, categoryEmblaApi] = useEmblaCarousel({ 
     loop: true,
     align: 'start',
-    dragFree: true
+    dragFree: true,
+    direction: 'ltr' // Ensure left-to-right direction
   });
 
-  // Enhanced automatic scrolling with no manual interaction for categories
+  // Enhanced automatic scrolling for categories
   useEffect(() => {
     if (!categoryEmblaApi) return;
     
@@ -70,11 +67,7 @@ const TrustSection = () => {
     categoryEmblaApi.on('pointerDown', () => false);
     
     const autoCategoryScrollInterval = setInterval(() => {
-      if (!categoryEmblaApi.canScrollNext()) {
-        categoryEmblaApi.scrollTo(0, false);
-      } else {
-        categoryEmblaApi.scrollNext(false);
-      }
+      categoryEmblaApi.scrollNext({ loop: true });
     }, 3000);
 
     return () => {
@@ -100,14 +93,8 @@ const TrustSection = () => {
           <Carousel 
             ref={emblaRef} 
             className="w-full"
-            opts={{
-              loop: true,
-              align: 'start',
-              dragFree: true
-            }}
           >
             <CarouselContent>
-              {/* Fix the React.Fragment invalid prop warning by removing data-lov-id */}
               {[0, 1].map((duplicateIndex) => (
                 <React.Fragment key={`duplicate-${duplicateIndex}`}>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
@@ -150,14 +137,8 @@ const TrustSection = () => {
           <Carousel 
             ref={categoryEmblaRef} 
             className="w-full"
-            opts={{
-              loop: true,
-              align: 'start',
-              dragFree: true
-            }}
           >
             <CarouselContent>
-              {/* Fix the React.Fragment invalid prop warning by removing data-lov-id */}
               {[0, 1, 2].map((dupIndex) => (
                 <React.Fragment key={`category-dup-${dupIndex}`}>
                   <CarouselItem className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
