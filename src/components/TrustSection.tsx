@@ -38,29 +38,27 @@ const TrustSection = () => {
   // Enhanced continuous scrolling effect - always moving regardless of interaction
   useEffect(() => {
     if (emblaApi) {
-      // Change type from number to NodeJS.Timeout to match setTimeout return type
-      let animationFrame: NodeJS.Timeout;
-      const scrollInterval = 30; // Controls the speed (lower = faster)
+      let animationId: number;
+      const scrollStep = 0.5; // Controls the speed (lower = slower)
       
       const autoScroll = () => {
-        if (emblaApi) {
-          // Always move to next slide in a continuous loop
-          emblaApi.scrollNext();
+        if (emblaApi && !emblaApi.slideLooperInstance) {
+          emblaApi.scrollProgress += scrollStep / 100;
           
-          // Continue scrolling regardless of user interaction
-          animationFrame = setTimeout(() => {
-            requestAnimationFrame(autoScroll);
-          }, scrollInterval);
+          // When reaching the end, loop back to start
+          if (emblaApi.scrollProgress >= 1) {
+            emblaApi.scrollTo(0);
+          }
         }
+        
+        animationId = requestAnimationFrame(autoScroll);
       };
       
       // Start the continuous animation
-      animationFrame = setTimeout(() => {
-        requestAnimationFrame(autoScroll);
-      }, scrollInterval);
+      animationId = requestAnimationFrame(autoScroll);
       
       return () => {
-        clearTimeout(animationFrame);
+        cancelAnimationFrame(animationId);
       };
     }
   }, [emblaApi]);
@@ -75,25 +73,26 @@ const TrustSection = () => {
   // Add continuous scrolling effect for the category blocks
   useEffect(() => {
     if (categoryEmblaApi) {
-      let categoryAnimationFrame: NodeJS.Timeout;
-      const scrollInterval = 50; // Slightly slower than the main carousel
+      let categoryAnimationId: number;
+      const scrollStep = 0.3; // Slightly slower than the main carousel
       
       const autoCategoryScroll = () => {
-        if (categoryEmblaApi) {
-          categoryEmblaApi.scrollNext();
+        if (categoryEmblaApi && !categoryEmblaApi.slideLooperInstance) {
+          categoryEmblaApi.scrollProgress += scrollStep / 100;
           
-          categoryAnimationFrame = setTimeout(() => {
-            requestAnimationFrame(autoCategoryScroll);
-          }, scrollInterval);
+          // When reaching the end, loop back to start
+          if (categoryEmblaApi.scrollProgress >= 1) {
+            categoryEmblaApi.scrollTo(0);
+          }
         }
+        
+        categoryAnimationId = requestAnimationFrame(autoCategoryScroll);
       };
       
-      categoryAnimationFrame = setTimeout(() => {
-        requestAnimationFrame(autoCategoryScroll);
-      }, scrollInterval);
+      categoryAnimationId = requestAnimationFrame(autoCategoryScroll);
       
       return () => {
-        clearTimeout(categoryAnimationFrame);
+        cancelAnimationFrame(categoryAnimationId);
       };
     }
   }, [categoryEmblaApi]);
@@ -240,3 +239,4 @@ const TrustSection = () => {
 };
 
 export default TrustSection;
+
