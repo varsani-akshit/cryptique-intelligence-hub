@@ -92,7 +92,7 @@ const IntegrationSection = () => {
       script.src = 'https://cryptique-cdn.vercel.app/scripts/analytics/1.0.1/cryptique.script.min.js';
       script.setAttribute('site-id', 'xxxxxxxxxxxx');
       document.head.appendChild(script);
-   </script>`}
+  </script>`}
             </pre>
             
             {/* Blinking cursor effect */}
