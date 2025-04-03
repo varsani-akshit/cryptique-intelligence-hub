@@ -5,10 +5,11 @@ import { BarChart3, Link, Radio, LineChart, Users } from 'lucide-react';
 interface FeatureCardProps {
   icon: React.ReactNode;
   title: string;
+  description: string;
   delay: string;
 }
 
-const FeatureCard = ({ icon, title, delay }: FeatureCardProps) => {
+const FeatureCard = ({ icon, title, description, delay }: FeatureCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -50,7 +51,8 @@ const FeatureCard = ({ icon, title, delay }: FeatureCardProps) => {
         <div className="absolute inset-0 rounded-full animate-neon-pulse opacity-50"></div>
         {icon}
       </div>
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-sm text-white/70">{description}</p>
       
       {/* Digital circuit pattern overlay */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
@@ -97,18 +99,24 @@ const FeaturesOverview = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-black relative overflow-hidden py-0" id="features">
+    <section 
+      ref={sectionRef} 
+      className="bg-black relative overflow-hidden py-0" 
+      id="features"
+      aria-labelledby="features-heading"
+    >
       {/* Futuristic background */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:40px_40px] opacity-5"></div>
       <div className="absolute top-0 left-0 w-full h-full bg-futuristic-glow opacity-30"></div>
       
       <div className="container-section relative z-10">
         <h2 
+          id="features-heading"
           ref={headingRef}
           className="text-3xl md:text-4xl font-bold mb-6 text-center transform translate-y-10 opacity-0 transition-all duration-700"
         >
           <span className="relative">
-            Core <span className="text-crypto-gold">Features</span>
+            Powerful <span className="text-crypto-gold">Web3 Marketing</span> Features
             <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-crypto-gold/30 to-transparent"></span>
           </span>
         </h2>
@@ -117,26 +125,31 @@ const FeaturesOverview = () => {
           <FeatureCard 
             icon={<BarChart3 size={24} />} 
             title="Simplified Dashboard" 
+            description="All your Web3 marketing metrics in one intuitive platform"
             delay="0.1s"
           />
           <FeatureCard 
             icon={<Link size={24} />} 
             title="On-Chain Attribution" 
+            description="Connect marketing efforts to blockchain transactions"
             delay="0.2s"
           />
           <FeatureCard 
             icon={<Radio size={24} />} 
             title="Cross-Channel Tracking" 
+            description="Unified view of all crypto marketing channels"
             delay="0.3s"
           />
           <FeatureCard 
             icon={<LineChart size={24} />} 
             title="Marketing ROI Analysis" 
+            description="Measure real returns on your Web3 campaigns"
             delay="0.4s"
           />
           <FeatureCard 
             icon={<Users size={24} />} 
-            title="Custom Audience for Ad Campaigns" 
+            title="Custom Audiences" 
+            description="Target wallet segments for better crypto ads"
             delay="0.5s"
           />
         </div>
@@ -148,6 +161,7 @@ const FeaturesOverview = () => {
             viewBox="0 0 1000 120" 
             xmlns="http://www.w3.org/2000/svg"
             style={{ opacity: 0.5 }}
+            aria-hidden="true"
           >
             {/* Base grid */}
             <line x1="0" y1="60" x2="1000" y2="60" stroke="#CAA968" strokeWidth="0.5" strokeDasharray="5,5" />
@@ -209,6 +223,34 @@ const FeaturesOverview = () => {
               </g>
             ))}
           </svg>
+        </div>
+        
+        {/* SEO-friendly section with schema markup */}
+        <div className="mt-12 text-center" itemScope itemType="https://schema.org/ItemList">
+          <meta itemProp="itemListOrder" content="Unordered" />
+          <h3 className="text-xl text-crypto-gold mb-4">Why Choose Our Web3 Marketing Platform</h3>
+          <ul className="flex flex-wrap justify-center gap-4 text-white/70 text-sm">
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <span itemProp="name">Complete On-Chain Attribution</span>
+              <meta itemProp="position" content="1" />
+            </li>
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <span itemProp="name">Web3 Native Analytics</span>
+              <meta itemProp="position" content="2" />
+            </li>
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <span itemProp="name">Crypto Marketing Optimization</span>
+              <meta itemProp="position" content="3" />
+            </li>
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <span itemProp="name">Wallet Journey Tracking</span>
+              <meta itemProp="position" content="4" />
+            </li>
+            <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+              <span itemProp="name">Martech Integration</span>
+              <meta itemProp="position" content="5" />
+            </li>
+          </ul>
         </div>
       </div>
     </section>
