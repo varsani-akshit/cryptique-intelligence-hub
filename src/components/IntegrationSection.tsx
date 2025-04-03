@@ -87,12 +87,12 @@ const IntegrationSection = () => {
           
           <div className="code-block animate-fade-in relative overflow-hidden" style={{ animationDelay: '0.5s' }}>
             <pre className="text-foreground/90 relative">
-{`useEffect(() => {
-    async function initCryptique() {
-        await cryptique.init('PROJECT_TOKEN');
-    }
-    initCryptique();
-}, []);`}
+{`<script>
+      var script = document.createElement('script');
+      script.src = 'https://cryptique-cdn.vercel.app/scripts/analytics/1.0.1/cryptique.script.min.js';
+      script.setAttribute('site-id', 'xxxxxxxxxxxx');
+      document.head.appendChild(script);
+   </script>`}
             </pre>
             
             {/* Blinking cursor effect */}
