@@ -17,5 +17,8 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# Keywords: web3 analytics, blockchain analytics, crypto marketing, community management
+# web3, dao tools, on-chain analytics, web3 engagement, nft analytics
+
 # XML Sitemap
 Sitemap: https://cryptique.io/sitemap.xml

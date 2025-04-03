@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Code, Server, FileCode, Smartphone } from 'lucide-react';
+import { Code, Server, Smartphone } from 'lucide-react';
 
 interface SdkCardProps {
   icon: React.ReactNode;
@@ -13,6 +13,7 @@ const SdkCard = ({ icon, title, delay, comingSoon }: SdkCardProps) => (
   <div 
     className="glass-card p-4 flex items-center gap-3 animate-fade-in relative" 
     style={{ animationDelay: delay }}
+    aria-label={`${title} ${comingSoon ? '(Coming Soon)' : ''} - Web3 analytics integration`}
   >
     <div className="text-crypto-gold">
       {icon}
@@ -28,7 +29,7 @@ const SdkCard = ({ icon, title, delay, comingSoon }: SdkCardProps) => (
 
 const IntegrationSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white" id="integration">
+    <section className="relative overflow-hidden bg-white" id="integration" aria-label="Web3 Analytics Integration Section">
       {/* Dynamic background elements */}
       <div className="absolute top-0 -right-24 w-64 h-64 bg-crypto-blue/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 -left-32 w-80 h-80 bg-crypto-gold/5 rounded-full blur-3xl"></div>
@@ -99,6 +100,15 @@ const IntegrationSection = () => {
             <div className="absolute bottom-8 right-8 w-2 h-4 bg-crypto-gold/70 animate-pulse"></div>
           </div>
           
+          {/* Hidden SEO content for search engines */}
+          <div className="sr-only">
+            <h3>Web3 Marketing Analytics with Cross-Chain Data</h3>
+            <p>Cryptique provides tools for managing a DAO community with blockchain analytics and web3 engagement tracking.</p>
+            <h3>How to improve Web3 community engagement</h3>
+            <p>Use our platform for on-chain community analytics and NFT community growth analysis.</p>
+            <h3>Blockchain marketing ROI tracking software</h3>
+            <p>Increase Web3 community participation with our decentralized community management tools.</p>
+          </div>
         </div>
       </div>
     </section>

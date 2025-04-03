@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -79,8 +78,8 @@ const Index = () => {
     <div className="flex flex-col min-h-screen transition-opacity duration-1000 opacity-100 bg-white">
       <Helmet>
         <title>Cryptique Intelligence | Web3 Marketing Analytics Platform</title>
-        <meta name="description" content="Enterprise-grade Web3 analytics platform for crypto marketing attribution, on-chain intelligence, and MarTech solutions." />
-        <meta name="keywords" content="Cryptique, web3 marketing, crypto marketing, on-chain attribution, martech platform, blockchain analytics" />
+        <meta name="description" content="Enterprise-grade Web3 analytics platform for blockchain marketing attribution, on-chain intelligence, DAO tools, and NFT analytics solutions." />
+        <meta name="keywords" content="web3 analytics, blockchain analytics, crypto marketing, community management web3, dao tools, on-chain analytics, web3 engagement, nft analytics, crypto community, blockchain marketing platform, web3 marketing analytics with cross-chain data, ai-powered community sentiment analysis web3, blockchain marketing roi tracking software, increase web3 community participation, web3 influencer marketing analytics platform, decentralized community management tools, how to analyze nft community growth" />
         
         {/* Schema.org markup for search engines */}
         <script type="application/ld+json">
@@ -91,7 +90,7 @@ const Index = () => {
               "name": "Cryptique",
               "url": "https://cryptique.io",
               "logo": "https://cryptique.io/lovable-uploads/540775da-1d19-454b-8cc3-00b93142bc89.png",
-              "description": "Enterprise-grade Web3 analytics platform for crypto marketing attribution, on-chain intelligence, and MarTech solutions.",
+              "description": "Enterprise-grade Web3 analytics platform for crypto marketing attribution, on-chain intelligence, web3 engagement, DAO tools, NFT analytics, and blockchain marketing solutions.",
               "sameAs": [
                 "https://twitter.com/cryptique_io",
                 "https://linkedin.com/company/cryptique"
@@ -100,12 +99,25 @@ const Index = () => {
                 "Web3 Marketing",
                 "Crypto Marketing",
                 "On-chain Attribution",
-                "MarTech Platform",
-                "Blockchain Analytics"
-              ]
+                "Web3 Analytics",
+                "Blockchain Analytics",
+                "Community Management Web3",
+                "DAO Tools",
+                "NFT Analytics",
+                "Blockchain Marketing Platform"
+              ],
+              "offers": {
+                "@type": "Service",
+                "name": "Cryptique Intelligence Platform",
+                "description": "Tools for managing DAO community, Web3 marketing analytics with cross-chain data, AI-powered community sentiment analysis, and blockchain marketing ROI tracking."
+              }
             }
           `}
         </script>
+        
+        {/* Additional SEO tags */}
+        <meta name="author" content="Cryptique" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       </Helmet>
       
       {!isMobile && <CustomCursor />}
