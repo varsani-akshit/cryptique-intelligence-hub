@@ -63,7 +63,6 @@ const HeroSection = () => {
       ref={heroRef}
       className="relative overflow-hidden bg-white min-h-screen"
       id="hero"
-      aria-label="Cryptique - Web3 Marketing and On-Chain Attribution Platform"
     >
       {/* Background elements with navy accent spots */}
       <div className="absolute inset-0 overflow-hidden">
@@ -76,7 +75,7 @@ const HeroSection = () => {
       </div>
       
       <div className="container-section relative z-10 flex flex-col items-center justify-center min-h-screen text-center">
-        {/* 3D rotating logo with improved alt text */}
+        {/* 3D rotating logo - updated to use the new CQ logo without background square */}
         <div 
           ref={cryptiqueLogoRef}
           className="relative mb-8 w-32 h-32 transition-transform duration-300 ease-out perspective"
@@ -87,7 +86,7 @@ const HeroSection = () => {
         >
           <img 
             src="/lovable-uploads/540775da-1d19-454b-8cc3-00b93142bc89.png" 
-            alt="Cryptique - The Leading Web3 Marketing Platform with On-Chain Attribution" 
+            alt="Cryptique Web3 Marketing Platform" 
             className="object-contain w-full h-full animate-float"
           />
           <div className="absolute inset-0 bg-gradient-radial from-crypto-gold/20 to-transparent rounded-full blur-xl animate-neon-pulse"></div>
@@ -98,13 +97,14 @@ const HeroSection = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 transition-all duration-300 ease-out"
           style={{transformStyle: 'preserve-3d'}}
         >
-          <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Web3 Marketing</span>
-          <span className="text-crypto-navy"> With </span>
-          <span className="bg-gold-navy-gradient bg-clip-text text-transparent">On-Chain Attribution</span>
+          <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Intelligence</span>
+          <span className="text-crypto-navy"> That </span>
+          <span className="text-crypto-navy">Accelerates </span>
+          <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Web3</span>
         </h1>
         
         <p className="text-xl md:text-2xl mb-8 text-crypto-navy/80 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          The complete martech platform for crypto marketing teams to track campaigns from clicks to on-chain conversions
+          The complete martech platform for Web3 marketing with on-chain attribution
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
@@ -140,14 +140,6 @@ const HeroSection = () => {
               <span className="absolute inset-0 bg-gradient-to-r from-crypto-gold/20 to-crypto-navy/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
             </Button>
           </a>
-        </div>
-
-        {/* SEO-optimized semantic section for keywords */}
-        <div className="absolute bottom-20 left-0 right-0 text-center opacity-90">
-          <p className="text-sm text-crypto-navy/60 max-w-2xl mx-auto">
-            <strong>Cryptique</strong> - The ultimate <strong>martech platform</strong> for <strong>Web3 marketing</strong> and 
-            <strong> crypto marketing</strong> with precise <strong>on-chain attribution</strong>.
-          </p>
         </div>
 
         {/* Scroll indicator */}

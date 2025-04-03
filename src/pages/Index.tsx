@@ -1,6 +1,5 @@
 
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ProblemSection from '@/components/ProblemSection';
@@ -77,27 +76,6 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen transition-opacity duration-1000 opacity-100 bg-white">
-      <Helmet>
-        <title>Cryptique | Web3 Marketing & On-Chain Attribution Platform for Crypto Projects</title>
-        <meta name="description" content="Cryptique is the leading Web3 martech platform with on-chain attribution. Track wallet journeys, optimize marketing ROI, and connect crypto marketing efforts to measurable on-chain results." />
-        <meta name="keywords" content="cryptique, martech platform, web3 marketing, crypto marketing, on chain attribution, blockchain analytics" />
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "url": "https://cryptique.io/",
-              "name": "Cryptique - Web3 Marketing & On-Chain Attribution Platform",
-              "description": "Advanced martech platform for Web3 and crypto marketing with on-chain attribution",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://cryptique.io/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            }
-          `}
-        </script>
-      </Helmet>
       {!isMobile && <CustomCursor />}
       <ParticleBackground />
       <Navbar />
