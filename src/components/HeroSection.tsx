@@ -95,7 +95,7 @@ const HeroSection = () => {
 
         <h1 
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-10 transition-all duration-300 ease-out"
+          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 transition-all duration-300 ease-out"
           style={{transformStyle: 'preserve-3d'}}
         >
           <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Intelligence</span>
@@ -103,6 +103,11 @@ const HeroSection = () => {
           <span className="text-crypto-navy">Accelerates </span>
           <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Web3</span>
         </h1>
+        
+        {/* Added subtitle */}
+        <p className="text-lg md:text-xl lg:text-2xl text-crypto-navy/80 mb-10 font-medium animate-fade-in">
+          Driven by Data. Designed for Web3 Growth.
+        </p>
         
         <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <a 
