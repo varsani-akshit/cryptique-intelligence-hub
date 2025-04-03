@@ -86,7 +86,7 @@ const HeroSection = () => {
         >
           <img 
             src="/lovable-uploads/540775da-1d19-454b-8cc3-00b93142bc89.png" 
-            alt="Cryptique Web3 Marketing Platform" 
+            alt="Cryptique Logo" 
             className="object-contain w-full h-full animate-float"
           />
           <div className="absolute inset-0 bg-gradient-radial from-crypto-gold/20 to-transparent rounded-full blur-xl animate-neon-pulse"></div>
@@ -94,7 +94,7 @@ const HeroSection = () => {
 
         <h1 
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 transition-all duration-300 ease-out"
+          className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-10 transition-all duration-300 ease-out"
           style={{transformStyle: 'preserve-3d'}}
         >
           <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Intelligence</span>
@@ -102,10 +102,6 @@ const HeroSection = () => {
           <span className="text-crypto-navy">Accelerates </span>
           <span className="bg-gold-navy-gradient bg-clip-text text-transparent">Web3</span>
         </h1>
-        
-        <p className="text-xl md:text-2xl mb-8 text-crypto-navy/80 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          The complete martech platform for Web3 marketing with on-chain attribution
-        </p>
         
         <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <a 
@@ -116,7 +112,6 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               className="text-base px-10 py-7 bg-crypto-gold text-crypto-navy border-2 border-crypto-navy hover:bg-crypto-gold/90 interactive-element relative overflow-hidden group"
-              aria-label="Get Started with Cryptique Web3 Marketing Platform"
             >
               <span className="relative z-10">Get Started</span>
               <span className="absolute inset-0 bg-crypto-gold/80 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
@@ -131,7 +126,6 @@ const HeroSection = () => {
               size="lg" 
               variant="outline" 
               className="text-base px-10 py-7 border border-gradient-to-r from-crypto-navy to-crypto-gold text-crypto-navy hover:bg-crypto-gold/10 group interactive-element relative overflow-hidden"
-              aria-label="Schedule a Crypto Marketing Demo"
             >
               <span className="relative z-10 flex items-center">
                 Request a Demo

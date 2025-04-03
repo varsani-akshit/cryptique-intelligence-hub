@@ -1,11 +1,3 @@
-
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://cryptique.io/sitemap.xml
-
-# Allow specific bots
 User-agent: Googlebot
 Allow: /
 
@@ -16,4 +8,7 @@ User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
 Allow: /
