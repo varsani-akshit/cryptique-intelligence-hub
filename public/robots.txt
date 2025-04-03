@@ -1,8 +1,15 @@
+
+User-agent: *
+Allow: /
+
+# Allow search engines to crawl the site
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +17,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# XML Sitemap
+Sitemap: https://cryptique.io/sitemap.xml

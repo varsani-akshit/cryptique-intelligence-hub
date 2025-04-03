@@ -63,6 +63,7 @@ const HeroSection = () => {
       ref={heroRef}
       className="relative overflow-hidden bg-white min-h-screen"
       id="hero"
+      aria-label="Cryptique Intelligence - Web3 Marketing Analytics Platform"
     >
       {/* Background elements with navy accent spots */}
       <div className="absolute inset-0 overflow-hidden">
@@ -86,7 +87,7 @@ const HeroSection = () => {
         >
           <img 
             src="/lovable-uploads/540775da-1d19-454b-8cc3-00b93142bc89.png" 
-            alt="Cryptique Logo" 
+            alt="Cryptique Intelligence Logo - Web3 Marketing Analytics Platform" 
             className="object-contain w-full h-full animate-float"
           />
           <div className="absolute inset-0 bg-gradient-radial from-crypto-gold/20 to-transparent rounded-full blur-xl animate-neon-pulse"></div>
@@ -108,6 +109,7 @@ const HeroSection = () => {
             href="https://app.cryptique.io/login" 
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Get Started with Cryptique Intelligence - Web3 Marketing Analytics Platform"
           >
             <Button 
               size="lg" 
@@ -121,6 +123,7 @@ const HeroSection = () => {
             href="https://calendly.com/founders-cryptique"
             target="_blank" 
             rel="noopener noreferrer"
+            aria-label="Request a Demo of Cryptique Intelligence Platform for Web3 Marketing"
           >
             <Button 
               size="lg" 

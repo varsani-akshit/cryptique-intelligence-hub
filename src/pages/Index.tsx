@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ProblemSection from '@/components/ProblemSection';
@@ -76,6 +77,37 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen transition-opacity duration-1000 opacity-100 bg-white">
+      <Helmet>
+        <title>Cryptique Intelligence | Web3 Marketing Analytics Platform</title>
+        <meta name="description" content="Enterprise-grade Web3 analytics platform for crypto marketing attribution, on-chain intelligence, and MarTech solutions." />
+        <meta name="keywords" content="Cryptique, web3 marketing, crypto marketing, on-chain attribution, martech platform, blockchain analytics" />
+        
+        {/* Schema.org markup for search engines */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Cryptique",
+              "url": "https://cryptique.io",
+              "logo": "https://cryptique.io/lovable-uploads/540775da-1d19-454b-8cc3-00b93142bc89.png",
+              "description": "Enterprise-grade Web3 analytics platform for crypto marketing attribution, on-chain intelligence, and MarTech solutions.",
+              "sameAs": [
+                "https://twitter.com/cryptique_io",
+                "https://linkedin.com/company/cryptique"
+              ],
+              "knowsAbout": [
+                "Web3 Marketing",
+                "Crypto Marketing",
+                "On-chain Attribution",
+                "MarTech Platform",
+                "Blockchain Analytics"
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
+      
       {!isMobile && <CustomCursor />}
       <ParticleBackground />
       <Navbar />
